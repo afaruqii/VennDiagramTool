@@ -3,17 +3,18 @@ create a Venn diagram that would fulfill all needs that could be required in a g
 Our example is coded using the Eclipse IDE and presented with JavaFX.
 
 # Prerequisites: 
-Eclipse IDE: https://www.eclipse.org/downloads/
-JavaFX SDK version 11.0.2: https://gluonhq.com/products/javafx/ 
-
+Windows XP or newer.
+MAC OS Mountain Lion or newer.
+WinRAR ;)
 # Installing:
-Step-by-step instructions to download the software can be found at: https://o7planning.org/en/10619/install-efxclipse-into-eclipse
+Extract RAR to desired directory
+Run Venn.exe or Venn.dmg
 
 # Built With:
-Eclipse - IDE used
-JavaFX - visual display used
+Eclipse & WindowBuilder Pro
+Love
 
-# Contributing:
+# Contributors:
 Ahmad Faruqi
 Hassan Mukhtar
 Melvin Gagarao
