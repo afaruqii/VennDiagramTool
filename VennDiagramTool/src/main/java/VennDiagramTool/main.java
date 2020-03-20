@@ -3,7 +3,7 @@ package VennDiagramTool;
 public class main {
 
 	public static void main(String[] args) {
-		System.out.println("third time's a charm");
+		System.out.println("Venn Diagram Tool");
 		//update most recent commit
 
 	}
