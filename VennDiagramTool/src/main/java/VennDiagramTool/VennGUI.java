@@ -13,6 +13,9 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.JTextArea;
 
 public class VennGUI {
 //here we go
@@ -51,12 +54,13 @@ public class VennGUI {
 		frame.getContentPane().setLayout(null);
 		
 		JPanel Toolbar = new JPanel();
-		Toolbar.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		Toolbar.setBounds(10, 11, 1266, 103);
+		Toolbar.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		Toolbar.setBounds(10, 11, 1266, 119);
 		frame.getContentPane().add(Toolbar);
 		Toolbar.setLayout(null);
 		
 		JComboBox numberOfVenns = new JComboBox();
+		numberOfVenns.setForeground(Color.BLUE);
 		numberOfVenns.setBounds(16, 35, 39, 23);
 		Toolbar.add(numberOfVenns);
 		numberOfVenns.addItem("2");
@@ -68,5 +72,18 @@ public class VennGUI {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel.setBounds(4, 4, 157, 25);
 		Toolbar.add(lblNewLabel);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(817, 34, 439, 74);
+		Toolbar.add(textArea);
+		
+		JLabel lblTextEntry = new JLabel("Text Entry");
+		lblTextEntry.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblTextEntry.setBounds(966, 4, 157, 25);
+		Toolbar.add(lblTextEntry);
+		
+		JButton btnNewButton = new JButton("Create Element");
+		btnNewButton.setBounds(701, 56, 109, 23);
+		Toolbar.add(btnNewButton);
 	}
 }
