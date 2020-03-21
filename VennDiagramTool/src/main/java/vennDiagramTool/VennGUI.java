@@ -9,13 +9,10 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.LineBorder;
 import java.awt.Color;
-import javax.swing.border.MatteBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JTextArea;
+import java.awt.SystemColor;
 
 public class VennGUI {
 //here we go
@@ -50,6 +47,7 @@ public class VennGUI {
 	// add
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(SystemColor.menu);
 		frame.setBounds(100, 100, 1300, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -85,5 +83,21 @@ public class VennGUI {
 		JButton btnNewButton = new JButton("Create Element");
 		btnNewButton.setBounds(701, 56, 109, 23);
 		Toolbar.add(btnNewButton);
+	
+		RoundedPanel B = new RoundedPanel(1200,Color.blue);
+		B.setSize(400, 400);
+		B.setLocation(161, 141);
+		frame.getContentPane().add(B);
+		B.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("test");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 69));
+		lblNewLabel_1.setBounds(101, 71, 138, 79);
+		B.add(lblNewLabel_1);
+		
+		RoundedPanel A = new RoundedPanel(1200,Color.RED);
+		A.setBounds(470, 141, 400, 400);
+		frame.getContentPane().add(A);
+		A.setLayout(null);
 	}
 }
