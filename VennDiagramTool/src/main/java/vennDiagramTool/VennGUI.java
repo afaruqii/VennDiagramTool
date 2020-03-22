@@ -31,9 +31,9 @@ public class VennGUI {
 //here we go
 	private JFrame frame;
 	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField TitleField;
+	private JTextField Bubble1;
+	private JTextField Bubble2;
 
 	/**
 	 * Launch the application.
@@ -76,16 +76,16 @@ public class VennGUI {
 		frame.getContentPane().add(Toolbar);
 		Toolbar.setLayout(null);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
-		textField_1.setBackground(SystemColor.menu);
-		textField_1.setBounds(266, 1, 695, 44);
-		Toolbar.add(textField_1);
-		textField_1.setColumns(10);
-		textField_1.setBorder(null);
-		textField_1.setHorizontalAlignment(JTextField.CENTER);
-		textField_1.setText("Venn Diagram Title");
-		textField_1.setToolTipText("Give your Venn Diagram a title");
+		TitleField = new JTextField();
+		TitleField.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
+		TitleField.setBackground(SystemColor.menu);
+		TitleField.setBounds(266, 1, 695, 44);
+		Toolbar.add(TitleField);
+		TitleField.setColumns(10);
+		TitleField.setBorder(null);
+		TitleField.setHorizontalAlignment(JTextField.CENTER);
+		TitleField.setText("Venn Diagram Title");
+		TitleField.setToolTipText("Give your Venn Diagram a title");
 	//custom colors
 		Color transRed = new Color(226, 155, 155, 100);
 		Color transBlue = new Color(50, 118, 245, 100);
@@ -115,26 +115,26 @@ public class VennGUI {
 						btnNewButton.setBounds(10, 85, 109, 23);
 						panel.add(btnNewButton);
 						
-						textField_2 = new JTextField();
-						textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-						textField_2.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
-						textField_2.setColumns(10);
-						textField_2.setBorder(null);
-						textField_2.setBackground(SystemColor.menu);
-						textField_2.setBounds(400, 73, 208, 27);
-						frame.getContentPane().add(textField_2);
-						textField_2.setText("Bubble 1");
-						textField_2.setToolTipText("click to give your bubble a title");
+						Bubble1 = new JTextField();
+						Bubble1.setHorizontalAlignment(SwingConstants.CENTER);
+						Bubble1.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
+						Bubble1.setColumns(10);
+						Bubble1.setBorder(null);
+						Bubble1.setBackground(SystemColor.menu);
+						Bubble1.setBounds(400, 73, 208, 27);
+						frame.getContentPane().add(Bubble1);
+						Bubble1.setText("Bubble 1");
+						Bubble1.setToolTipText("click to give your bubble a title");
 						
-						textField_3 = new JTextField();
-						textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-						textField_3.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
-						textField_3.setColumns(10);
-						textField_3.setBorder(null);
-						textField_3.setBackground(SystemColor.menu);
-						textField_3.setBounds(635, 71, 208, 27);
-						frame.getContentPane().add(textField_3);
-						textField_3.setText("Bubble 2");
-						textField_3.setToolTipText("click to give your bubble a title");
+						Bubble2 = new JTextField();
+						Bubble2.setHorizontalAlignment(SwingConstants.CENTER);
+						Bubble2.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
+						Bubble2.setColumns(10);
+						Bubble2.setBorder(null);
+						Bubble2.setBackground(SystemColor.menu);
+						Bubble2.setBounds(635, 71, 208, 27);
+						frame.getContentPane().add(Bubble2);
+						Bubble2.setText("Bubble 2");
+						Bubble2.setToolTipText("click to give your bubble a title");
 	}
 }
