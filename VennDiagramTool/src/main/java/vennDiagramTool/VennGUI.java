@@ -68,6 +68,7 @@ public class VennGUI {
 		frame.setBounds(31, -37, 1300, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setTitle("Venn Diagram Tool");
 
 		JPanel Toolbar = new JPanel();
 		Toolbar.setBackground(SystemColor.menu);
