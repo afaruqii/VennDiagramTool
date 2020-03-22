@@ -115,10 +115,6 @@ public class VennGUI {
 						btnNewButton.setBounds(10, 85, 109, 23);
 						panel.add(btnNewButton);
 						
-						JToggleButton tglbtnNewToggleButton = new JToggleButton("New toggle button");
-						tglbtnNewToggleButton.setBounds(75, 104, 123, 23);
-						frame.getContentPane().add(tglbtnNewToggleButton);
-						
 						textField_2 = new JTextField();
 						textField_2.setHorizontalAlignment(SwingConstants.CENTER);
 						textField_2.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
