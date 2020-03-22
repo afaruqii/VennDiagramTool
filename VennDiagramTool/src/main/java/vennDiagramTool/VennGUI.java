@@ -25,11 +25,15 @@ import java.awt.event.FocusEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JToggleButton;
+import javax.swing.SwingConstants;
 
 public class VennGUI {
 //here we go
 	private JFrame frame;
 	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
 
 	/**
 	 * Launch the application.
@@ -68,14 +72,20 @@ public class VennGUI {
 		JPanel Toolbar = new JPanel();
 		Toolbar.setBackground(SystemColor.menu);
 		Toolbar.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		Toolbar.setBounds(10, 11, 1266, 59);
+		Toolbar.setBounds(10, 11, 1266, 52);
 		frame.getContentPane().add(Toolbar);
 		Toolbar.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Venn Diagram Tool");
-		lblNewLabel_1.setFont(new Font("Myriad Pro", Font.PLAIN, 35));
-		lblNewLabel_1.setBounds(482, 11, 279, 43);
-		Toolbar.add(lblNewLabel_1);
+		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
+		textField_1.setBackground(SystemColor.menu);
+		textField_1.setBounds(266, 1, 695, 44);
+		Toolbar.add(textField_1);
+		textField_1.setColumns(10);
+		textField_1.setBorder(null);
+		textField_1.setHorizontalAlignment(JTextField.CENTER);
+		textField_1.setText("Venn Diagram Title");
+		textField_1.setToolTipText("Give your Venn Diagram a title");
 	//custom colors
 		Color transRed = new Color(226, 155, 155, 100);
 		Color transBlue = new Color(50, 118, 245, 100);
@@ -103,39 +113,28 @@ public class VennGUI {
 						JButton btnNewButton = new JButton("Create Element");
 						
 						btnNewButton.setBounds(10, 85, 109, 23);
-						panel.add(btnNewButton);				
-						JLabel lblNewLabel = new JLabel("Bubble 1");
-						lblNewLabel.addMouseListener(new MouseAdapter() {
-							@Override
-							public void mouseClicked(MouseEvent e) {
-							}
-						});
-						lblNewLabel.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
-						lblNewLabel.setBounds(460, 77, 92, 31);
-						frame.getContentPane().add(lblNewLabel);
+						panel.add(btnNewButton);
 						
-						JLabel lblBubble = new JLabel("Bubble 2");
-						lblBubble.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
-						lblBubble.setBounds(699, 77, 92, 31);
-						frame.getContentPane().add(lblBubble);
+						textField_2 = new JTextField();
+						textField_2.setHorizontalAlignment(SwingConstants.CENTER);
+						textField_2.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
+						textField_2.setColumns(10);
+						textField_2.setBorder(null);
+						textField_2.setBackground(SystemColor.menu);
+						textField_2.setBounds(400, 73, 208, 27);
+						frame.getContentPane().add(textField_2);
+						textField_2.setText("Bubble 1");
+						textField_2.setToolTipText("click to give your bubble a title");
 						
-						JToggleButton tglbtnNewToggleButton = new JToggleButton("New toggle button");
-						tglbtnNewToggleButton.setBounds(75, 104, 123, 23);
-						frame.getContentPane().add(tglbtnNewToggleButton);
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-		
-	
+						textField_3 = new JTextField();
+						textField_3.setHorizontalAlignment(SwingConstants.CENTER);
+						textField_3.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
+						textField_3.setColumns(10);
+						textField_3.setBorder(null);
+						textField_3.setBackground(SystemColor.menu);
+						textField_3.setBounds(635, 71, 208, 27);
+						frame.getContentPane().add(textField_3);
+						textField_3.setText("Bubble 2");
+						textField_3.setToolTipText("click to give your bubble a title");
 	}
 }
