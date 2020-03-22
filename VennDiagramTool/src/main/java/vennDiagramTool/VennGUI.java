@@ -31,7 +31,7 @@ public class VennGUI {
 //here we go
 	private JFrame frame;
 	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField titleVenn;
 	private JTextField bubbleOne;
 	private JTextField bubbleTwo;
 
@@ -76,16 +76,16 @@ public class VennGUI {
 		frame.getContentPane().add(Toolbar);
 		Toolbar.setLayout(null);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
-		textField_1.setBackground(SystemColor.menu);
-		textField_1.setBounds(266, 1, 695, 44);
-		Toolbar.add(textField_1);
-		textField_1.setColumns(10);
-		textField_1.setBorder(null);
-		textField_1.setHorizontalAlignment(JTextField.CENTER);
-		textField_1.setText("Venn Diagram Title");
-		textField_1.setToolTipText("Give your Venn Diagram a title");
+		titleVenn = new JTextField();
+		titleVenn.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
+		titleVenn.setBackground(SystemColor.menu);
+		titleVenn.setBounds(266, 1, 695, 44);
+		Toolbar.add(titleVenn);
+		titleVenn.setColumns(10);
+		titleVenn.setBorder(null);
+		titleVenn.setHorizontalAlignment(JTextField.CENTER);
+		titleVenn.setText("Venn Diagram Title");
+		titleVenn.setToolTipText("Give your Venn Diagram a title");
 	//custom colors
 		Color transRed = new Color(226, 155, 155, 100);
 		Color transBlue = new Color(50, 118, 245, 100);
@@ -109,6 +109,13 @@ public class VennGUI {
 		panel.setBounds(10, 228, 246, 285);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		
+		
+		JLabel lblNewLabel_2 = new JLabel("Bubble Label Font");
+		lblNewLabel_2.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
+		lblNewLabel_2.setBounds(10, 65, 109, 15);
+		panel.add(lblNewLabel_2);
 		
 		JPanel editPanel = new JPanel();
 		editPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -136,7 +143,7 @@ public class VennGUI {
 		bubbleOne.setColumns(10);
 		bubbleOne.setBorder(null);
 		bubbleOne.setBackground(SystemColor.menu);
-		bubbleOne.setBounds(400, 73, 208, 27);
+		bubbleOne.setBounds(400, 65, 208, 38);
 		frame.getContentPane().add(bubbleOne);
 		bubbleOne.setText("Bubble 1");
 		bubbleOne.setToolTipText("click to give your bubble a title");
@@ -147,7 +154,7 @@ public class VennGUI {
 		bubbleTwo.setColumns(10);
 		bubbleTwo.setBorder(null);
 		bubbleTwo.setBackground(SystemColor.menu);
-		bubbleTwo.setBounds(635, 71, 208, 27);
+		bubbleTwo.setBounds(635, 65, 208, 38);
 		frame.getContentPane().add(bubbleTwo);
 		bubbleTwo.setText("Bubble 2");
 		bubbleTwo.setToolTipText("click to give your bubble a title");
@@ -157,13 +164,23 @@ public class VennGUI {
 		lblNewLabel.setBounds(1030, 244, 120, 19);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JComboBox fontanya = new FontChooser(bubbleTwo, bubbleOne);
-		fontanya.setBounds(919, 74, 215, 22);
-		frame.getContentPane().add(fontanya);
-		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(10, 203, 49, 14);
+		JLabel lblNewLabel_1 = new JLabel("Layout Editor");
+		lblNewLabel_1.setFont(new Font("Myriad Pro", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(10, 203, 83, 19);
 		frame.getContentPane().add(lblNewLabel_1);
-
+		
+		
+		JComboBox fontanya = new FontChooser(bubbleTwo, bubbleOne);
+		fontanya.setBounds(10, 76, 215, 22);
+		panel.add(fontanya);
+		
+		JComboBox fontina = new FontChooser(titleVenn);
+		fontina.setBounds(10, 24, 215, 22);
+		panel.add(fontina);
+		
+		JLabel lblTitleFont = new JLabel("Title Font");
+		lblTitleFont.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
+		lblTitleFont.setBounds(10, 11, 109, 15);
+		panel.add(lblTitleFont);
 	}
 }
