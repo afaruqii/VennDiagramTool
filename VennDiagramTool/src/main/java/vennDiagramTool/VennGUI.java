@@ -112,7 +112,7 @@ public class VennGUI {
 						
 						JButton btnNewButton = new JButton("Create Element");
 						
-						btnNewButton.setBounds(10, 85, 109, 23);
+						btnNewButton.setBounds(15, 85, 109, 23);
 						panel.add(btnNewButton);
 						
 						textField_2 = new JTextField();
@@ -136,5 +136,19 @@ public class VennGUI {
 						frame.getContentPane().add(textField_3);
 						textField_3.setText("Bubble 2");
 						textField_3.setToolTipText("click to give your bubble a title");
+						
+						
+						
+						JTextArea textArea = new JTextArea();
+						textArea.setBounds(1026, 210, 170, 130);
+						frame.getContentPane().add(textArea);
+						
+	
+	
+	JComboBox fonty = new FontChooser(textArea);
+	fonty.setBounds(1026, 444, 215, 22);
+	frame.getContentPane().add(fonty);
+
+	
 	}
 }
