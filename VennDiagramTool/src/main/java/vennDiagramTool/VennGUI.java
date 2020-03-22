@@ -32,8 +32,8 @@ public class VennGUI {
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField bubbleOne;
+	private JTextField bubbleTwo;
 
 	/**
 	 * Launch the application.
@@ -94,61 +94,76 @@ public class VennGUI {
 		B.setLocation(276, 104);
 		frame.getContentPane().add(B);
 		B.setLayout(null);
-		RoundedPanel A = new RoundedPanel(1200,transBlue);
+		RoundedPanel A = new RoundedPanel(1200, transBlue);
 		A.setBounds(516, 103, 455, 455);
 		frame.getContentPane().add(A);
 		GridBagLayout gbl_A = new GridBagLayout();
-		gbl_A.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_A.rowHeights = new int[]{0, 0};
-		gbl_A.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_A.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_A.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		gbl_A.rowHeights = new int[] { 0, 0 };
+		gbl_A.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_A.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
 		A.setLayout(gbl_A);
-						
-						JPanel panel = new JPanel();
-						panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-						panel.setBounds(10, 149, 162, 119);
-						frame.getContentPane().add(panel);
-						panel.setLayout(null);
-						
-						JButton btnNewButton = new JButton("Create Element");
-						
-						btnNewButton.setBounds(15, 85, 109, 23);
-						panel.add(btnNewButton);
-						
-						textField_2 = new JTextField();
-						textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-						textField_2.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
-						textField_2.setColumns(10);
-						textField_2.setBorder(null);
-						textField_2.setBackground(SystemColor.menu);
-						textField_2.setBounds(400, 73, 208, 27);
-						frame.getContentPane().add(textField_2);
-						textField_2.setText("Bubble 1");
-						textField_2.setToolTipText("click to give your bubble a title");
-						
-						textField_3 = new JTextField();
-						textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-						textField_3.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
-						textField_3.setColumns(10);
-						textField_3.setBorder(null);
-						textField_3.setBackground(SystemColor.menu);
-						textField_3.setBounds(635, 71, 208, 27);
-						frame.getContentPane().add(textField_3);
-						textField_3.setText("Bubble 2");
-						textField_3.setToolTipText("click to give your bubble a title");
-						
-						
-						
-						JTextArea textArea = new JTextArea();
-						textArea.setBounds(1026, 210, 170, 130);
-						frame.getContentPane().add(textArea);
-						
-	
-	
-	JComboBox fonty = new FontChooser(textArea);
-	fonty.setBounds(1026, 444, 215, 22);
-	frame.getContentPane().add(fonty);
 
-	
+		JPanel panel = new JPanel();
+		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panel.setBounds(10, 228, 246, 285);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JPanel editPanel = new JPanel();
+		editPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		editPanel.setBounds(1030, 266, 246, 247);
+		frame.getContentPane().add(editPanel);
+		editPanel.setLayout(null);
+
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(10, 11, 226, 130);
+		editPanel.add(textArea);
+
+		JComboBox fonty = new FontChooser(textArea);
+		fonty.setBounds(10, 150, 226, 22);
+		editPanel.add(fonty);
+
+		JButton btnNewButton = new JButton("Create Element");
+		btnNewButton.setBounds(72, 213, 109, 23);
+		editPanel.add(btnNewButton);
+
+		
+		bubbleOne = new JTextField();
+		bubbleOne.setHorizontalAlignment(SwingConstants.CENTER);
+		bubbleOne.setAlignmentY(0);
+		bubbleOne.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
+		bubbleOne.setColumns(10);
+		bubbleOne.setBorder(null);
+		bubbleOne.setBackground(SystemColor.menu);
+		bubbleOne.setBounds(400, 73, 208, 27);
+		frame.getContentPane().add(bubbleOne);
+		bubbleOne.setText("Bubble 1");
+		bubbleOne.setToolTipText("click to give your bubble a title");
+
+		bubbleTwo = new JTextField();
+		bubbleTwo.setHorizontalAlignment(SwingConstants.CENTER);
+		bubbleTwo.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
+		bubbleTwo.setColumns(10);
+		bubbleTwo.setBorder(null);
+		bubbleTwo.setBackground(SystemColor.menu);
+		bubbleTwo.setBounds(635, 71, 208, 27);
+		frame.getContentPane().add(bubbleTwo);
+		bubbleTwo.setText("Bubble 2");
+		bubbleTwo.setToolTipText("click to give your bubble a title");
+
+		JLabel lblNewLabel = new JLabel("Element Creator");
+		lblNewLabel.setFont(new Font("Myriad Pro", Font.PLAIN, 15));
+		lblNewLabel.setBounds(1030, 244, 120, 19);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JComboBox fontanya = new FontChooser(bubbleTwo, bubbleOne);
+		fontanya.setBounds(919, 74, 215, 22);
+		frame.getContentPane().add(fontanya);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setBounds(10, 203, 49, 14);
+		frame.getContentPane().add(lblNewLabel_1);
+
 	}
 }
