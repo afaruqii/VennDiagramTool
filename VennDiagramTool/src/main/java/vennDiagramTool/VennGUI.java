@@ -106,7 +106,7 @@ public class VennGUI {
 		Color transYellow = new Color(252,252,5,100);
 		Color transGreen = new Color(5, 230, 95, 100);
 		Color transBlue = new Color(50, 118, 245, 100);
-		Color transPurp = new Color(110,0,245,100);
+		Color transPurple = new Color(110,0,245,100);
 		Color transPink = new Color (255,0,179,100);
 		Color transGrey = new Color (212,212,212,100);
 		
@@ -244,10 +244,8 @@ public class VennGUI {
 		bubbleBColor.addItem("Pink");
 		panel.add(bubbleBColor);
 		
-		
 		JLabel bubbleB = new JLabel("Bubble B Color");
 		bubbleB.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		bubbleB.setBounds(10, 177, 81, 14);
 		panel.add(bubbleB);
-	}
-}
+	}}
