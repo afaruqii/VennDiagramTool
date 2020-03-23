@@ -118,10 +118,6 @@ public class VennGUI {
 		panelA.setLocation(276, 104);
 		frame.getContentPane().add(panelA);
 		panelA.setLayout(null);
-		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(329, 189, 48, 14);
-		panelA.add(lblNewLabel_1);
 	
 		
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
@@ -133,20 +129,6 @@ public class VennGUI {
 		gbl_A.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_A.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		panelB.setLayout(gbl_A);
-		
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
-		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_4.gridx = 10;
-		gbc_lblNewLabel_4.gridy = 6;
-		panelB.add(lblNewLabel_4, gbc_lblNewLabel_4);
-		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
-		gbc_lblNewLabel_3.insets = new Insets(0, 0, 0, 5);
-		gbc_lblNewLabel_3.gridx = 9;
-		gbc_lblNewLabel_3.gridy = 10;
-		panelB.add(lblNewLabel_3, gbc_lblNewLabel_3);
 		JPanel panel = new JPanel();
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panel.setBounds(10, 228, 246, 285);
@@ -177,7 +159,7 @@ public class VennGUI {
 		JButton btnNewButton = new JButton("Create Element");
 		btnNewButton.setBounds(72, 213, 118, 23);
 		editPanel.add(btnNewButton);
-//work
+
 		
 		bubbleOne = new JTextField();
 		bubbleOne.setHorizontalAlignment(SwingConstants.CENTER);
