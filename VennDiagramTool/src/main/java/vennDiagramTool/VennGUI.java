@@ -67,7 +67,7 @@ public class VennGUI {
 	 */
 	// add
 	private void initialize() {
-		// Get the computer's monitor dimensions
+		// Get the computer's monitor dimensionss
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int screenWidth = screenSize.width;
 		int screenHeight = screenSize.height;
