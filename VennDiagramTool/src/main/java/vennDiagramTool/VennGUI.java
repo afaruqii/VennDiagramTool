@@ -177,7 +177,7 @@ public class VennGUI {
 		JButton btnNewButton = new JButton("Create Element");
 		btnNewButton.setBounds(72, 213, 118, 23);
 		editPanel.add(btnNewButton);
-
+//work
 		
 		bubbleOne = new JTextField();
 		bubbleOne.setHorizontalAlignment(SwingConstants.CENTER);
