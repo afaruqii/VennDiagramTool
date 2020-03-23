@@ -30,6 +30,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+import java.awt.Insets;
 
 public class VennGUI {
 //here we go
@@ -115,17 +118,35 @@ public class VennGUI {
 		panelA.setLocation(276, 104);
 		frame.getContentPane().add(panelA);
 		panelA.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setBounds(329, 189, 48, 14);
+		panelA.add(lblNewLabel_1);
 	
 		
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
 		panelB.setBounds(516, 103, 455, 455);
 		frame.getContentPane().add(panelB);
 		GridBagLayout gbl_A = new GridBagLayout();
-		gbl_A.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gbl_A.rowHeights = new int[] { 0, 0 };
-		gbl_A.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gbl_A.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
+		gbl_A.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		gbl_A.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		gbl_A.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_A.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		panelB.setLayout(gbl_A);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
+		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_4.gridx = 10;
+		gbc_lblNewLabel_4.gridy = 6;
+		panelB.add(lblNewLabel_4, gbc_lblNewLabel_4);
+		
+		JLabel lblNewLabel_3 = new JLabel("New label");
+		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
+		gbc_lblNewLabel_3.insets = new Insets(0, 0, 0, 5);
+		gbc_lblNewLabel_3.gridx = 9;
+		gbc_lblNewLabel_3.gridy = 10;
+		panelB.add(lblNewLabel_3, gbc_lblNewLabel_3);
 		JPanel panel = new JPanel();
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panel.setBounds(10, 228, 246, 285);
@@ -154,7 +175,7 @@ public class VennGUI {
 		editPanel.add(fonty);
 
 		JButton btnNewButton = new JButton("Create Element");
-		btnNewButton.setBounds(72, 213, 109, 23);
+		btnNewButton.setBounds(72, 213, 118, 23);
 		editPanel.add(btnNewButton);
 
 		
@@ -212,6 +233,7 @@ public class VennGUI {
 		
 		JComboBox bubbleAColor = new JComboBox();
 		bubbleAColor.setBounds(10, 136, 81, 22);
+		bubbleAColor.addItem("Grey");
 		bubbleAColor.addItem("Red");
 		bubbleAColor.addItem("Orange");
 		bubbleAColor.addItem("Yellow");
@@ -219,22 +241,44 @@ public class VennGUI {
 		bubbleAColor.addItem("Blue");
 		bubbleAColor.addItem("Purple");
 		bubbleAColor.addItem("Pink");
-		bubbleAColor.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				if (bubbleAColor.getSelectedIndex() == 1) {
-					panelB.setBackground(transRed);
-				}
-				else if(bubbleAColor.getSelectedIndex() == 2) {
-					panelB.setBackground(transOrange);
-				}
-			}
+		bubbleAColor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			String msg = (String) bubbleAColor.getSelectedItem();
+			switch(msg) {
+			case "Grey" : panelA.setPanelColor(transGrey);
+			panelA.repaint();
+			break;
+			case "Red" : panelA.setPanelColor(transRed);
+			panelA.repaint();
+			break;	
+			case "Orange" : panelA.setPanelColor(transOrange);
+			panelA.repaint();
+			break;	
+			case "Yellow" : panelA.setPanelColor(transYellow);
+			panelA.repaint();
+			break;	
+			case "Green" : panelA.setPanelColor(transGreen);
+			panelA.repaint();
+			break;
+			case "Blue" : panelA.setPanelColor(transBlue);
+			panelA.repaint();
+			break;	
+			case "Purple" : panelA.setPanelColor(transPurp);
+			panelA.repaint();
+			break;
+			case "Pink" : panelA.setPanelColor(transPink);
+			panelA.repaint();
+			break;	
+			
+	}
+	}
 		});
-		
 		panel.add(bubbleAColor);
+		
 		
 		JComboBox bubbleBColor = new JComboBox();
 		bubbleBColor.setBounds(10, 191, 81, 22);
+		bubbleBColor.addItem("Grey");
 		bubbleBColor.addItem("Red");
 		bubbleBColor.addItem("Orange");
 		bubbleBColor.addItem("Yellow");
@@ -242,8 +286,40 @@ public class VennGUI {
 		bubbleBColor.addItem("Blue");
 		bubbleBColor.addItem("Purple");
 		bubbleBColor.addItem("Pink");
-		panel.add(bubbleBColor);
 		
+		bubbleBColor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			String msg = (String) bubbleBColor.getSelectedItem();
+			switch(msg) {
+			case "Grey" : panelB.setPanelColor(transGrey);
+			panelB.repaint();
+			break;
+			case "Red" : panelB.setPanelColor(transRed);
+			panelB.repaint();
+			break;	
+			case "Orange" : panelB.setPanelColor(transOrange);
+			panelB.repaint();
+			break;	
+			case "Yellow" : panelB.setPanelColor(transYellow);
+			panelB.repaint();
+			break;	
+			case "Green" : panelB.setPanelColor(transGreen);
+			panelB.repaint();
+			break;
+			case "Blue" : panelB.setPanelColor(transBlue);
+			panelB.repaint();
+			break;	
+			case "Purple" : panelB.setPanelColor(transPurp);
+			panelB.repaint();
+			break;
+			case "Pink" : panelB.setPanelColor(transPink);
+			panelB.repaint();
+			break;	
+			
+	}
+	}
+		});
+		panel.add(bubbleBColor);
 		
 		JLabel bubbleB = new JLabel("Bubble B Color");
 		bubbleB.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
