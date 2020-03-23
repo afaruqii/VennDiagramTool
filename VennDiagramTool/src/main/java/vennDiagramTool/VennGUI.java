@@ -11,6 +11,8 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.border.EtchedBorder;
 import javax.swing.JTextArea;
 import java.awt.SystemColor;
@@ -21,6 +23,7 @@ import java.awt.GridBagConstraints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.TextField;
+import java.awt.Toolkit;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.ActionListener;
@@ -64,6 +67,11 @@ public class VennGUI {
 	 */
 	// add
 	private void initialize() {
+		// Get the computer's monitor dimensions
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(SystemColor.menu);
 		frame.setBounds(31, -37, 1300, 600);
@@ -72,6 +80,7 @@ public class VennGUI {
 		frame.setTitle("Venn Diagram Tool");
 		ImageIcon icon = new ImageIcon(getClass().getResource("AppIcon.png"));
 		frame.setIconImage(icon.getImage());
+		frame.setLocation(screenWidth/2 - frame.getWidth()/2, screenHeight/2 - frame.getHeight()/2); // centre the JFrame
 		
 
 		JPanel Toolbar = new JPanel();

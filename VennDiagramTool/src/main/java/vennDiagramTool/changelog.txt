@@ -11,3 +11,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Title to the JFrame
 - changelog.txt
 - Icon on the JFrame
+- Set the JFrame to spawn in the middle of the screen
