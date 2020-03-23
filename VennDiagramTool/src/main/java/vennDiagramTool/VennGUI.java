@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -69,6 +70,9 @@ public class VennGUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("Venn Diagram Tool");
+		ImageIcon icon = new ImageIcon(getClass().getResource("AppIcon.png"));
+		frame.setIconImage(icon.getImage());
+		
 
 		JPanel Toolbar = new JPanel();
 		Toolbar.setBackground(SystemColor.menu);
