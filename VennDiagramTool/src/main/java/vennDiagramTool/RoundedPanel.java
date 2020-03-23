@@ -60,5 +60,8 @@ class RoundedPanel extends JPanel
 //        graphics.drawRoundRect(0, 0, width-1, height-1, arcs.width, arcs.height); //paint border
 //        
     }
-    Color transRed = new Color(226, 155, 155, 50);
+    public void setCocks(Color c) {
+    	this.backgroundColor = c;
+    }
+   
 }
