@@ -1,5 +1,5 @@
 package vennDiagramTool;
-
+import java.awt.dnd.*;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -33,6 +33,9 @@ import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
 import javax.swing.border.LineBorder;
 import javax.swing.JLayeredPane;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EmptyBorder;
 
 public class VennGUI {
 //here we go
@@ -113,30 +116,40 @@ public class VennGUI {
 		Color transPurp = new Color(110, 0, 245, 100);
 		Color transPink = new Color(255, 0, 179, 100);
 		Color transGrey = new Color(212, 212, 212, 100);
-		Color transGreyHalf = new Color(212, 212, 212, 25);
+		
 		RoundedPanel panelA = new RoundedPanel(1200, transGrey);
 		panelA.setSize(455, 455);
-		panelA.setLocation(276, 104);
+		panelA.setLocation(281, 97);
 		frame.getContentPane().add(panelA);
 		panelA.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(138, 23, 172, 40);
-		panelA.add(panel_1);
-		
-		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(91, 131, 102, -30);
-		panelA.add(layeredPane);
-		panel_1.addMouseListener(new MouseAdapter() {
+		JTextArea textArea_1 = new JTextArea();
+		textArea_1.setBounds(133, 23, 173, 48);
+		textArea_1.setOpaque(false);
+		textArea_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-			panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+				textArea_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				panel_1.setBorder(null);
+				textArea_1.setBorder(null);
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
 			}
 		});
+		
+		
+		panelA.add(textArea_1);
+		
+		
+		
+		
+		
+		
 
 		JLabel puppies = new JLabel("New label");
 		puppies.setBounds(1030, 159, 208, 38);
