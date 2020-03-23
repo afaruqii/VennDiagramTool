@@ -71,7 +71,7 @@ public class VennGUI {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int screenWidth = screenSize.width;
 		int screenHeight = screenSize.height;
-		
+
 		frame = new JFrame();
 		frame.getContentPane().setBackground(SystemColor.menu);
 		frame.setBounds(31, -37, 1300, 600);
@@ -80,8 +80,9 @@ public class VennGUI {
 		frame.setTitle("Venn Diagram Tool");
 		ImageIcon icon = new ImageIcon(getClass().getResource("AppIcon.png"));
 		frame.setIconImage(icon.getImage());
-		frame.setLocation(screenWidth/2 - frame.getWidth()/2, screenHeight/2 - frame.getHeight()/2); // centre the JFrame
-		
+		frame.setLocation(screenWidth / 2 - frame.getWidth() / 2, screenHeight / 2 - frame.getHeight() / 2); // centre
+																												// the
+																												// JFrame
 
 		JPanel Toolbar = new JPanel();
 		Toolbar.setBackground(SystemColor.menu);
@@ -89,7 +90,7 @@ public class VennGUI {
 		Toolbar.setBounds(10, 11, 1266, 52);
 		frame.getContentPane().add(Toolbar);
 		Toolbar.setLayout(null);
-		
+
 		titleVenn = new JTextField();
 		titleVenn.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
 		titleVenn.setBackground(SystemColor.menu);
@@ -100,23 +101,22 @@ public class VennGUI {
 		titleVenn.setHorizontalAlignment(JTextField.CENTER);
 		titleVenn.setText("Venn Diagram Title");
 		titleVenn.setToolTipText("Give your Venn Diagram a title");
-	//custom colors
+		// custom colors
 		Color transRed = new Color(226, 155, 155, 100);
-		Color transOrange = new Color (255,153,0,100);
-		Color transYellow = new Color(252,252,5,100);
+		Color transOrange = new Color(255, 153, 0, 100);
+		Color transYellow = new Color(252, 252, 5, 100);
 		Color transGreen = new Color(5, 230, 95, 100);
 		Color transBlue = new Color(50, 118, 245, 100);
-		Color transPurple = new Color(110,0,245,100);
-		Color transPink = new Color (255,0,179,100);
-		Color transGrey = new Color (212,212,212,100);
-		
-		RoundedPanel panelA = new RoundedPanel(1200,transGrey);
+		Color transPurple = new Color(110, 0, 245, 100);
+		Color transPink = new Color(255, 0, 179, 100);
+		Color transGrey = new Color(212, 212, 212, 100);
+
+		RoundedPanel panelA = new RoundedPanel(1200, transGrey);
 		panelA.setSize(455, 455);
 		panelA.setLocation(276, 104);
 		frame.getContentPane().add(panelA);
 		panelA.setLayout(null);
-	
-		
+
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
 		panelB.setBounds(516, 103, 455, 455);
 		frame.getContentPane().add(panelB);
@@ -131,14 +131,12 @@ public class VennGUI {
 		panel.setBounds(10, 228, 246, 285);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
-		
-		
+
 		JLabel bubbleLabelFont = new JLabel("Bubble Label Font");
 		bubbleLabelFont.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		bubbleLabelFont.setBounds(10, 67, 109, 15);
 		panel.add(bubbleLabelFont);
-		
+
 		JPanel editPanel = new JPanel();
 		editPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		editPanel.setBounds(1030, 266, 246, 247);
@@ -157,7 +155,6 @@ public class VennGUI {
 		btnNewButton.setBounds(72, 213, 109, 23);
 		editPanel.add(btnNewButton);
 
-		
 		bubbleOne = new JTextField();
 		bubbleOne.setHorizontalAlignment(SwingConstants.CENTER);
 		bubbleOne.setAlignmentY(0);
@@ -185,31 +182,30 @@ public class VennGUI {
 		elementCreator.setFont(new Font("Myriad Pro", Font.PLAIN, 15));
 		elementCreator.setBounds(1030, 244, 120, 19);
 		frame.getContentPane().add(elementCreator);
-		
+
 		JLabel layoutEditor = new JLabel("Layout Editor");
 		layoutEditor.setFont(new Font("Myriad Pro", Font.PLAIN, 15));
 		layoutEditor.setBounds(10, 203, 93, 19);
 		frame.getContentPane().add(layoutEditor);
-		
-		
+
 		JComboBox bubbleEditor = new FontChooser(bubbleTwo, bubbleOne);
 		bubbleEditor.setBounds(10, 81, 215, 22);
 		panel.add(bubbleEditor);
-		
+
 		JComboBox titleEditor = new FontChooser(titleVenn);
 		titleEditor.setBounds(10, 25, 215, 22);
 		panel.add(titleEditor);
-		
+
 		JLabel lblTitleFont = new JLabel("Title Font");
 		lblTitleFont.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		lblTitleFont.setBounds(10, 11, 109, 15);
 		panel.add(lblTitleFont);
-		
+
 		JLabel bubbleA = new JLabel("Bubble A Color");
 		bubbleA.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		bubbleA.setBounds(10, 122, 81, 14);
 		panel.add(bubbleA);
-		
+
 		JComboBox bubbleAColor = new JComboBox();
 		bubbleAColor.setBounds(10, 136, 81, 22);
 		bubbleAColor.addItem("Red");
@@ -224,15 +220,14 @@ public class VennGUI {
 			public void focusGained(FocusEvent e) {
 				if (bubbleAColor.getSelectedIndex() == 1) {
 					panelB.setBackground(transRed);
-				}
-				else if(bubbleAColor.getSelectedIndex() == 2) {
+				} else if (bubbleAColor.getSelectedIndex() == 2) {
 					panelB.setBackground(transOrange);
 				}
 			}
 		});
-		
+
 		panel.add(bubbleAColor);
-		
+
 		JComboBox bubbleBColor = new JComboBox();
 		bubbleBColor.setBounds(10, 191, 81, 22);
 		bubbleBColor.addItem("Red");
@@ -243,9 +238,10 @@ public class VennGUI {
 		bubbleBColor.addItem("Purple");
 		bubbleBColor.addItem("Pink");
 		panel.add(bubbleBColor);
-		
+
 		JLabel bubbleB = new JLabel("Bubble B Color");
 		bubbleB.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		bubbleB.setBounds(10, 177, 81, 14);
 		panel.add(bubbleB);
-	}}
+	}
+}
