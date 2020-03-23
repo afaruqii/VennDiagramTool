@@ -41,6 +41,7 @@ public class VennGUI {
 	private JTextField titleVenn;
 	private JTextField bubbleOne;
 	private JTextField bubbleTwo;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -70,7 +71,7 @@ public class VennGUI {
 	 */
 	// add
 	private void initialize() {
-		// Get the computer's monitor dimensionss
+		// Get the computer's monitor dimensions
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int screenWidth = screenSize.width;
 		int screenHeight = screenSize.height;
@@ -118,17 +119,93 @@ public class VennGUI {
 		panelA.setLocation(276, 104);
 		frame.getContentPane().add(panelA);
 		panelA.setLayout(null);
+		
+		JTextArea textArea_1 = new JTextArea();
+		textArea_1.setBounds(68, 62, 207, 38);
+		panelA.add(textArea_1);
+		
+		JTextArea textArea_2 = new JTextArea();
+		textArea_2.setBounds(30, 122, 207, 38);
+		panelA.add(textArea_2);
+		
+		JTextArea textArea_3 = new JTextArea();
+		textArea_3.setBounds(10, 179, 171, 38);
+		panelA.add(textArea_3);
+		
+		JTextArea textArea_4 = new JTextArea();
+		textArea_4.setBounds(10, 235, 171, 38);
+		panelA.add(textArea_4);
+		
+		JTextArea textArea_5 = new JTextArea();
+		textArea_5.setBounds(30, 284, 171, 38);
+		panelA.add(textArea_5);
+		
+		JTextArea textArea_6 = new JTextArea();
+		textArea_6.setBounds(52, 333, 171, 38);
+		panelA.add(textArea_6);
+		
+		JTextArea textArea_7 = new JTextArea();
+		textArea_7.setBounds(128, 390, 171, 38);
+		panelA.add(textArea_7);
+		
+		JTextArea textArea_8 = new JTextArea();
+		textArea_8.setBounds(260, 122, 171, 38);
+		panelA.add(textArea_8);
+		
+		JTextArea textArea_9 = new JTextArea();
+		textArea_9.setBounds(260, 179, 171, 38);
+		panelA.add(textArea_9);
+		
+		JTextArea textArea_10 = new JTextArea();
+		textArea_10.setBounds(260, 235, 171, 38);
+		panelA.add(textArea_10);
+		
+		JTextArea textArea_11 = new JTextArea();
+		textArea_11.setBounds(260, 284, 171, 38);
+		panelA.add(textArea_11);
+		
+		JTextArea textArea_12 = new JTextArea();
+		textArea_12.setBounds(147, 23, 152, 28);
+		panelA.add(textArea_12);
 	
 		
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
 		panelB.setBounds(516, 103, 455, 455);
 		frame.getContentPane().add(panelB);
-		GridBagLayout gbl_A = new GridBagLayout();
-		gbl_A.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gbl_A.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gbl_A.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gbl_A.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		panelB.setLayout(gbl_A);
+		panelB.setLayout(null);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(159, 22, 160, 29);
+		panelB.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JTextArea textArea_13 = new JTextArea();
+		textArea_13.setBounds(194, 57, 171, 38);
+		panelB.add(textArea_13);
+		
+		JTextArea textArea_14 = new JTextArea();
+		textArea_14.setBounds(247, 131, 171, 38);
+		panelB.add(textArea_14);
+		
+		JTextArea textArea_15 = new JTextArea();
+		textArea_15.setBounds(257, 189, 171, 38);
+		panelB.add(textArea_15);
+		
+		JTextArea textArea_16 = new JTextArea();
+		textArea_16.setBounds(247, 238, 171, 38);
+		panelB.add(textArea_16);
+		
+		JTextArea textArea_17 = new JTextArea();
+		textArea_17.setBounds(230, 287, 171, 38);
+		panelB.add(textArea_17);
+		
+		JTextArea textArea_18 = new JTextArea();
+		textArea_18.setBounds(208, 336, 171, 38);
+		panelB.add(textArea_18);
+		
+		JTextArea textArea_19 = new JTextArea();
+		textArea_19.setBounds(159, 385, 171, 38);
+		panelB.add(textArea_19);
 		JPanel panel = new JPanel();
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panel.setBounds(10, 228, 246, 285);
@@ -149,16 +226,56 @@ public class VennGUI {
 		editPanel.setLayout(null);
 
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(10, 11, 226, 130);
+		textArea.setBounds(10, 11, 226, 69);
 		editPanel.add(textArea);
 
 		JComboBox fonty = new FontChooser(textArea);
-		fonty.setBounds(10, 150, 226, 22);
+		fonty.setBounds(10, 91, 226, 22);
 		editPanel.add(fonty);
 
-		JButton btnNewButton = new JButton("Create Element");
+		JButton btnNewButton = new JButton("Create");
 		btnNewButton.setBounds(72, 213, 118, 23);
 		editPanel.add(btnNewButton);
+		JComboBox ElementColor = new JComboBox();
+		ElementColor.setBounds(10, 124, 81, 22);
+		editPanel.add(ElementColor);
+		ElementColor.addItem("Black");
+		ElementColor.addItem("Red");
+		ElementColor.addItem("Orange");
+		ElementColor.addItem("Yellow");
+		ElementColor.addItem("Green");
+		ElementColor.addItem("Blue");
+		ElementColor.addItem("Purple");
+		ElementColor.addItem("Pink");
+		ElementColor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			String msg = (String) ElementColor.getSelectedItem();
+			switch(msg) {
+			case "Black" : textArea.setForeground(Color.BLACK);
+			
+			break;
+			case "Red" : textArea.setForeground(Color.RED);
+			
+			break;	
+			case "Orange" : textArea.setForeground(Color.ORANGE);
+			
+			break;	
+			case "Yellow" : textArea.setForeground(Color.MAGENTA);
+			
+			break;	
+			case "Green" : textArea.setForeground(Color.GREEN);
+			
+			break;
+			case "Blue" : textArea.setForeground(Color.BLUE);
+			break;	
+			case "Purple" : textArea.setForeground(transPurp);
+			break;
+			case "Pink" : textArea.setForeground(Color.PINK);
+			break;	
+			
+	}
+	}
+		});
 
 		
 		bubbleOne = new JTextField();
@@ -184,7 +301,7 @@ public class VennGUI {
 		bubbleTwo.setText("Bubble 2");
 		bubbleTwo.setToolTipText("click to give your bubble a title");
 
-		JLabel elementCreator = new JLabel("Element Creator");
+		JLabel elementCreator = new JLabel("Element Tray");
 		elementCreator.setFont(new Font("Myriad Pro", Font.PLAIN, 15));
 		elementCreator.setBounds(1030, 244, 120, 19);
 		frame.getContentPane().add(elementCreator);
@@ -223,6 +340,7 @@ public class VennGUI {
 		bubbleAColor.addItem("Blue");
 		bubbleAColor.addItem("Purple");
 		bubbleAColor.addItem("Pink");
+		panel.add(bubbleAColor);
 		bubbleAColor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			String msg = (String) bubbleAColor.getSelectedItem();
@@ -255,7 +373,7 @@ public class VennGUI {
 	}
 	}
 		});
-		panel.add(bubbleAColor);
+		
 		
 		
 		JComboBox bubbleBColor = new JComboBox();
@@ -268,7 +386,7 @@ public class VennGUI {
 		bubbleBColor.addItem("Blue");
 		bubbleBColor.addItem("Purple");
 		bubbleBColor.addItem("Pink");
-		
+		panel.add(bubbleBColor);
 		bubbleBColor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			String msg = (String) bubbleBColor.getSelectedItem();
@@ -301,7 +419,6 @@ public class VennGUI {
 	}
 	}
 		});
-		panel.add(bubbleBColor);
 		
 		JLabel bubbleB = new JLabel("Bubble B Color");
 		bubbleB.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
