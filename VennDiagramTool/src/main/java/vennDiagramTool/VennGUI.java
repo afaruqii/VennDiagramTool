@@ -32,6 +32,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
 import javax.swing.border.LineBorder;
+import javax.swing.JLayeredPane;
 
 public class VennGUI {
 //here we go
@@ -122,6 +123,10 @@ public class VennGUI {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(138, 23, 172, 40);
 		panelA.add(panel_1);
+		
+		JLayeredPane layeredPane = new JLayeredPane();
+		layeredPane.setBounds(91, 131, 102, -30);
+		panelA.add(layeredPane);
 		panel_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
