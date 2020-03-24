@@ -13,9 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import javax.swing.TransferHandler;
 
-public class LayerItem extends JLabel {
-Point startpoint = new Point();
-	public LayerItem(String text) {
+public class TransferrableLabel extends JLabel {
+	public TransferrableLabel(String text) {
 
 		this.setText(text);
 
@@ -39,7 +38,6 @@ Point startpoint = new Point();
 
 		public static final DataFlavor SUPPORTED_DATE_FLAVOR = DataFlavor.stringFlavor;
 		private String value;
-
 		public ValueExportTransferHandler(String value) {
 			this.value = value;
 		}
@@ -57,14 +55,15 @@ Point startpoint = new Point();
 		protected Transferable createTransferable(JComponent c) {
 			Transferable t = new StringSelection(getValue());
 			return t;
+			
 		}
 
 		@Override
 		protected void exportDone(JComponent source, Transferable data, int action) {
 			super.exportDone(source, data, action);
 			// Clean up and remove the LayerItem that was moved
-			((LayerItem) source).setVisible(false);
-			((LayerItem) source).getParent().remove((LayerItem) source);
+			((TransferrableLabel) source).setVisible(false);
+//			((LayerItem) source).getParent().remove((LayerItem) source);
 		}
 
 	}
