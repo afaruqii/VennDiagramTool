@@ -21,6 +21,7 @@ import java.awt.TextArea;
 
 import javax.swing.SpringLayout;
 import java.awt.GridBagLayout;
+import java.awt.Point;
 import java.awt.Button;
 import java.awt.GridBagConstraints;
 import java.awt.event.MouseAdapter;
@@ -30,21 +31,24 @@ import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.TransferHandler;
 import javax.swing.border.LineBorder;
 import javax.swing.JLayeredPane;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.MouseMotionAdapter;
 
 public class VennGUI {
 //here we go
+	int xPos, yPos;
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField titleVenn;
 	private JTextField bubbleOne;
 	private JTextField bubbleTwo;
-
+	Point startpoint;
 	/**
 	 * Launch the application.
 	 */
@@ -124,7 +128,7 @@ public class VennGUI {
 		panelA.setLayout(null);
 		
 		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(133, 23, 173, 48);
+		textArea_1.setBounds(134, 21, 173, 48);
 		textArea_1.setOpaque(false);
 		textArea_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -144,16 +148,6 @@ public class VennGUI {
 		
 		
 		panelA.add(textArea_1);
-		
-		
-		
-		
-		
-		
-
-		JLabel puppies = new JLabel("New label");
-		puppies.setBounds(1030, 159, 208, 38);
-		frame.getContentPane().add(puppies);
 		
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
 		panelB.setBounds(516, 103, 455, 455);
@@ -176,18 +170,17 @@ public class VennGUI {
 		frame.getContentPane().add(editPanel);
 		editPanel.setLayout(null);
 
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(10, 11, 226, 69);
-		editPanel.add(textArea);
+		JTextArea elementBox = new JTextArea();
+		elementBox.setBounds(10, 11, 226, 69);
+		editPanel.add(elementBox);
 
-		JComboBox fonty = new FontChooser(textArea);
+		JComboBox fonty = new FontChooser(elementBox);
 		fonty.setBounds(10, 91, 226, 22);
 		editPanel.add(fonty);
 
 		JButton btnNewButton = new JButton("Create");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				puppies.setText(textArea.getText());
 			}
 		});
 		btnNewButton.setBounds(72, 213, 118, 23);
@@ -208,32 +201,32 @@ public class VennGUI {
 				String msg = (String) ElementColor.getSelectedItem();
 				switch (msg) {
 				case "Black":
-					textArea.setForeground(Color.BLACK);
+					elementBox.setForeground(Color.BLACK);
 					break;
 				case "Red":
-					textArea.setForeground(Color.RED);
+					elementBox.setForeground(Color.RED);
 
 					break;
 				case "Orange":
-					textArea.setForeground(Color.ORANGE);
+					elementBox.setForeground(Color.ORANGE);
 
 					break;
 				case "Yellow":
-					textArea.setForeground(Color.YELLOW);
+					elementBox.setForeground(Color.YELLOW);
 
 					break;
 				case "Green":
-					textArea.setForeground(Color.GREEN);
+					elementBox.setForeground(Color.GREEN);
 
 					break;
 				case "Blue":
-					textArea.setForeground(Color.BLUE);
+					elementBox.setForeground(Color.BLUE);
 					break;
 				case "Purple":
-					textArea.setForeground(transPurp);
+					elementBox.setForeground(transPurp);
 					break;
 				case "Pink":
-					textArea.setForeground(Color.MAGENTA);
+					elementBox.setForeground(Color.MAGENTA);
 					break;
 
 				}
@@ -408,17 +401,10 @@ public class VennGUI {
 		bubbleB.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		bubbleB.setBounds(10, 177, 81, 14);
 		panel.add(bubbleB);
-	    MouseListener listener = new MouseAdapter() {
-	      public void mousePressed(MouseEvent me) {
-	        JComponent comp = (JComponent) me.getSource();
-	        TransferHandler handler = comp.getTransferHandler();
-	        handler.exportAsDrag(comp, me, TransferHandler.COPY);
-	      }
-	    };
 		
-		
-		
-		
+		JLabel l = new LayerItem("drag me in any textbox :)");
+		l.setBounds(1063, 131, 105, 84);
+		frame.getContentPane().add(l);
 		
 
 	}
