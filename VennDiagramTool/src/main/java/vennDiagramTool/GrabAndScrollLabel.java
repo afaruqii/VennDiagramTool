@@ -4,14 +4,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 public class GrabAndScrollLabel extends JLabel{
 public GrabAndScrollLabel(String s) {
-super();
+super(s);
+
 addMouseListener(new MouseAdapter() {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		
 	}
 });
-this.setText(s + "hello there");
 }
 
 }
