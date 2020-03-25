@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ##Added Functionality
 - Color label functionality
 - Drag Drop Functional (no Ghost item yet) 
-
+2020-03-25 Ahmad Faruqi
 ## Drag Labels now support drag and drop!
 - Labels are able to be dragged and dropped
 - Text Containers within Venn Diagram Tool can receive info from selected text area

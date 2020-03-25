@@ -1,4 +1,5 @@
 package vennDiagramTool;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -39,7 +40,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.event.MouseMotionAdapter;
 
 public class VennGUI {
-//here we go
+
 	int xPos, yPos;
 	private JFrame frame;
 	private JTextField textField;
@@ -47,7 +48,7 @@ public class VennGUI {
 	private JTextField bubbleOne;
 	private JTextField bubbleTwo;
 	JLabel glooba = new JLabel();
-	 
+
 	/**
 	 * Launch the application.
 	 */
@@ -89,10 +90,9 @@ public class VennGUI {
 		frame.setTitle("Venn Diagram Tool");
 		ImageIcon icon = new ImageIcon(getClass().getResource("AppIcon.png"));
 		frame.setIconImage(icon.getImage());
-		frame.setLocation(screenWidth / 2 - frame.getWidth() / 2, screenHeight / 2 - frame.getHeight() / 2); // centre
-																												// the
-																												// JFrame
-glooba.setText(" ");
+		frame.setLocation(screenWidth / 2 - frame.getWidth() / 2, screenHeight / 2 - frame.getHeight() / 2);
+																												
+		glooba.setText(" ");
 		JPanel Toolbar = new JPanel();
 		Toolbar.setBackground(SystemColor.menu);
 		Toolbar.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -119,44 +119,54 @@ glooba.setText(" ");
 		Color transPurp = new Color(110, 0, 245, 100);
 		Color transPink = new Color(255, 0, 179, 100);
 		Color transGrey = new Color(212, 212, 212, 100);
-		
+
 		RoundedPanel panelA = new RoundedPanel(1200, transGrey);
 		panelA.setSize(455, 455);
 		panelA.setLocation(281, 97);
 		frame.getContentPane().add(panelA);
 		panelA.setLayout(null);
+
+		LabelHolders textArea = new LabelHolders(glooba);
+		textArea.setBounds(127, 15, 192, 40);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.addMouseMotionListener(new MouseMotionAdapter() {
-			@Override
-			public void mouseMoved(MouseEvent e) {
-				if (textArea.getText().length()<=1) {
-					textArea.setText(glooba.getText());
-					}
-			}
-		});
-		textArea.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				textArea.setBorder(new LineBorder(new Color(0, 0, 0), 2));	
-			}
-			public void mouseExited(MouseEvent e) {
-				textArea.setBorder(null);
-				glooba.setText("");
-				
-			}
-			@Override
-			public void mouseReleased(MouseEvent e) {
-					textArea.setText(glooba.getText());
-			
-				
-				}
-		});
-		textArea.setBounds(102, 34, 194, 40);
-		textArea.setOpaque(false);
-		textArea.setEditable(false);
 		panelA.add(textArea);
 		
+		LabelHolders labelHolders = new LabelHolders(glooba);
+		labelHolders.setBounds(69, 57, 217, 41);
+		panelA.add(labelHolders);
+		
+		LabelHolders labelHolders_1 = new LabelHolders(glooba);
+		labelHolders_1.setBounds(29, 100, 233, 41);
+		panelA.add(labelHolders_1);
+		
+		LabelHolders labelHolders_2 = new LabelHolders(glooba);
+		labelHolders_2.setBounds(9, 143, 239, 41);
+		panelA.add(labelHolders_2);
+		
+		LabelHolders labelHolders_3 = new LabelHolders(glooba);
+		labelHolders_3.setBounds(2, 272, 248, 41);
+		panelA.add(labelHolders_3);
+		
+		LabelHolders labelHolders_4 = new LabelHolders(glooba);
+		labelHolders_4.setBounds(3, 229, 237, 41);
+		panelA.add(labelHolders_4);
+		
+		LabelHolders labelHolders_5 = new LabelHolders(glooba);
+		labelHolders_5.setBounds(3, 186, 234, 41);
+		panelA.add(labelHolders_5);
+		
+		LabelHolders labelHolders_6 = new LabelHolders(glooba);
+		labelHolders_6.setBounds(12, 315, 252, 41);
+		panelA.add(labelHolders_6);
+		
+		LabelHolders labelHolders_7 = new LabelHolders(glooba);
+		labelHolders_7.setBounds(50, 358, 240, 41);
+		panelA.add(labelHolders_7);
+		
+		LabelHolders labelHolders_8 = new LabelHolders(glooba);
+		labelHolders_8.setBounds(121, 401, 201, 41);
+		panelA.add(labelHolders_8);
+
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
 		panelB.setBounds(516, 97, 455, 455);
 		frame.getContentPane().add(panelB);
@@ -177,8 +187,6 @@ glooba.setText(" ");
 		editPanel.setBounds(1030, 266, 246, 247);
 		frame.getContentPane().add(editPanel);
 		editPanel.setLayout(null);
-
-		
 
 		bubbleOne = new JTextField();
 		bubbleOne.setHorizontalAlignment(SwingConstants.CENTER);
@@ -250,7 +258,7 @@ glooba.setText(" ");
 					panelA.setPanelColor(transGrey);
 					panelA.revalidate();
 					panelA.repaint();
-					
+
 					break;
 				case "Red":
 					panelA.setPanelColor(transRed);
@@ -348,17 +356,25 @@ glooba.setText(" ");
 		bubbleB.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		bubbleB.setBounds(10, 177, 81, 14);
 		panel.add(bubbleB);
+
 		
-		DragLabel lblNewLabel = new DragLabel(glooba);		
-		lblNewLabel.setBounds(1052, 150, 138, 31);
-		lblNewLabel.setText("DragLabel");
-		frame.getContentPane().add(lblNewLabel);
-		
-		
+
 		JTextArea elementBox = new JTextArea();
 		elementBox.setBounds(10, 11, 226, 69);
+		elementBox.setLineWrap(true);
 		editPanel.add(elementBox);
-
+		
+		
+		
+		DragLabel lblNewLabel = new DragLabel(glooba);
+		lblNewLabel.setBounds(1030, 119, 159, 14);
+		lblNewLabel.setText("Your Elements will appear here!");
+		
+		frame.getContentPane().add(lblNewLabel);
+		lblNewLabel.setVisible(false);
+		lblNewLabel.setVisible(true);
+		lblNewLabel.setLocation(1030, 120);
+		
 		JComboBox fonty = new FontChooser(elementBox);
 		fonty.setBounds(10, 91, 226, 22);
 		editPanel.add(fonty);
@@ -366,6 +382,12 @@ glooba.setText(" ");
 		JButton btnNewButton = new JButton("Create");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblNewLabel.setVisible(true);
+				lblNewLabel.setBounds(1030, 119, 159, 14);
+				lblNewLabel.setText(elementBox.getText());
+				lblNewLabel.setFont(elementBox.getFont());
+				lblNewLabel.setForeground(elementBox.getForeground());
+				
 			}
 		});
 		btnNewButton.setBounds(72, 213, 118, 23);
@@ -381,19 +403,7 @@ glooba.setText(" ");
 		ElementColor.addItem("Blue");
 		ElementColor.addItem("Purple");
 		ElementColor.addItem("Pink");
-		
-		DragLabel lblNewLabel_1 = new DragLabel(glooba);
-		
-		lblNewLabel_1.setText("bitches aint shit");
-		lblNewLabel_1.setBounds(104, 105, 85, 14);
-		frame.getContentPane().add(lblNewLabel_1);
-		
-		TransferLabel lblNewLabel_2 = new TransferLabel("dragTitties");
-		lblNewLabel_2.setBounds(1141, 115, 49, 14);
-		frame.getContentPane().add(lblNewLabel_2);
-		
-		
-		
+
 		ElementColor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String msg = (String) ElementColor.getSelectedItem();
