@@ -127,30 +127,8 @@ public class VennGUI {
 		frame.getContentPane().add(panelA);
 		panelA.setLayout(null);
 		
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(134, 21, 173, 48);
-		textArea_1.setOpaque(false);
-		textArea_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				textArea_1.setBorder(new LineBorder(new Color(0, 0, 0)));
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				textArea_1.setBorder(null);
-			}
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-			}
-		});
-		
-		
-		panelA.add(textArea_1);
-		
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
-		panelB.setBounds(516, 103, 455, 455);
+		panelB.setBounds(516, 97, 455, 455);
 		frame.getContentPane().add(panelB);
 		panelB.setLayout(null);
 		JPanel panel = new JPanel();
@@ -170,68 +148,7 @@ public class VennGUI {
 		frame.getContentPane().add(editPanel);
 		editPanel.setLayout(null);
 
-		JTextArea elementBox = new JTextArea();
-		elementBox.setBounds(10, 11, 226, 69);
-		editPanel.add(elementBox);
-
-		JComboBox fonty = new FontChooser(elementBox);
-		fonty.setBounds(10, 91, 226, 22);
-		editPanel.add(fonty);
-
-		JButton btnNewButton = new JButton("Create");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBounds(72, 213, 118, 23);
-		editPanel.add(btnNewButton);
-		JComboBox ElementColor = new JComboBox();
-		ElementColor.setBounds(10, 124, 81, 22);
-		editPanel.add(ElementColor);
-		ElementColor.addItem("Black");
-		ElementColor.addItem("Red");
-		ElementColor.addItem("Orange");
-		ElementColor.addItem("Yellow");
-		ElementColor.addItem("Green");
-		ElementColor.addItem("Blue");
-		ElementColor.addItem("Purple");
-		ElementColor.addItem("Pink");
-		ElementColor.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String msg = (String) ElementColor.getSelectedItem();
-				switch (msg) {
-				case "Black":
-					elementBox.setForeground(Color.BLACK);
-					break;
-				case "Red":
-					elementBox.setForeground(Color.RED);
-
-					break;
-				case "Orange":
-					elementBox.setForeground(Color.ORANGE);
-
-					break;
-				case "Yellow":
-					elementBox.setForeground(Color.YELLOW);
-
-					break;
-				case "Green":
-					elementBox.setForeground(Color.GREEN);
-
-					break;
-				case "Blue":
-					elementBox.setForeground(Color.BLUE);
-					break;
-				case "Purple":
-					elementBox.setForeground(transPurp);
-					break;
-				case "Pink":
-					elementBox.setForeground(Color.MAGENTA);
-					break;
-
-				}
-			}
-		});
+		
 
 		bubbleOne = new JTextField();
 		bubbleOne.setHorizontalAlignment(SwingConstants.CENTER);
@@ -402,16 +319,89 @@ public class VennGUI {
 		bubbleB.setBounds(10, 177, 81, 14);
 		panel.add(bubbleB);
 		
-		JLabel l = new TransferLabel("drag me in any textbox :)");
-		l.setBounds(1063, 128, 105, 84);
-		frame.getContentPane().add(l);
-		
-		DragLabel lblNewLabel = new DragLabel("New label");
-		lblNewLabel.setBounds(1191, 118, 49, 14);
-		frame.getContentPane().add(lblNewLabel);
-		
 	
 		
+		TransferLabel l = new TransferLabel("drag me in any textbox :)");
+		l.setBounds(1042, 150, 125, 14);
+		frame.getContentPane().add(l);
+		
+		DragLabel lblNewLabel = new DragLabel();
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseExited(MouseEvent e) {
+			l.setLocation(lblNewLabel.getLocation());
+			}
+		});
+		lblNewLabel.setBounds(1052, 150, 138, 31);
+		lblNewLabel.setText("TITTIES AND ASS");
+		frame.getContentPane().add(lblNewLabel);
+		
+		
+		JTextArea elementBox = new JTextArea();
+		elementBox.setBounds(10, 11, 226, 69);
+		editPanel.add(elementBox);
+
+		JComboBox fonty = new FontChooser(elementBox);
+		fonty.setBounds(10, 91, 226, 22);
+		editPanel.add(fonty);
+
+		JButton btnNewButton = new JButton("Create");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(72, 213, 118, 23);
+		editPanel.add(btnNewButton);
+		JComboBox ElementColor = new JComboBox();
+		ElementColor.setBounds(10, 124, 81, 22);
+		editPanel.add(ElementColor);
+		ElementColor.addItem("Black");
+		ElementColor.addItem("Red");
+		ElementColor.addItem("Orange");
+		ElementColor.addItem("Yellow");
+		ElementColor.addItem("Green");
+		ElementColor.addItem("Blue");
+		ElementColor.addItem("Purple");
+		ElementColor.addItem("Pink");
+		
+		
+		
+		ElementColor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String msg = (String) ElementColor.getSelectedItem();
+				switch (msg) {
+				case "Black":
+					elementBox.setForeground(Color.BLACK);
+					break;
+				case "Red":
+					elementBox.setForeground(Color.RED);
+
+					break;
+				case "Orange":
+					elementBox.setForeground(Color.ORANGE);
+
+					break;
+				case "Yellow":
+					elementBox.setForeground(Color.YELLOW);
+
+					break;
+				case "Green":
+					elementBox.setForeground(Color.GREEN);
+
+					break;
+				case "Blue":
+					elementBox.setForeground(Color.BLUE);
+					break;
+				case "Purple":
+					elementBox.setForeground(transPurp);
+					break;
+				case "Pink":
+					elementBox.setForeground(Color.MAGENTA);
+					break;
+
+				}
+			}
+		});
 
 	}
 }

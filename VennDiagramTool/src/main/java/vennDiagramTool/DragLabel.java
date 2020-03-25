@@ -14,30 +14,33 @@ public class DragLabel extends JLabel {
 Point startingPoint;
 
 
-	public DragLabel(String s) {
-		super(s);
+	public DragLabel() {
+		super();
 		addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseDragged(MouseEvent e) {
-				Point location = new Point(getX(),getY());
-				Point newLocation = e.getLocationOnScreen();
-				if(getParent().getBounds().contains(location)) {
-				newLocation.translate(location.x-startingPoint.x, location.y - startingPoint.y);
-				newLocation.x = Math.max(newLocation.x, 10);
-				newLocation.y = Math.max(newLocation.y, 10);
-				newLocation.x = Math.min(newLocation.x, getParent().getWidth()-getWidth());
-				newLocation.y = Math.min(newLocation.y, getParent().getHeight()-getHeight());			
-				setLocation(newLocation);
-			startingPoint = location;
-				}
-				}
+				/*
+				 * Point location = SwingUtilities.convertPoint(e.getComponent(), e.getPoint(),
+				 * getParent()); Point newLocation = e.getLocationOnScreen();
+				 * if(getParent().getBounds().contains(location)) {
+				 * newLocation.translate(location.x-startingPoint.x, location.y -
+				 * startingPoint.y); newLocation.x = Math.max(newLocation.x, 10); newLocation.y
+				 * = Math.max(newLocation.y, 10); newLocation.x = Math.min(newLocation.x,
+				 * getParent().getWidth()-getWidth()); newLocation.y = Math.min(newLocation.y,
+				 * getParent().getHeight()-getHeight()); setLocation(newLocation); startingPoint
+				 * = location; }
+				 */
+	Point p = SwingUtilities.convertPoint(e.getComponent(), e.getPoint(), getParent()); 
+	e.getComponent().setLocation(p.x,p.y);
+			}
+
+				
 		});
 
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-startingPoint = SwingUtilities.convertPoint((Component)e.getSource(), e.getPoint(), getParent());
-
+startingPoint = SwingUtilities.convertPoint(e.getComponent(), e.getPoint(), getParent());
 			}
 			public void mouseReleased(MouseEvent e) {
 				startingPoint = null;

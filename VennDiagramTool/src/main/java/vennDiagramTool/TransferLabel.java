@@ -62,7 +62,7 @@ public class TransferLabel extends JLabel {
 		protected void exportDone(JComponent source, Transferable data, int action) {
 			super.exportDone(source, data, action);
 			// Clean up and remove the LayerItem that was moved
-			((TransferLabel) source).setVisible(false);
+			//((TransferLabel) source).setVisible(false);
 //			((LayerItem) source).getParent().remove((LayerItem) source);
 		}
 
