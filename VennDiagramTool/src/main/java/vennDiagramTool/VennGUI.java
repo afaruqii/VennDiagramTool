@@ -402,11 +402,11 @@ public class VennGUI {
 		bubbleB.setBounds(10, 177, 81, 14);
 		panel.add(bubbleB);
 		
-		JLabel l = new TransferrableLabel("drag me in any textbox :)");
+		JLabel l = new TransferLabel("drag me in any textbox :)");
 		l.setBounds(1063, 128, 105, 84);
 		frame.getContentPane().add(l);
 		
-		GrabAndScrollLabel lblNewLabel = new GrabAndScrollLabel("New label");
+		DragLabel lblNewLabel = new DragLabel("New label");
 		lblNewLabel.setBounds(1191, 118, 49, 14);
 		frame.getContentPane().add(lblNewLabel);
 		

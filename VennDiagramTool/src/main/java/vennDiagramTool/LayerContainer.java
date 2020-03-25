@@ -44,7 +44,7 @@ public class LayerContainer extends JPanel {
 	                        // TODO: here you can create your own handler
 	                        // ie: ((LayerContainer) component).getHandler()....
 	                        Component component = support.getComponent();
-	                        TransferrableLabel j = new TransferrableLabel((String) value);
+	                        TransferLabel j = new TransferLabel((String) value);
 	                        ((LayerContainer) component).add(j); // Add a new drag JLabel
 	                        accept = true;
 	                    }

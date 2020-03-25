@@ -13,8 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import javax.swing.TransferHandler;
 
-public class TransferrableLabel extends JLabel {
-	public TransferrableLabel(String text) {
+public class TransferLabel extends JLabel {
+	public TransferLabel(String text) {
 
 		this.setText(text);
 
@@ -62,7 +62,7 @@ public class TransferrableLabel extends JLabel {
 		protected void exportDone(JComponent source, Transferable data, int action) {
 			super.exportDone(source, data, action);
 			// Clean up and remove the LayerItem that was moved
-			((TransferrableLabel) source).setVisible(false);
+			((TransferLabel) source).setVisible(false);
 //			((LayerItem) source).getParent().remove((LayerItem) source);
 		}
 
