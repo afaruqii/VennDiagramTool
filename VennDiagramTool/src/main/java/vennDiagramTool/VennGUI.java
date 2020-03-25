@@ -1,5 +1,4 @@
 package vennDiagramTool;
-import java.awt.dnd.*;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,7 +7,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -48,7 +46,8 @@ public class VennGUI {
 	private JTextField titleVenn;
 	private JTextField bubbleOne;
 	private JTextField bubbleTwo;
-	Point startpoint;
+	JLabel glooba = new JLabel();
+	 
 	/**
 	 * Launch the application.
 	 */
@@ -93,7 +92,7 @@ public class VennGUI {
 		frame.setLocation(screenWidth / 2 - frame.getWidth() / 2, screenHeight / 2 - frame.getHeight() / 2); // centre
 																												// the
 																												// JFrame
-
+glooba.setText(" ");
 		JPanel Toolbar = new JPanel();
 		Toolbar.setBackground(SystemColor.menu);
 		Toolbar.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -126,6 +125,37 @@ public class VennGUI {
 		panelA.setLocation(281, 97);
 		frame.getContentPane().add(panelA);
 		panelA.setLayout(null);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				if (textArea.getText().length()<=1) {
+					textArea.setText(glooba.getText());
+					}
+			}
+		});
+		textArea.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				textArea.setBorder(new LineBorder(new Color(0, 0, 0), 2));	
+			}
+			public void mouseExited(MouseEvent e) {
+				textArea.setBorder(null);
+				glooba.setText("");
+				
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+					textArea.setText(glooba.getText());
+			
+				
+				}
+		});
+		textArea.setBounds(102, 34, 194, 40);
+		textArea.setOpaque(false);
+		textArea.setEditable(false);
+		panelA.add(textArea);
 		
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
 		panelB.setBounds(516, 97, 455, 455);
@@ -319,21 +349,9 @@ public class VennGUI {
 		bubbleB.setBounds(10, 177, 81, 14);
 		panel.add(bubbleB);
 		
-	
-		
-		TransferLabel l = new TransferLabel("drag me in any textbox :)");
-		l.setBounds(1042, 150, 125, 14);
-		frame.getContentPane().add(l);
-		
-		DragLabel lblNewLabel = new DragLabel();
-		lblNewLabel.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseExited(MouseEvent e) {
-			l.setLocation(lblNewLabel.getLocation());
-			}
-		});
+		DragLabel lblNewLabel = new DragLabel(glooba);		
 		lblNewLabel.setBounds(1052, 150, 138, 31);
-		lblNewLabel.setText("TITTIES AND ASS");
+		lblNewLabel.setText("DragLabel");
 		frame.getContentPane().add(lblNewLabel);
 		
 		
@@ -363,6 +381,16 @@ public class VennGUI {
 		ElementColor.addItem("Blue");
 		ElementColor.addItem("Purple");
 		ElementColor.addItem("Pink");
+		
+		DragLabel lblNewLabel_1 = new DragLabel(glooba);
+		
+		lblNewLabel_1.setText("bitches aint shit");
+		lblNewLabel_1.setBounds(104, 105, 85, 14);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		TransferLabel lblNewLabel_2 = new TransferLabel("dragTitties");
+		lblNewLabel_2.setBounds(1141, 115, 49, 14);
+		frame.getContentPane().add(lblNewLabel_2);
 		
 		
 		

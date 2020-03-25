@@ -26,7 +26,8 @@ public class TransferLabel extends JLabel {
 				JLabel lbl = (JLabel) e.getSource();
 				TransferHandler handle = lbl.getTransferHandler();
 				handle.exportAsDrag(lbl, e, TransferHandler.COPY);
-				
+				Point p = SwingUtilities.convertPoint(e.getComponent(), e.getPoint(), getParent()); 
+				e.getComponent().setLocation(p.x,p.y);
 			}
 			
 			
