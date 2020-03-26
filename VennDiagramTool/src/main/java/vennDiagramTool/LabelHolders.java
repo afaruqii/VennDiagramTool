@@ -31,7 +31,7 @@ public class LabelHolders extends JTextArea{
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				setBorder(new LineBorder(new Color(0, 0, 0), 1));	
+			setBorder(new LineBorder(new Color(0, 0, 0), 1));	
 			}
 			public void mouseExited(MouseEvent e) {
 				setBorder(null);
