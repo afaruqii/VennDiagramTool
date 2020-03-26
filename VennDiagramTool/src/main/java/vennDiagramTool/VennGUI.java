@@ -195,6 +195,7 @@ public class VennGUI {
 				textArea.setBounds(112, 19, 206, 35);
 				panelA.add(textArea);
 				
+				
 
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
 		panelB.setBounds(516, 97, 455, 455);
@@ -283,8 +284,9 @@ public class VennGUI {
 		
 		
 		DragLabel lblNewLabel = new DragLabel(glooba);
-		lblNewLabel.setBounds(1030, 120, 246, 78);
-		lblNewLabel.setText("Your Elements will appear here!");
+		lblNewLabel.setBounds(1031, 120, 198, 104);	 
+		lblNewLabel.setText("Your elements will appear here");
+		
 		
 		
 		frame.getContentPane().add(lblNewLabel);
@@ -453,8 +455,9 @@ public class VennGUI {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lblNewLabel.setVisible(true);
-				lblNewLabel.setBounds(1030, 119, 159, 14);
-				lblNewLabel.setText(elementBox.getText());
+				lblNewLabel.setLocation(1030, 119);
+				String str = "";
+				lblNewLabel.setText("<html><p>" + elementBox.getText()+ "</p></html>");
 				lblNewLabel.setFont(elementBox.getFont());
 				lblNewLabel.setForeground(elementBox.getForeground());
 				elementBox.setText(""); 

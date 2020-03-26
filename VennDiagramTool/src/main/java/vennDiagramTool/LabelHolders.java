@@ -32,7 +32,9 @@ public class LabelHolders extends JTextArea{
 			@Override
 			public void mouseMoved(MouseEvent e) {
 				if (getText().length()<=1) {
-					setText(Target.getText());
+					String str = Target.getText();
+					 str = str.replaceAll("\\<.*?\\>", "");
+					setText(str);
 					setFont(Target.getFont());
 					setForeground(Target.getForeground());
 					}
