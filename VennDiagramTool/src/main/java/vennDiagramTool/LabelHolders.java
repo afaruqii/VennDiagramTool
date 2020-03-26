@@ -14,7 +14,7 @@ import java.awt.event.KeyEvent;
 public class LabelHolders extends JTextArea{
 	private JLabel Target;
 	public LabelHolders(JLabel Target) {
-		super();
+		super(2,30);
 		setOpaque(false);
 		addKeyListener(new KeyAdapter() {
 			@Override
@@ -26,6 +26,7 @@ public class LabelHolders extends JTextArea{
 		});
 		this.Target = Target;
 		setLineWrap(true);
+		setWrapStyleWord(true);
 		setEditable(false);
 		setAlignmentX(CENTER_ALIGNMENT);
 		addMouseMotionListener(new MouseMotionAdapter() {

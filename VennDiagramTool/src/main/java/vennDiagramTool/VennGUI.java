@@ -39,6 +39,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.MouseMotionAdapter;
 import javax.swing.JTextPane;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class VennGUI {
 
@@ -102,9 +104,16 @@ public class VennGUI {
 		Toolbar.setLayout(null);
 
 		titleVenn = new JTextField();
+		titleVenn.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (titleVenn.getText().length() >= 35 ) // limit to 3 characters
+	                e.consume();
+			}
+		});
 		titleVenn.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
 		titleVenn.setBackground(SystemColor.menu);
-		titleVenn.setBounds(266, 1, 695, 44);
+		titleVenn.setBounds(277, 1, 638, 44);
 		Toolbar.add(titleVenn);
 		titleVenn.setColumns(10);
 		titleVenn.setBorder(null);
@@ -123,7 +132,7 @@ public class VennGUI {
 
 		RoundedPanel panelA = new RoundedPanel(1200, transGrey);
 		panelA.setSize(455, 455);
-		panelA.setLocation(281, 97);
+		panelA.setLocation(282, 105);
 		frame.getContentPane().add(panelA);
 		panelA.setLayout(null);
 		
@@ -188,7 +197,7 @@ public class VennGUI {
 		panelA.add(labelHolders_24);
 		
 		LabelHolders labelHolders_25 = new LabelHolders(glooba);
-		labelHolders_25.setBounds(280, 327, 134, 41);
+		labelHolders_25.setBounds(288, 345, 114, 44);
 		panelA.add(labelHolders_25);
 		
 				LabelHolders textArea = new LabelHolders(glooba);
@@ -198,7 +207,7 @@ public class VennGUI {
 				
 
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
-		panelB.setBounds(516, 97, 455, 455);
+		panelB.setBounds(517, 105, 455, 455);
 		frame.getContentPane().add(panelB);
 		panelB.setLayout(null);
 		
@@ -259,24 +268,38 @@ public class VennGUI {
 		editPanel.setLayout(null);
 
 		bubbleOne = new JTextField();
+		bubbleOne.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (bubbleOne.getText().length() >= 15 ) // limit to 3 characters
+	                e.consume();
+			}
+		});
 		bubbleOne.setHorizontalAlignment(SwingConstants.CENTER);
 		bubbleOne.setAlignmentY(0);
 		bubbleOne.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
 		bubbleOne.setColumns(10);
 		bubbleOne.setBorder(null);
 		bubbleOne.setBackground(SystemColor.menu);
-		bubbleOne.setBounds(400, 65, 208, 38);
+		bubbleOne.setBounds(385, 66, 223, 35);
 		frame.getContentPane().add(bubbleOne);
 		bubbleOne.setText("Bubble 1");
 		bubbleOne.setToolTipText("click to give your bubble a title");
 
 		bubbleTwo = new JTextField();
+		bubbleTwo.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (bubbleTwo.getText().length() >= 15 ) // limit to 3 characters
+	                e.consume();
+			}
+		});
 		bubbleTwo.setHorizontalAlignment(SwingConstants.CENTER);
 		bubbleTwo.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
 		bubbleTwo.setColumns(10);
 		bubbleTwo.setBorder(null);
 		bubbleTwo.setBackground(SystemColor.menu);
-		bubbleTwo.setBounds(635, 65, 208, 38);
+		bubbleTwo.setBounds(635, 66, 237, 38);
 		frame.getContentPane().add(bubbleTwo);
 		bubbleTwo.setText("Bubble 2");
 		bubbleTwo.setToolTipText("click to give your bubble a title");
