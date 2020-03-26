@@ -34,7 +34,7 @@ public class LabelHolders extends JTextArea{
 				if (getText().length()<=1) {
 					String str = Target.getText();
 					 str = str.replaceAll("\\<.*?\\>", "");
-					setText(str);
+					setText(str);//
 					setFont(Target.getFont());
 					setForeground(Target.getForeground());
 					}
