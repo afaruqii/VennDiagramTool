@@ -8,13 +8,23 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.border.LineBorder;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class LabelHolders extends JTextArea{
 	private JLabel Target;
 	public LabelHolders(JLabel Target) {
 		super();
-		this.Target = Target;
 		setOpaque(false);
+		addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode()==127) {
+					setText("");
+				}
+			}
+		});
+		this.Target = Target;
 		setLineWrap(true);
 		setEditable(false);
 		setAlignmentX(CENTER_ALIGNMENT);
@@ -38,12 +48,7 @@ public class LabelHolders extends JTextArea{
 				Target.setText("");
 				
 			}
-			@Override
-			public void mouseReleased(MouseEvent e) {
-					setText(getText());
 			
-				
-				}
 		});
 		
 	}

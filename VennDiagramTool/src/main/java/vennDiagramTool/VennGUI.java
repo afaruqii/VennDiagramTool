@@ -94,18 +94,6 @@ public class VennGUI {
 		frame.setLocation(screenWidth / 2 - frame.getWidth() / 2, screenHeight / 2 - frame.getHeight() / 2);
 																												
 		glooba.setText(" ");
-		
-		
-		
-		DragLabel lblNewLabel = new DragLabel(glooba);
-		lblNewLabel.setBounds(1030, 120, 219, 52);
-		lblNewLabel.setText("Your Elements will appear here!");
-		
-		
-		frame.getContentPane().add(lblNewLabel);
-		lblNewLabel.setVisible(false);
-		lblNewLabel.setVisible(true);
-		lblNewLabel.setLocation(1030, 120);
 		JPanel Toolbar = new JPanel();
 		Toolbar.setBackground(SystemColor.menu);
 		Toolbar.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -138,11 +126,6 @@ public class VennGUI {
 		panelA.setLocation(281, 97);
 		frame.getContentPane().add(panelA);
 		panelA.setLayout(null);
-
-		LabelHolders textArea = new LabelHolders(glooba);
-		textArea.setBounds(130, 14, 189, 41);
-		
-		panelA.add(textArea);
 		
 		LabelHolders labelHolders = new LabelHolders(glooba);
 		labelHolders.setBounds(75, 57, 211, 41);
@@ -207,6 +190,10 @@ public class VennGUI {
 		LabelHolders labelHolders_25 = new LabelHolders(glooba);
 		labelHolders_25.setBounds(280, 327, 134, 41);
 		panelA.add(labelHolders_25);
+		
+				LabelHolders textArea = new LabelHolders(glooba);
+				textArea.setBounds(112, 19, 206, 35);
+				panelA.add(textArea);
 
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
 		panelB.setBounds(516, 97, 455, 455);
@@ -291,6 +278,18 @@ public class VennGUI {
 		frame.getContentPane().add(bubbleTwo);
 		bubbleTwo.setText("Bubble 2");
 		bubbleTwo.setToolTipText("click to give your bubble a title");
+		
+		
+		
+		DragLabel lblNewLabel = new DragLabel(glooba);
+		lblNewLabel.setBounds(1030, 120, 219, 52);
+		lblNewLabel.setText("Your Elements will appear here!");
+		
+		
+		frame.getContentPane().add(lblNewLabel);
+		lblNewLabel.setVisible(false);
+		lblNewLabel.setVisible(true);
+		lblNewLabel.setLocation(1030, 120);
 
 		JLabel elementCreator = new JLabel("Element Tray");
 		elementCreator.setFont(new Font("Myriad Pro", Font.PLAIN, 15));
@@ -457,6 +456,7 @@ public class VennGUI {
 				lblNewLabel.setText(elementBox.getText());
 				lblNewLabel.setFont(elementBox.getFont());
 				lblNewLabel.setForeground(elementBox.getForeground());
+				elementBox.setText(""); 
 				
 			}
 		});
