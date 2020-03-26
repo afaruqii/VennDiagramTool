@@ -1,7 +1,10 @@
 package vennDiagramTool;
 
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
+import javax.swing.text.JTextComponent;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -19,6 +22,7 @@ public class DragLabel extends JLabel {
 	public DragLabel(JLabel Target) {
 		super();
 		this.Target = Target;
+		setOpaque(false);
 		addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseDragged(MouseEvent e) {
@@ -50,5 +54,6 @@ public class DragLabel extends JLabel {
 		Target.setForeground(getForeground());
 
 	}
+	
 
 }

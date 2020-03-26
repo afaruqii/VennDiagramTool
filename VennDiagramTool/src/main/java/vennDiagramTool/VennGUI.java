@@ -194,6 +194,7 @@ public class VennGUI {
 				LabelHolders textArea = new LabelHolders(glooba);
 				textArea.setBounds(112, 19, 206, 35);
 				panelA.add(textArea);
+				
 
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
 		panelB.setBounds(516, 97, 455, 455);
@@ -282,7 +283,7 @@ public class VennGUI {
 		
 		
 		DragLabel lblNewLabel = new DragLabel(glooba);
-		lblNewLabel.setBounds(1030, 120, 219, 52);
+		lblNewLabel.setBounds(1030, 120, 246, 78);
 		lblNewLabel.setText("Your Elements will appear here!");
 		
 		
