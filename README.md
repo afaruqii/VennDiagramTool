@@ -1,6 +1,5 @@
 # Venn Diagram
-create a Venn diagram that would fulfill all needs that could be required in a given Venn diagram. 
-Our example is coded using the Eclipse IDE and presented with JavaFX.
+Powerful Venn Diagram Rendering tool which allows the user to create text based labels that can then be intuitively dragged and dropped.
 
 # Prerequisites: 
 * Windows XP or newer.
