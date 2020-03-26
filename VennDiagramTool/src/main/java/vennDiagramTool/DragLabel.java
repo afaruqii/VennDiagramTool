@@ -28,6 +28,8 @@ public class DragLabel extends JLabel {
 			public void mouseDragged(MouseEvent e) {
 
 				Point p = SwingUtilities.convertPoint(e.getComponent(), e.getPoint(), getParent());
+				p.x = p.x - (getWidth()/2);
+				p.y = p.y - (getHeight()/2);
 				e.getComponent().setLocation(p.x, p.y);
 				setGlobal(Target);
 			}
