@@ -51,6 +51,7 @@ public class VennGUI {
 	private JTextField bubbleOne;
 	private JTextField bubbleTwo;
 	JLabel glooba = new JLabel();
+	
 
 	/**
 	 * Launch the application.
@@ -167,6 +168,7 @@ public class VennGUI {
 		LabelHolders labelHolders_7 = new LabelHolders(glooba);
 		labelHolders_7.setBounds(69, 358, 221, 41);
 		panelA.add(labelHolders_7);
+		
 		
 		LabelHolders labelHolders_8 = new LabelHolders(glooba);
 		labelHolders_8.setBounds(131, 401, 191, 41);
@@ -306,16 +308,16 @@ public class VennGUI {
 		
 		
 		
-		DragLabel lblNewLabel = new DragLabel(glooba);
-		lblNewLabel.setBounds(1031, 120, 198, 104);	 
-		lblNewLabel.setText("Your elements will appear here");
+		DragLabel draggy = new DragLabel(glooba);
+		draggy.setBounds(1031, 120, 198, 104);	 
+		draggy.setText("Your elements will appear here");
 		
 		
 		
-		frame.getContentPane().add(lblNewLabel);
-		lblNewLabel.setVisible(false);
-		lblNewLabel.setVisible(true);
-		lblNewLabel.setLocation(1030, 120);
+		frame.getContentPane().add(draggy);
+		draggy.setVisible(false);
+		draggy.setVisible(true);
+		draggy.setLocation(1030, 120);
 
 		JLabel elementCreator = new JLabel("Element Tray");
 		elementCreator.setFont(new Font("Myriad Pro", Font.PLAIN, 15));
@@ -468,6 +470,7 @@ public class VennGUI {
 		JTextArea elementBox = new JTextArea();
 		elementBox.setBounds(10, 11, 226, 69);
 		elementBox.setLineWrap(true);
+		elementBox.setWrapStyleWord(true);
 		editPanel.add(elementBox);
 		
 		JComboBox fonty = new FontChooser(elementBox);
@@ -477,12 +480,12 @@ public class VennGUI {
 		JButton btnNewButton = new JButton("Create");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lblNewLabel.setVisible(true);
-				lblNewLabel.setLocation(1030, 119);
+				draggy.setVisible(true);
+				draggy.setLocation(1030, 119);
 				String str = "";
-				lblNewLabel.setText("<html><p>" + elementBox.getText()+ "</p></html>");
-				lblNewLabel.setFont(elementBox.getFont());
-				lblNewLabel.setForeground(elementBox.getForeground());
+				draggy.setText("<html><p>" + elementBox.getText()+ "</p></html>");
+				draggy.setFont(elementBox.getFont());
+				draggy.setForeground(elementBox.getForeground());
 				elementBox.setText(""); 
 				
 			}
@@ -533,9 +536,9 @@ public class VennGUI {
 				case "Pink":
 					elementBox.setForeground(Color.MAGENTA);
 					break;
-
 				}
 			}
+			
 		});
 
 	}

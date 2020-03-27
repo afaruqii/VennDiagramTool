@@ -14,6 +14,7 @@ import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import vennDiagramTool.LabelHolders;
 
 public class DragLabel extends JLabel {
 	Point startingPoint;
@@ -32,6 +33,7 @@ public class DragLabel extends JLabel {
 				p.y = p.y - (getHeight()/2);
 				e.getComponent().setLocation(p.x, p.y);
 				setGlobal(Target);
+				LabelHolders.labelExists = true;
 			}
 
 		});
@@ -41,10 +43,10 @@ public class DragLabel extends JLabel {
 			public void mousePressed(MouseEvent e) {
 				startingPoint = SwingUtilities.convertPoint(e.getComponent(), e.getPoint(), getParent());
 			}
-
 			public void mouseReleased(MouseEvent e) {
 				startingPoint = null;
 				setVisible(false);
+				LabelHolders.labelExists = false;
 
 			}
 		});
