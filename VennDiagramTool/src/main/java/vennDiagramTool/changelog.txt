@@ -34,4 +34,5 @@ Drag Labels now support drag and drop!
 - Drag Labels cursor centered
 - HTML Tags Used to Format Labels
 
-
+2020-03-27 Melvin Gagarao
+- Formatted spacing as a psuedo commit

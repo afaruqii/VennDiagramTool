@@ -51,7 +51,6 @@ public class VennGUI {
 	private JTextField bubbleOne;
 	private JTextField bubbleTwo;
 	JLabel glooba = new JLabel();
-	
 
 	/**
 	 * Launch the application.
@@ -95,7 +94,7 @@ public class VennGUI {
 		ImageIcon icon = new ImageIcon(getClass().getResource("AppIcon.png"));
 		frame.setIconImage(icon.getImage());
 		frame.setLocation(screenWidth / 2 - frame.getWidth() / 2, screenHeight / 2 - frame.getHeight() / 2);
-																												
+
 		glooba.setText(" ");
 		JPanel Toolbar = new JPanel();
 		Toolbar.setBackground(SystemColor.menu);
@@ -108,8 +107,8 @@ public class VennGUI {
 		titleVenn.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				if (titleVenn.getText().length() >= 35 ) // limit to 3 characters
-	                e.consume();
+				if (titleVenn.getText().length() >= 35) // limit to 3 characters
+					e.consume();
 			}
 		});
 		titleVenn.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
@@ -136,119 +135,116 @@ public class VennGUI {
 		panelA.setLocation(282, 105);
 		frame.getContentPane().add(panelA);
 		panelA.setLayout(null);
-		
+
 		LabelHolders labelHolders = new LabelHolders(glooba);
 		labelHolders.setBounds(75, 57, 211, 41);
 		panelA.add(labelHolders);
-		
+
 		LabelHolders labelHolders_1 = new LabelHolders(glooba);
 		labelHolders_1.setBounds(36, 100, 226, 41);
 		panelA.add(labelHolders_1);
-		
+
 		LabelHolders labelHolders_2 = new LabelHolders(glooba);
 		labelHolders_2.setBounds(10, 143, 238, 41);
 		panelA.add(labelHolders_2);
-		
+
 		LabelHolders labelHolders_3 = new LabelHolders(glooba);
 		labelHolders_3.setBounds(16, 272, 226, 41);
 		panelA.add(labelHolders_3);
-		
+
 		LabelHolders labelHolders_4 = new LabelHolders(glooba);
 		labelHolders_4.setBounds(2, 229, 238, 41);
 		panelA.add(labelHolders_4);
-		
+
 		LabelHolders labelHolders_5 = new LabelHolders(glooba);
 		labelHolders_5.setBounds(3, 186, 234, 41);
 		panelA.add(labelHolders_5);
-		
+
 		LabelHolders labelHolders_6 = new LabelHolders(glooba);
 		labelHolders_6.setBounds(33, 315, 217, 41);
 		panelA.add(labelHolders_6);
-		
+
 		LabelHolders labelHolders_7 = new LabelHolders(glooba);
 		labelHolders_7.setBounds(69, 358, 221, 41);
 		panelA.add(labelHolders_7);
-		
-		
+
 		LabelHolders labelHolders_8 = new LabelHolders(glooba);
 		labelHolders_8.setBounds(131, 401, 191, 41);
 		panelA.add(labelHolders_8);
-		
+
 		LabelHolders labelHolders_19 = new LabelHolders(glooba);
 		labelHolders_19.setBounds(290, 67, 111, 41);
 		panelA.add(labelHolders_19);
-		
+
 		LabelHolders labelHolders_20 = new LabelHolders(glooba);
 		labelHolders_20.setBounds(264, 111, 161, 41);
 		panelA.add(labelHolders_20);
-		
+
 		LabelHolders labelHolders_21 = new LabelHolders(glooba);
 		labelHolders_21.setBounds(250, 154, 198, 41);
 		panelA.add(labelHolders_21);
-		
+
 		LabelHolders labelHolders_22 = new LabelHolders(glooba);
 		labelHolders_22.setBounds(241, 197, 211, 41);
 		panelA.add(labelHolders_22);
-		
+
 		LabelHolders labelHolders_23 = new LabelHolders(glooba);
 		labelHolders_23.setBounds(244, 241, 205, 41);
 		panelA.add(labelHolders_23);
-		
+
 		LabelHolders labelHolders_24 = new LabelHolders(glooba);
 		labelHolders_24.setBounds(248, 284, 202, 41);
 		panelA.add(labelHolders_24);
-		
+
 		LabelHolders labelHolders_25 = new LabelHolders(glooba);
 		labelHolders_25.setBounds(288, 345, 114, 44);
 		panelA.add(labelHolders_25);
-		
-				LabelHolders textArea = new LabelHolders(glooba);
-				textArea.setBounds(112, 19, 206, 35);
-				panelA.add(textArea);
-				
-				
+
+		LabelHolders textArea = new LabelHolders(glooba);
+		textArea.setBounds(112, 19, 206, 35);
+		panelA.add(textArea);
 
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
 		panelB.setBounds(517, 105, 455, 455);
 		frame.getContentPane().add(panelB);
 		panelB.setLayout(null);
-		
+
 		LabelHolders labelHolders_9 = new LabelHolders(glooba);
 		labelHolders_9.setBounds(136, 15, 192, 40);
 		panelB.add(labelHolders_9);
-		
+
 		LabelHolders labelHolders_10 = new LabelHolders(glooba);
 		labelHolders_10.setBounds(176, 57, 204, 40);
 		panelB.add(labelHolders_10);
-		
+
 		LabelHolders labelHolders_11 = new LabelHolders(glooba);
 		labelHolders_11.setBounds(200, 99, 219, 41);
 		panelB.add(labelHolders_11);
-		
+
 		LabelHolders labelHolders_12 = new LabelHolders(glooba);
 		labelHolders_12.setBounds(217, 142, 230, 41);
 		panelB.add(labelHolders_12);
-		
+
 		LabelHolders labelHolders_13 = new LabelHolders(glooba);
 		labelHolders_13.setBounds(219, 185, 232, 41);
 		panelB.add(labelHolders_13);
-		
+
 		LabelHolders labelHolders_14 = new LabelHolders(glooba);
 		labelHolders_14.setBounds(216, 228, 236, 41);
 		panelB.add(labelHolders_14);
-		
+
 		LabelHolders labelHolders_15 = new LabelHolders(glooba);
 		labelHolders_15.setBounds(216, 271, 229, 41);
 		panelB.add(labelHolders_15);
-		
+
 		LabelHolders labelHolders_16 = new LabelHolders(glooba);
 		labelHolders_16.setBounds(206, 315, 215, 41);
 		panelB.add(labelHolders_16);
-		
+
 		LabelHolders labelHolders_17 = new LabelHolders(glooba);
 		labelHolders_17.setBounds(177, 359, 209, 41);
 		panelB.add(labelHolders_17);
-		
+
 		LabelHolders labelHolders_18 = new LabelHolders(glooba);
 		labelHolders_18.setBounds(140, 405, 199, 41);
 		panelB.add(labelHolders_18);
@@ -273,8 +269,8 @@ public class VennGUI {
 		bubbleOne.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				if (bubbleOne.getText().length() >= 15 ) // limit to 3 characters
-	                e.consume();
+				if (bubbleOne.getText().length() >= 15) // limit to 3 characters
+					e.consume();
 			}
 		});
 		bubbleOne.setHorizontalAlignment(SwingConstants.CENTER);
@@ -292,8 +288,8 @@ public class VennGUI {
 		bubbleTwo.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				if (bubbleTwo.getText().length() >= 15 ) // limit to 3 characters
-	                e.consume();
+				if (bubbleTwo.getText().length() >= 15) // limit to 3 characters
+					e.consume();
 			}
 		});
 		bubbleTwo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -305,15 +301,11 @@ public class VennGUI {
 		frame.getContentPane().add(bubbleTwo);
 		bubbleTwo.setText("Bubble 2");
 		bubbleTwo.setToolTipText("click to give your bubble a title");
-		
-		
-		
+
 		DragLabel draggy = new DragLabel(glooba);
-		draggy.setBounds(1031, 120, 198, 104);	 
+		draggy.setBounds(1031, 120, 198, 104);
 		draggy.setText("Your elements will appear here");
-		
-		
-		
+
 		frame.getContentPane().add(draggy);
 		draggy.setVisible(false);
 		draggy.setVisible(true);
@@ -465,14 +457,12 @@ public class VennGUI {
 		bubbleB.setBounds(10, 177, 81, 14);
 		panel.add(bubbleB);
 
-		
-
 		JTextArea elementBox = new JTextArea();
 		elementBox.setBounds(10, 11, 226, 69);
 		elementBox.setLineWrap(true);
 		elementBox.setWrapStyleWord(true);
 		editPanel.add(elementBox);
-		
+
 		JComboBox fonty = new FontChooser(elementBox);
 		fonty.setBounds(10, 91, 226, 22);
 		editPanel.add(fonty);
@@ -483,11 +473,11 @@ public class VennGUI {
 				draggy.setVisible(true);
 				draggy.setLocation(1030, 119);
 				String str = "";
-				draggy.setText("<html><p>" + elementBox.getText()+ "</p></html>");
+				draggy.setText("<html><p>" + elementBox.getText() + "</p></html>");
 				draggy.setFont(elementBox.getFont());
 				draggy.setForeground(elementBox.getForeground());
-				elementBox.setText(""); 
-				
+				elementBox.setText("");
+
 			}
 		});
 		btnNewButton.setBounds(72, 213, 118, 23);
@@ -538,7 +528,7 @@ public class VennGUI {
 					break;
 				}
 			}
-			
+
 		});
 
 	}
