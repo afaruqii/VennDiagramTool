@@ -311,6 +311,7 @@ public class VennGUI {
 		draggy.setBounds(1031, 120, 198, 104);
 		draggy.setText("Your elements will appear here");
 		draggy.setToolTipText("Click, Hold and Drag into your diagram");
+		
 
 		frame.getContentPane().add(draggy);
 		draggy.setVisible(false);
