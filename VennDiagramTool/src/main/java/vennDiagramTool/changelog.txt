@@ -27,7 +27,7 @@ Drag Labels now support drag and drop!
 - Labels are able to be dragged and dropped
 - Text Containers within Venn Diagram Tool can receive info from selected text area
 
-2020-03-25 Ahmad Faruqi
+2020-03-26 Ahmad Faruqi
 - Removed Unnecessary classes
 - Updated UI
 - Fixed Drag Labels not Auto-Adjusting
@@ -36,3 +36,7 @@ Drag Labels now support drag and drop!
 
 2020-03-27 Melvin Gagarao
 - Formatted spacing as a psuedo commit
+
+2020-03-27 Ahmad Faruqi
+- Added a Design Studio Enabler which lets you "Declutter" 
+- cut/paste added!

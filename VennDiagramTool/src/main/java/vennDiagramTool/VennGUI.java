@@ -41,6 +41,9 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.JTextPane;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JCheckBox;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class VennGUI {
 
@@ -50,7 +53,9 @@ public class VennGUI {
 	private JTextField titleVenn;
 	private JTextField bubbleOne;
 	private JTextField bubbleTwo;
-	JLabel glooba = new JLabel();
+	JLabel setterLabel = new JLabel();
+	public static JLabel switchA = new JLabel();
+	
 
 	/**
 	 * Launch the application.
@@ -95,7 +100,7 @@ public class VennGUI {
 		frame.setIconImage(icon.getImage());
 		frame.setLocation(screenWidth / 2 - frame.getWidth() / 2, screenHeight / 2 - frame.getHeight() / 2);
 
-		glooba.setText(" ");
+		setterLabel.setText(" ");
 		JPanel Toolbar = new JPanel();
 		Toolbar.setBackground(SystemColor.menu);
 		Toolbar.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -136,71 +141,71 @@ public class VennGUI {
 		frame.getContentPane().add(panelA);
 		panelA.setLayout(null);
 
-		LabelHolders labelHolders = new LabelHolders(glooba);
+		LabelHolders labelHolders = new LabelHolders(setterLabel);
 		labelHolders.setBounds(75, 57, 211, 41);
 		panelA.add(labelHolders);
 
-		LabelHolders labelHolders_1 = new LabelHolders(glooba);
+		LabelHolders labelHolders_1 = new LabelHolders(setterLabel);
 		labelHolders_1.setBounds(36, 100, 226, 41);
 		panelA.add(labelHolders_1);
 
-		LabelHolders labelHolders_2 = new LabelHolders(glooba);
+		LabelHolders labelHolders_2 = new LabelHolders(setterLabel);
 		labelHolders_2.setBounds(10, 143, 238, 41);
 		panelA.add(labelHolders_2);
 
-		LabelHolders labelHolders_3 = new LabelHolders(glooba);
+		LabelHolders labelHolders_3 = new LabelHolders(setterLabel);
 		labelHolders_3.setBounds(16, 272, 226, 41);
 		panelA.add(labelHolders_3);
 
-		LabelHolders labelHolders_4 = new LabelHolders(glooba);
+		LabelHolders labelHolders_4 = new LabelHolders(setterLabel);
 		labelHolders_4.setBounds(2, 229, 238, 41);
 		panelA.add(labelHolders_4);
 
-		LabelHolders labelHolders_5 = new LabelHolders(glooba);
+		LabelHolders labelHolders_5 = new LabelHolders(setterLabel);
 		labelHolders_5.setBounds(3, 186, 234, 41);
 		panelA.add(labelHolders_5);
 
-		LabelHolders labelHolders_6 = new LabelHolders(glooba);
+		LabelHolders labelHolders_6 = new LabelHolders(setterLabel);
 		labelHolders_6.setBounds(33, 315, 217, 41);
 		panelA.add(labelHolders_6);
 
-		LabelHolders labelHolders_7 = new LabelHolders(glooba);
+		LabelHolders labelHolders_7 = new LabelHolders(setterLabel);
 		labelHolders_7.setBounds(69, 358, 221, 41);
 		panelA.add(labelHolders_7);
 
-		LabelHolders labelHolders_8 = new LabelHolders(glooba);
+		LabelHolders labelHolders_8 = new LabelHolders(setterLabel);
 		labelHolders_8.setBounds(131, 401, 191, 41);
 		panelA.add(labelHolders_8);
 
-		LabelHolders labelHolders_19 = new LabelHolders(glooba);
+		LabelHolders labelHolders_19 = new LabelHolders(setterLabel);
 		labelHolders_19.setBounds(290, 67, 111, 41);
 		panelA.add(labelHolders_19);
 
-		LabelHolders labelHolders_20 = new LabelHolders(glooba);
+		LabelHolders labelHolders_20 = new LabelHolders(setterLabel);
 		labelHolders_20.setBounds(264, 111, 161, 41);
 		panelA.add(labelHolders_20);
 
-		LabelHolders labelHolders_21 = new LabelHolders(glooba);
+		LabelHolders labelHolders_21 = new LabelHolders(setterLabel);
 		labelHolders_21.setBounds(250, 154, 198, 41);
 		panelA.add(labelHolders_21);
 
-		LabelHolders labelHolders_22 = new LabelHolders(glooba);
+		LabelHolders labelHolders_22 = new LabelHolders(setterLabel);
 		labelHolders_22.setBounds(241, 197, 211, 41);
 		panelA.add(labelHolders_22);
 
-		LabelHolders labelHolders_23 = new LabelHolders(glooba);
+		LabelHolders labelHolders_23 = new LabelHolders(setterLabel);
 		labelHolders_23.setBounds(244, 241, 205, 41);
 		panelA.add(labelHolders_23);
 
-		LabelHolders labelHolders_24 = new LabelHolders(glooba);
+		LabelHolders labelHolders_24 = new LabelHolders(setterLabel);
 		labelHolders_24.setBounds(248, 284, 202, 41);
 		panelA.add(labelHolders_24);
 
-		LabelHolders labelHolders_25 = new LabelHolders(glooba);
+		LabelHolders labelHolders_25 = new LabelHolders(setterLabel);
 		labelHolders_25.setBounds(288, 345, 114, 44);
 		panelA.add(labelHolders_25);
 
-		LabelHolders textArea = new LabelHolders(glooba);
+		LabelHolders textArea = new LabelHolders(setterLabel);
 		textArea.setBounds(112, 19, 206, 35);
 		panelA.add(textArea);
 
@@ -209,55 +214,54 @@ public class VennGUI {
 		frame.getContentPane().add(panelB);
 		panelB.setLayout(null);
 
-		LabelHolders labelHolders_9 = new LabelHolders(glooba);
+		LabelHolders labelHolders_9 = new LabelHolders(setterLabel);
 		labelHolders_9.setBounds(136, 15, 192, 40);
 		panelB.add(labelHolders_9);
 
-		LabelHolders labelHolders_10 = new LabelHolders(glooba);
+		LabelHolders labelHolders_10 = new LabelHolders(setterLabel);
 		labelHolders_10.setBounds(176, 57, 204, 40);
 		panelB.add(labelHolders_10);
 
-		LabelHolders labelHolders_11 = new LabelHolders(glooba);
+		LabelHolders labelHolders_11 = new LabelHolders(setterLabel);
 		labelHolders_11.setBounds(200, 99, 219, 41);
 		panelB.add(labelHolders_11);
 
-		LabelHolders labelHolders_12 = new LabelHolders(glooba);
+		LabelHolders labelHolders_12 = new LabelHolders(setterLabel);
 		labelHolders_12.setBounds(217, 142, 230, 41);
 		panelB.add(labelHolders_12);
 
-		LabelHolders labelHolders_13 = new LabelHolders(glooba);
+		LabelHolders labelHolders_13 = new LabelHolders(setterLabel);
 		labelHolders_13.setBounds(219, 185, 232, 41);
 		panelB.add(labelHolders_13);
 
-		LabelHolders labelHolders_14 = new LabelHolders(glooba);
+		LabelHolders labelHolders_14 = new LabelHolders(setterLabel);
 		labelHolders_14.setBounds(216, 228, 236, 41);
 		panelB.add(labelHolders_14);
 
-		LabelHolders labelHolders_15 = new LabelHolders(glooba);
+		LabelHolders labelHolders_15 = new LabelHolders(setterLabel);
 		labelHolders_15.setBounds(216, 271, 229, 41);
 		panelB.add(labelHolders_15);
 
-		LabelHolders labelHolders_16 = new LabelHolders(glooba);
+		LabelHolders labelHolders_16 = new LabelHolders(setterLabel);
 		labelHolders_16.setBounds(206, 315, 215, 41);
 		panelB.add(labelHolders_16);
 
-		LabelHolders labelHolders_17 = new LabelHolders(glooba);
+		LabelHolders labelHolders_17 = new LabelHolders(setterLabel);
 		labelHolders_17.setBounds(177, 359, 209, 41);
 		panelB.add(labelHolders_17);
 
-		LabelHolders labelHolders_18 = new LabelHolders(glooba);
+		LabelHolders labelHolders_18 = new LabelHolders(setterLabel);
 		labelHolders_18.setBounds(140, 405, 199, 41);
 		panelB.add(labelHolders_18);
-		JPanel panel = new JPanel();
-		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		panel.setBounds(10, 228, 246, 285);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
-
+		JPanel layoutPanel = new JPanel();
+		layoutPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		layoutPanel.setBounds(10, 228, 246, 285);
+		frame.getContentPane().add(layoutPanel);
+		layoutPanel.setLayout(null);
 		JLabel bubbleLabelFont = new JLabel("Bubble Label Font");
 		bubbleLabelFont.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		bubbleLabelFont.setBounds(10, 67, 109, 15);
-		panel.add(bubbleLabelFont);
+		layoutPanel.add(bubbleLabelFont);
 
 		JPanel editPanel = new JPanel();
 		editPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -282,7 +286,8 @@ public class VennGUI {
 		bubbleOne.setBounds(385, 66, 223, 35);
 		frame.getContentPane().add(bubbleOne);
 		bubbleOne.setText("Bubble 1");
-		bubbleOne.setToolTipText("click to give your bubble a title");
+		bubbleOne.setToolTipText("click to give bubble A a title");
+		
 
 		bubbleTwo = new JTextField();
 		bubbleTwo.addKeyListener(new KeyAdapter() {
@@ -300,11 +305,12 @@ public class VennGUI {
 		bubbleTwo.setBounds(635, 66, 237, 38);
 		frame.getContentPane().add(bubbleTwo);
 		bubbleTwo.setText("Bubble 2");
-		bubbleTwo.setToolTipText("click to give your bubble a title");
+		bubbleTwo.setToolTipText("click to give Bubble B a title");
 
-		DragLabel draggy = new DragLabel(glooba);
+		DragLabel draggy = new DragLabel(setterLabel);
 		draggy.setBounds(1031, 120, 198, 104);
 		draggy.setText("Your elements will appear here");
+		draggy.setToolTipText("Click, Hold and Drag into your diagram");
 
 		frame.getContentPane().add(draggy);
 		draggy.setVisible(false);
@@ -323,21 +329,21 @@ public class VennGUI {
 
 		JComboBox bubbleEditor = new FontChooser(bubbleTwo, bubbleOne);
 		bubbleEditor.setBounds(10, 81, 215, 22);
-		panel.add(bubbleEditor);
+		layoutPanel.add(bubbleEditor);
 
 		JComboBox titleEditor = new FontChooser(titleVenn);
 		titleEditor.setBounds(10, 25, 215, 22);
-		panel.add(titleEditor);
+		layoutPanel.add(titleEditor);
 
 		JLabel lblTitleFont = new JLabel("Title Font");
 		lblTitleFont.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		lblTitleFont.setBounds(10, 11, 109, 15);
-		panel.add(lblTitleFont);
+		layoutPanel.add(lblTitleFont);
 
 		JLabel bubbleA = new JLabel("Bubble A Color");
 		bubbleA.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		bubbleA.setBounds(10, 122, 81, 14);
-		panel.add(bubbleA);
+		layoutPanel.add(bubbleA);
 
 		JComboBox bubbleAColor = new JComboBox();
 		bubbleAColor.setBounds(10, 136, 81, 22);
@@ -349,7 +355,7 @@ public class VennGUI {
 		bubbleAColor.addItem("Blue");
 		bubbleAColor.addItem("Purple");
 		bubbleAColor.addItem("Pink");
-		panel.add(bubbleAColor);
+		layoutPanel.add(bubbleAColor);
 		bubbleAColor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String msg = (String) bubbleAColor.getSelectedItem();
@@ -410,7 +416,7 @@ public class VennGUI {
 		bubbleBColor.addItem("Blue");
 		bubbleBColor.addItem("Purple");
 		bubbleBColor.addItem("Pink");
-		panel.add(bubbleBColor);
+		layoutPanel.add(bubbleBColor);
 		bubbleBColor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String msg = (String) bubbleBColor.getSelectedItem();
@@ -455,7 +461,7 @@ public class VennGUI {
 		JLabel bubbleB = new JLabel("Bubble B Color");
 		bubbleB.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		bubbleB.setBounds(10, 177, 81, 14);
-		panel.add(bubbleB);
+		layoutPanel.add(bubbleB);
 
 		JTextArea elementBox = new JTextArea();
 		elementBox.setBounds(10, 11, 226, 69);
@@ -493,6 +499,40 @@ public class VennGUI {
 		ElementColor.addItem("Blue");
 		ElementColor.addItem("Purple");
 		ElementColor.addItem("Pink");
+		
+		JCheckBox checkBox = new JCheckBox("Enable Design Studio");
+		checkBox.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(!checkBox.isSelected()) {
+					layoutEditor.setVisible(false);
+					layoutPanel.setVisible(false);
+					elementCreator.setVisible(false);
+					editPanel.setVisible(false);
+					bubbleOne.setEditable(false);
+					bubbleTwo.setEditable(false);
+					titleVenn.setEditable(false);
+				}
+				else {
+					layoutEditor.setVisible(true);
+					layoutPanel.setVisible(true);
+					elementCreator.setVisible(true);
+					editPanel.setVisible(true);
+					bubbleOne.setEditable(true);
+					bubbleTwo.setEditable(true);
+					titleVenn.setEditable(true);
+					bubbleOne.setHighlighter(null);
+					bubbleTwo.setHighlighter(null);
+					titleVenn.setHighlighter(null);
+					
+					
+				}
+			}
+		});
+		checkBox.setSelected(true);
+		checkBox.setBounds(10, 70, 190, 70);
+		
+		frame.getContentPane().add(checkBox);
 
 		ElementColor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -530,6 +570,5 @@ public class VennGUI {
 			}
 
 		});
-
 	}
 }

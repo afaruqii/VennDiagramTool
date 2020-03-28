@@ -13,7 +13,6 @@ import java.awt.event.KeyEvent;
 
 public class LabelHolders extends JTextArea {
 	private JLabel Target = new JLabel();
-public JLabel switchA = new JLabel();
 public static boolean labelExists = false;
 
 	public LabelHolders(JLabel Target) {
@@ -27,7 +26,13 @@ public static boolean labelExists = false;
 				case (127):
 					setText("");
 					break;
-				}
+				case(77): VennGUI.switchA.setText(getText());
+						  VennGUI.switchA.setFont(getFont());
+						  VennGUI.switchA.setForeground(getForeground());
+						  setText("");
+						  labelExists = true;
+					break;
+			}
 			}
 		});
 		this.Target = Target;
@@ -52,12 +57,22 @@ public static boolean labelExists = false;
 			public void mouseEntered(MouseEvent e) {
 				if (labelExists) {
 				setBorder(new LineBorder(new Color(0, 0, 0), 1));
+				
 			}
 			}
 			public void mouseExited(MouseEvent e) {
 				setBorder(null);
 				Target.setText("");
 
+			}
+			public void mouseReleased(MouseEvent e) {
+				if(getText().length()<=1) {
+				setText(VennGUI.switchA.getText());
+				setFont(VennGUI.switchA.getFont());
+				setForeground(VennGUI.switchA.getForeground());
+				labelExists = false;
+				VennGUI.switchA.setText("");
+				}
 			}
 
 		});
