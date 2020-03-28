@@ -55,7 +55,7 @@ public class VennGUI {
 	private JTextField bubbleTwo;
 	JLabel setterLabel = new JLabel();
 	public static JLabel switchA = new JLabel();
-	
+	public static boolean mClicked = false;
 
 	/**
 	 * Launch the application.
