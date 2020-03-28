@@ -99,7 +99,7 @@ public class VennGUI {
 		ImageIcon icon = new ImageIcon(getClass().getResource("AppIcon.png"));
 		frame.setIconImage(icon.getImage());
 		frame.setLocation(screenWidth / 2 - frame.getWidth() / 2, screenHeight / 2 - frame.getHeight() / 2);
-
+		//frame.setLocationRelativeTo(frame.getParent());
 		setterLabel.setText(" ");
 		JPanel Toolbar = new JPanel();
 		Toolbar.setBackground(SystemColor.menu);
@@ -502,6 +502,7 @@ public class VennGUI {
 		ElementColor.addItem("Pink");
 		
 		JCheckBox checkBox = new JCheckBox("Enable Design Studio");
+		checkBox.setSelected(true);
 		checkBox.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
