@@ -31,6 +31,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.ToolTipManager;
 import javax.swing.TransferHandler;
 import javax.swing.border.LineBorder;
 import javax.swing.JLayeredPane;
@@ -46,7 +47,6 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 
 public class VennGUI {
-
 	int xPos, yPos;
 	private JFrame frame;
 	private JTextField textField;

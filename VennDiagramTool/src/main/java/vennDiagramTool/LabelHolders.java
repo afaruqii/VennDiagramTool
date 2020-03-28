@@ -7,6 +7,7 @@ import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import javax.swing.ToolTipManager;
 import javax.swing.border.LineBorder;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -18,6 +19,7 @@ public static boolean labelExists = false;
 	public LabelHolders(JLabel Target) {
 		super(2, 30);
 		setOpaque(false);
+		
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -33,6 +35,7 @@ public static boolean labelExists = false;
 						  labelExists = true;
 					break;
 			}
+
 			}
 		});
 		this.Target = Target;
@@ -57,12 +60,17 @@ public static boolean labelExists = false;
 			public void mouseEntered(MouseEvent e) {
 				if (labelExists) {
 				setBorder(new LineBorder(new Color(0, 0, 0), 1));
+				 setToolTipText(VennGUI.switchA.getText());
+				 ToolTipManager.sharedInstance().setInitialDelay(5);
 				
 			}
 			}
 			public void mouseExited(MouseEvent e) {
 				setBorder(null);
 				Target.setText("");
+				setToolTipText(null);
+				ToolTipManager.sharedInstance().setInitialDelay(2000);
+				
 
 			}
 			public void mouseReleased(MouseEvent e) {
@@ -72,6 +80,7 @@ public static boolean labelExists = false;
 				setForeground(VennGUI.switchA.getForeground());
 				labelExists = false;
 				VennGUI.switchA.setText("");
+				setToolTipText(null);
 				}
 			}
 
