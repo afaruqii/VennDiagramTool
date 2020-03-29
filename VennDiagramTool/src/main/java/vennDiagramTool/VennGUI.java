@@ -44,7 +44,12 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JCheckBox;
 import javax.swing.event.ChangeListener;
+
+
+
 import javax.swing.event.ChangeEvent;
+import javax.swing.JPopupMenu;
+import java.awt.Component;
 
 public class VennGUI {
 	int xPos, yPos;
@@ -99,6 +104,7 @@ public class VennGUI {
 		ImageIcon icon = new ImageIcon(getClass().getResource("AppIcon.png"));
 		frame.setIconImage(icon.getImage());
 		frame.setLocation(screenWidth / 2 - frame.getWidth() / 2, screenHeight / 2 - frame.getHeight() / 2);
+		
 		//frame.setLocationRelativeTo(frame.getParent());
 		setterLabel.setText(" ");
 		JPanel Toolbar = new JPanel();
@@ -141,118 +147,119 @@ public class VennGUI {
 		frame.getContentPane().add(panelA);
 		panelA.setLayout(null);
 
-		LabelHolders labelHolders = new LabelHolders(setterLabel);
-		labelHolders.setBounds(75, 57, 211, 41);
-		panelA.add(labelHolders);
+		LabelHolders lh1 = new LabelHolders(setterLabel);
+		lh1.setBounds(75, 57, 211, 41);
+		panelA.add(lh1);
 
-		LabelHolders labelHolders_1 = new LabelHolders(setterLabel);
-		labelHolders_1.setBounds(36, 100, 226, 41);
-		panelA.add(labelHolders_1);
+		LabelHolders lh2 = new LabelHolders(setterLabel);
+		lh2.setBounds(36, 100, 226, 41);
+		panelA.add(lh2);
 
-		LabelHolders labelHolders_2 = new LabelHolders(setterLabel);
-		labelHolders_2.setBounds(10, 143, 238, 41);
-		panelA.add(labelHolders_2);
+		LabelHolders lh3 = new LabelHolders(setterLabel);
+		lh3.setBounds(10, 143, 238, 41);
+		panelA.add(lh3);
 
-		LabelHolders labelHolders_3 = new LabelHolders(setterLabel);
-		labelHolders_3.setBounds(16, 272, 226, 41);
-		panelA.add(labelHolders_3);
+		LabelHolders lh4 = new LabelHolders(setterLabel);
+		lh4.setBounds(16, 272, 226, 41);
+		panelA.add(lh4);
 
-		LabelHolders labelHolders_4 = new LabelHolders(setterLabel);
-		labelHolders_4.setBounds(2, 229, 238, 41);
-		panelA.add(labelHolders_4);
+		LabelHolders lh5 = new LabelHolders(setterLabel);
+		lh5.setBounds(2, 229, 238, 41);
+		panelA.add(lh5);
 
-		LabelHolders labelHolders_5 = new LabelHolders(setterLabel);
-		labelHolders_5.setBounds(3, 186, 234, 41);
-		panelA.add(labelHolders_5);
+		LabelHolders lh6 = new LabelHolders(setterLabel);
+		lh6.setBounds(3, 186, 234, 41);
+		panelA.add(lh6);
 
-		LabelHolders labelHolders_6 = new LabelHolders(setterLabel);
-		labelHolders_6.setBounds(33, 315, 217, 41);
-		panelA.add(labelHolders_6);
+		LabelHolders lh7 = new LabelHolders(setterLabel);
+		lh7.setBounds(33, 315, 217, 41);
+		panelA.add(lh7);
 
-		LabelHolders labelHolders_7 = new LabelHolders(setterLabel);
-		labelHolders_7.setBounds(69, 358, 221, 41);
-		panelA.add(labelHolders_7);
+		LabelHolders lh8 = new LabelHolders(setterLabel);
+		lh8.setBounds(69, 358, 221, 41);
+		panelA.add(lh8);
 
-		LabelHolders labelHolders_8 = new LabelHolders(setterLabel);
-		labelHolders_8.setBounds(131, 401, 191, 41);
-		panelA.add(labelHolders_8);
+		LabelHolders lh9 = new LabelHolders(setterLabel);
+		lh9.setBounds(131, 401, 191, 41);
+		panelA.add(lh9);
 
-		LabelHolders labelHolders_19 = new LabelHolders(setterLabel);
-		labelHolders_19.setBounds(290, 67, 111, 41);
-		panelA.add(labelHolders_19);
+		LabelHolders lh10 = new LabelHolders(setterLabel);
+		lh10.setBounds(290, 67, 111, 41);
+		panelA.add(lh10);
 
-		LabelHolders labelHolders_20 = new LabelHolders(setterLabel);
-		labelHolders_20.setBounds(264, 111, 161, 41);
-		panelA.add(labelHolders_20);
+		LabelHolders lh11 = new LabelHolders(setterLabel);
+		lh11.setBounds(264, 111, 161, 41);
+		panelA.add(lh11);
 
-		LabelHolders labelHolders_21 = new LabelHolders(setterLabel);
-		labelHolders_21.setBounds(250, 154, 198, 41);
-		panelA.add(labelHolders_21);
+		LabelHolders lh12 = new LabelHolders(setterLabel);
+		lh12.setBounds(250, 154, 198, 41);
+		panelA.add(lh12);
 
-		LabelHolders labelHolders_22 = new LabelHolders(setterLabel);
-		labelHolders_22.setBounds(241, 197, 211, 41);
-		panelA.add(labelHolders_22);
+		LabelHolders lh13 = new LabelHolders(setterLabel);
+		lh13.setBounds(241, 197, 211, 41);
+		panelA.add(lh13);
 
-		LabelHolders labelHolders_23 = new LabelHolders(setterLabel);
-		labelHolders_23.setBounds(244, 241, 205, 41);
-		panelA.add(labelHolders_23);
+		LabelHolders lh14 = new LabelHolders(setterLabel);
+		lh14.setBounds(244, 241, 205, 41);
+		panelA.add(lh14);
 
-		LabelHolders labelHolders_24 = new LabelHolders(setterLabel);
-		labelHolders_24.setBounds(248, 284, 202, 41);
-		panelA.add(labelHolders_24);
+		LabelHolders lh15 = new LabelHolders(setterLabel);
+		lh15.setBounds(248, 284, 202, 41);
+		panelA.add(lh15);
 
-		LabelHolders labelHolders_25 = new LabelHolders(setterLabel);
-		labelHolders_25.setBounds(288, 345, 114, 44);
-		panelA.add(labelHolders_25);
+		LabelHolders lh16 = new LabelHolders(setterLabel);
+		lh16.setBounds(288, 345, 114, 44);
+		panelA.add(lh16);
 
-		LabelHolders textArea = new LabelHolders(setterLabel);
-		textArea.setBounds(112, 19, 206, 35);
-		panelA.add(textArea);
+		LabelHolders lh17 = new LabelHolders(setterLabel);
+		lh17.setBounds(112, 19, 206, 35);
+		panelA.add(lh17);
 
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
 		panelB.setBounds(517, 105, 455, 455);
 		frame.getContentPane().add(panelB);
 		panelB.setLayout(null);
 
-		LabelHolders labelHolders_9 = new LabelHolders(setterLabel);
-		labelHolders_9.setBounds(136, 15, 192, 40);
-		panelB.add(labelHolders_9);
+		LabelHolders lh18 = new LabelHolders(setterLabel);
+		lh18.setBounds(136, 15, 192, 40);
+		panelB.add(lh18);
 
-		LabelHolders labelHolders_10 = new LabelHolders(setterLabel);
-		labelHolders_10.setBounds(176, 57, 204, 40);
-		panelB.add(labelHolders_10);
+		LabelHolders lh19 = new LabelHolders(setterLabel);
+		lh19.setBounds(176, 57, 204, 40);
+		panelB.add(lh19);
 
-		LabelHolders labelHolders_11 = new LabelHolders(setterLabel);
-		labelHolders_11.setBounds(200, 99, 219, 41);
-		panelB.add(labelHolders_11);
+		LabelHolders lh20 = new LabelHolders(setterLabel);
+		lh20.setBounds(200, 99, 219, 41);
+		panelB.add(lh20);
 
-		LabelHolders labelHolders_12 = new LabelHolders(setterLabel);
-		labelHolders_12.setBounds(217, 142, 230, 41);
-		panelB.add(labelHolders_12);
+		LabelHolders lh21 = new LabelHolders(setterLabel);
+		lh21.setBounds(217, 142, 230, 41);
+		panelB.add(lh21);
 
-		LabelHolders labelHolders_13 = new LabelHolders(setterLabel);
-		labelHolders_13.setBounds(219, 185, 232, 41);
-		panelB.add(labelHolders_13);
+		LabelHolders lh22 = new LabelHolders(setterLabel);
+		lh22.setBounds(219, 185, 232, 41);
+		panelB.add(lh22);
 
-		LabelHolders labelHolders_14 = new LabelHolders(setterLabel);
-		labelHolders_14.setBounds(216, 228, 236, 41);
-		panelB.add(labelHolders_14);
+		LabelHolders lh23 = new LabelHolders(setterLabel);
+		lh23.setBounds(216, 228, 236, 41);
+		panelB.add(lh23);
 
-		LabelHolders labelHolders_15 = new LabelHolders(setterLabel);
-		labelHolders_15.setBounds(216, 271, 229, 41);
-		panelB.add(labelHolders_15);
+		LabelHolders lh24 = new LabelHolders(setterLabel);
+		lh24.setBounds(216, 271, 229, 41);
+		panelB.add(lh24);
 
-		LabelHolders labelHolders_16 = new LabelHolders(setterLabel);
-		labelHolders_16.setBounds(206, 315, 215, 41);
-		panelB.add(labelHolders_16);
+		LabelHolders lh25 = new LabelHolders(setterLabel);
+		lh25.setBounds(206, 315, 215, 41);
+		panelB.add(lh25);
 
-		LabelHolders labelHolders_17 = new LabelHolders(setterLabel);
-		labelHolders_17.setBounds(177, 359, 209, 41);
-		panelB.add(labelHolders_17);
+		LabelHolders lh26 = new LabelHolders(setterLabel);
+		lh26.setBounds(177, 359, 209, 41);
+		panelB.add(lh26);
 
-		LabelHolders labelHolders_18 = new LabelHolders(setterLabel);
-		labelHolders_18.setBounds(140, 405, 199, 41);
-		panelB.add(labelHolders_18);
+		LabelHolders lh27 = new LabelHolders(setterLabel);
+		lh27.setBounds(140, 405, 199, 41);
+		panelB.add(lh27);
+		
 		JPanel layoutPanel = new JPanel();
 		layoutPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		layoutPanel.setBounds(10, 228, 246, 285);
@@ -571,6 +578,23 @@ public class VennGUI {
 				}
 			}
 
+		});
+	}
+	private static void addPopup(Component component, final JPopupMenu popup) {
+		component.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			public void mouseReleased(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			private void showMenu(MouseEvent e) {
+				popup.show(e.getComponent(), e.getX(), e.getY());
+			}
 		});
 	}
 }
