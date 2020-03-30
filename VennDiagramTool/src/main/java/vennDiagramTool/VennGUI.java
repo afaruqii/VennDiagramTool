@@ -61,6 +61,8 @@ public class VennGUI {
 	JLabel setterLabel = new JLabel();
 	public static JLabel switchA = new JLabel();
 	public static boolean mClicked = false;
+	public LabelHolders[] arr = new LabelHolders[30];
+	
 
 	/**
 	 * Launch the application.
@@ -149,46 +151,57 @@ public class VennGUI {
 
 		LabelHolders lh1 = new LabelHolders(setterLabel);
 		lh1.setBounds(75, 57, 211, 41);
+		arr[0]=lh1;
 		panelA.add(lh1);
 
 		LabelHolders lh2 = new LabelHolders(setterLabel);
 		lh2.setBounds(36, 100, 226, 41);
+		arr[1]=lh2;
 		panelA.add(lh2);
 
 		LabelHolders lh3 = new LabelHolders(setterLabel);
 		lh3.setBounds(10, 143, 238, 41);
+		arr[2]=lh3;
 		panelA.add(lh3);
 
 		LabelHolders lh4 = new LabelHolders(setterLabel);
 		lh4.setBounds(16, 272, 226, 41);
+		arr[3]=lh4;
 		panelA.add(lh4);
 
 		LabelHolders lh5 = new LabelHolders(setterLabel);
 		lh5.setBounds(2, 229, 238, 41);
+		arr[4]=lh5;
 		panelA.add(lh5);
 
 		LabelHolders lh6 = new LabelHolders(setterLabel);
 		lh6.setBounds(3, 186, 234, 41);
+		arr[5]=lh6;
 		panelA.add(lh6);
 
 		LabelHolders lh7 = new LabelHolders(setterLabel);
 		lh7.setBounds(33, 315, 217, 41);
+		arr[6]=lh7;
 		panelA.add(lh7);
 
 		LabelHolders lh8 = new LabelHolders(setterLabel);
 		lh8.setBounds(69, 358, 221, 41);
+		arr[7]=lh8;
 		panelA.add(lh8);
 
 		LabelHolders lh9 = new LabelHolders(setterLabel);
 		lh9.setBounds(131, 401, 191, 41);
+		arr[8]=lh9;
 		panelA.add(lh9);
 
 		LabelHolders lh10 = new LabelHolders(setterLabel);
 		lh10.setBounds(290, 67, 111, 41);
+		arr[9]=lh10;
 		panelA.add(lh10);
 
 		LabelHolders lh11 = new LabelHolders(setterLabel);
 		lh11.setBounds(264, 111, 161, 41);
+		arr[10]=lh11;
 		panelA.add(lh11);
 
 		LabelHolders lh12 = new LabelHolders(setterLabel);
@@ -542,6 +555,17 @@ public class VennGUI {
 		checkBox.setBounds(10, 70, 190, 70);
 		
 		frame.getContentPane().add(checkBox);
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				for(int i = 1; i < 10; i++) {
+					
+				}
+			}
+		});
+		btnNewButton_1.setBounds(10, 134, 89, 23);
+		frame.getContentPane().add(btnNewButton_1);
 
 		ElementColor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
