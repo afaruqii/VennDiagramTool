@@ -40,3 +40,8 @@ Drag Labels now support drag and drop!
 2020-03-27 Ahmad Faruqi
 - Added a Design Studio Enabler which lets you "Declutter" 
 - cut/paste added!
+
+2020-03-30 Ahmad Faruqi
+- Text Parser being implemented
+- Utility Text Parse Class
+

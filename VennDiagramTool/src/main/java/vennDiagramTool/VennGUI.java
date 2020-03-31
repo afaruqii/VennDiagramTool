@@ -206,26 +206,32 @@ public class VennGUI {
 
 		LabelHolders lh12 = new LabelHolders(setterLabel);
 		lh12.setBounds(250, 154, 198, 41);
+		arr[11]=lh12;
 		panelA.add(lh12);
 
 		LabelHolders lh13 = new LabelHolders(setterLabel);
 		lh13.setBounds(241, 197, 211, 41);
+		arr[12]=lh13;
 		panelA.add(lh13);
 
 		LabelHolders lh14 = new LabelHolders(setterLabel);
 		lh14.setBounds(244, 241, 205, 41);
+		arr[13]=lh14;
 		panelA.add(lh14);
 
 		LabelHolders lh15 = new LabelHolders(setterLabel);
 		lh15.setBounds(248, 284, 202, 41);
+		arr[14]=lh15;
 		panelA.add(lh15);
 
 		LabelHolders lh16 = new LabelHolders(setterLabel);
-		lh16.setBounds(288, 345, 114, 44);
+		lh16.setBounds(295, 329, 104, 60);
+		arr[15]=lh16;
 		panelA.add(lh16);
 
 		LabelHolders lh17 = new LabelHolders(setterLabel);
-		lh17.setBounds(112, 19, 206, 35);
+		lh17.setBounds(120, 19, 198, 35);
+		arr[16]=lh17;
 		panelA.add(lh17);
 
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
@@ -235,42 +241,52 @@ public class VennGUI {
 
 		LabelHolders lh18 = new LabelHolders(setterLabel);
 		lh18.setBounds(136, 15, 192, 40);
+		arr[17]=lh18;
 		panelB.add(lh18);
 
 		LabelHolders lh19 = new LabelHolders(setterLabel);
 		lh19.setBounds(176, 57, 204, 40);
+		arr[18]=lh19;
 		panelB.add(lh19);
 
 		LabelHolders lh20 = new LabelHolders(setterLabel);
 		lh20.setBounds(200, 99, 219, 41);
+		arr[19]=lh20;
 		panelB.add(lh20);
 
 		LabelHolders lh21 = new LabelHolders(setterLabel);
 		lh21.setBounds(217, 142, 230, 41);
+		arr[20]=lh21;
 		panelB.add(lh21);
 
 		LabelHolders lh22 = new LabelHolders(setterLabel);
 		lh22.setBounds(219, 185, 232, 41);
+		arr[21]=lh22;
 		panelB.add(lh22);
 
 		LabelHolders lh23 = new LabelHolders(setterLabel);
 		lh23.setBounds(216, 228, 236, 41);
+		arr[22]=lh23;
 		panelB.add(lh23);
 
 		LabelHolders lh24 = new LabelHolders(setterLabel);
 		lh24.setBounds(216, 271, 229, 41);
+		arr[23]=lh24;
 		panelB.add(lh24);
 
 		LabelHolders lh25 = new LabelHolders(setterLabel);
 		lh25.setBounds(206, 315, 215, 41);
+		arr[24]=lh25;
 		panelB.add(lh25);
 
 		LabelHolders lh26 = new LabelHolders(setterLabel);
 		lh26.setBounds(177, 359, 209, 41);
+		arr[25]=lh26;
 		panelB.add(lh26);
 
 		LabelHolders lh27 = new LabelHolders(setterLabel);
 		lh27.setBounds(140, 405, 199, 41);
+		arr[26]=lh27;
 		panelB.add(lh27);
 		
 		JPanel layoutPanel = new JPanel();
@@ -556,15 +572,16 @@ public class VennGUI {
 		
 		frame.getContentPane().add(checkBox);
 		
-		JButton btnNewButton_1 = new JButton("New button");
+		JButton btnNewButton_1 = new JButton("FILL VENN ONLY FOR DEBUG PURPOSES");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for(int i = 1; i < 10; i++) {
+				for(int i = 0; i < 27; i++) {
+					arr[i].setText("THIS IS A SIMPLE FILL TEXT TESTER");
 					
 				}
 			}
 		});
-		btnNewButton_1.setBounds(10, 134, 89, 23);
+		btnNewButton_1.setBounds(10, 134, 246, 23);
 		frame.getContentPane().add(btnNewButton_1);
 
 		ElementColor.addActionListener(new ActionListener() {
