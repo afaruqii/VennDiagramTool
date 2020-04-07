@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.io.Serializable;
 
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
@@ -12,7 +13,7 @@ import javax.swing.border.LineBorder;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class LabelHolders extends JTextArea {
+public class LabelHolders extends JTextArea implements Serializable {
 	private JLabel Target = new JLabel();
 public static boolean labelExists = false;
 

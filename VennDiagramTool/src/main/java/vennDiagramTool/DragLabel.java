@@ -14,9 +14,11 @@ import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.io.Serializable;
+
 import vennDiagramTool.LabelHolders;
 
-public class DragLabel extends JLabel {
+public class DragLabel extends JLabel implements Serializable {
 	Point startingPoint;
 	JLabel Target;
 

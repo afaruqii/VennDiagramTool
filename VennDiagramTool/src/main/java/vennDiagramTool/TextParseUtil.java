@@ -1,9 +1,16 @@
 package vennDiagramTool;
 
-public class TextParseUtil {
-	public TextParseUtil() {
-		//empty by default
-	}
+
+
+public final class TextParseUtil {
+private TextParseUtil() {
+//empty by design...
+}
+
+public static String exportMe(Object obj) {
+System.out.println(obj.getClass().toString());
+	return obj.getClass().toString();
 	
+}
 
 }
