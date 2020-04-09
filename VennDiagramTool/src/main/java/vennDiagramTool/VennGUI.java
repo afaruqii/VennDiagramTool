@@ -14,8 +14,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.border.EtchedBorder;
 
-
-
 import javax.swing.JTextArea;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
@@ -55,7 +53,7 @@ public class VennGUI {
 	JLabel setterLabel = new JLabel();
 	public static JLabel switchA = new JLabel();
 	public static boolean mClicked = false;
-	
+
 	public static LabelHolders[] lContainer = new LabelHolders[30];
 	public ArrayList<LabelHolders> lcunts = new ArrayList<>();
 
@@ -101,8 +99,8 @@ public class VennGUI {
 		ImageIcon icon = new ImageIcon(getClass().getResource("AppIcon.png"));
 		frame.setIconImage(icon.getImage());
 		frame.setLocation(screenWidth / 2 - frame.getWidth() / 2, screenHeight / 2 - frame.getHeight() / 2);
-		
-		//frame.setLocationRelativeTo(frame.getParent());
+
+		// frame.setLocationRelativeTo(frame.getParent());
 		setterLabel.setText(" ");
 		JPanel Toolbar = new JPanel();
 		Toolbar.setBackground(SystemColor.menu);
@@ -146,88 +144,88 @@ public class VennGUI {
 
 		LabelHolders lh1 = new LabelHolders(setterLabel);
 		lh1.setBounds(75, 57, 211, 41);
-		lContainer[0]=lh1;
+		lContainer[0] = lh1;
 		panelA.add(lh1);
 
 		LabelHolders lh2 = new LabelHolders(setterLabel);
 		lh2.setBounds(36, 100, 226, 41);
-		lContainer[1]=lh2;
+		lContainer[1] = lh2;
 		panelA.add(lh2);
 
 		LabelHolders lh3 = new LabelHolders(setterLabel);
 		lh3.setBounds(10, 143, 238, 41);
-		lContainer[2]=lh3;
+		lContainer[2] = lh3;
 		panelA.add(lh3);
 
 		LabelHolders lh4 = new LabelHolders(setterLabel);
 		lh4.setBounds(16, 272, 226, 41);
-		lContainer[3]=lh4;
+		lContainer[3] = lh4;
 		panelA.add(lh4);
 
 		LabelHolders lh5 = new LabelHolders(setterLabel);
 		lh5.setBounds(2, 229, 238, 41);
-		lContainer[4]=lh5;
+		lContainer[4] = lh5;
 		panelA.add(lh5);
 
 		LabelHolders lh6 = new LabelHolders(setterLabel);
 		lh6.setBounds(3, 186, 234, 41);
-		lContainer[5]=lh6;
+		lContainer[5] = lh6;
 		panelA.add(lh6);
 
 		LabelHolders lh7 = new LabelHolders(setterLabel);
 		lh7.setBounds(33, 315, 217, 41);
-		lContainer[6]=lh7;
+		lContainer[6] = lh7;
 		lcunts.add(lh7);
 		panelA.add(lh7);
 
 		LabelHolders lh8 = new LabelHolders(setterLabel);
 		lh8.setBounds(69, 358, 221, 41);
-		lContainer[7]=lh8;
+		lContainer[7] = lh8;
 		panelA.add(lh8);
 
 		LabelHolders lh9 = new LabelHolders(setterLabel);
 		lh9.setBounds(131, 401, 191, 41);
-		lContainer[8]=lh9;
+		lContainer[8] = lh9;
 		panelA.add(lh9);
 
 		LabelHolders lh10 = new LabelHolders(setterLabel);
 		lh10.setBounds(290, 67, 111, 41);
-		lContainer[9]=lh10;
+		lContainer[9] = lh10;
 		panelA.add(lh10);
 
 		LabelHolders lh11 = new LabelHolders(setterLabel);
 		lh11.setBounds(264, 111, 161, 41);
-		lContainer[10]=lh11;
+		lContainer[10] = lh11;
 		panelA.add(lh11);
 
 		LabelHolders lh12 = new LabelHolders(setterLabel);
 		lh12.setBounds(250, 154, 198, 41);
-		lContainer[11]=lh12;
+		lContainer[11] = lh12;
 		panelA.add(lh12);
 
 		LabelHolders lh13 = new LabelHolders(setterLabel);
 		lh13.setBounds(241, 197, 211, 41);
-		lContainer[12]=lh13;
+		lContainer[12] = lh13;
 		panelA.add(lh13);
 
 		LabelHolders lh14 = new LabelHolders(setterLabel);
 		lh14.setBounds(244, 241, 205, 41);
-		lContainer[13]=lh14;
+		lContainer[13] = lh14;
 		panelA.add(lh14);
 
 		LabelHolders lh15 = new LabelHolders(setterLabel);
 		lh15.setBounds(248, 284, 202, 41);
-		lContainer[14]=lh15;
+		lContainer[14] = lh15;
 		panelA.add(lh15);
 
 		LabelHolders lh16 = new LabelHolders(setterLabel);
 		lh16.setBounds(295, 329, 104, 60);
-		lContainer[15]=lh16;
+		lContainer[15] = lh16;
 		panelA.add(lh16);
 
 		LabelHolders lh17 = new LabelHolders(setterLabel);
 		lh17.setBounds(120, 19, 198, 35);
-		lContainer[16]=lh17;
+		lContainer[16] = lh17;
 		panelA.add(lh17);
 
 		RoundedPanel panelB = new RoundedPanel(1200, transGrey);
@@ -237,54 +235,54 @@ public class VennGUI {
 
 		LabelHolders lh18 = new LabelHolders(setterLabel);
 		lh18.setBounds(136, 15, 192, 40);
-		lContainer[17]=lh18;
+		lContainer[17] = lh18;
 		panelB.add(lh18);
 
 		LabelHolders lh19 = new LabelHolders(setterLabel);
 		lh19.setBounds(176, 57, 204, 40);
-		lContainer[18]=lh19;
+		lContainer[18] = lh19;
 		panelB.add(lh19);
 
 		LabelHolders lh20 = new LabelHolders(setterLabel);
 		lh20.setBounds(200, 99, 219, 41);
-		lContainer[19]=lh20;
+		lContainer[19] = lh20;
 		panelB.add(lh20);
 
 		LabelHolders lh21 = new LabelHolders(setterLabel);
 		lh21.setBounds(217, 142, 230, 41);
-		lContainer[20]=lh21;
+		lContainer[20] = lh21;
 		panelB.add(lh21);
 
 		LabelHolders lh22 = new LabelHolders(setterLabel);
 		lh22.setBounds(219, 185, 232, 41);
-		lContainer[21]=lh22;
+		lContainer[21] = lh22;
 		panelB.add(lh22);
 
 		LabelHolders lh23 = new LabelHolders(setterLabel);
 		lh23.setBounds(216, 228, 236, 41);
-		lContainer[22]=lh23;
+		lContainer[22] = lh23;
 		panelB.add(lh23);
 
 		LabelHolders lh24 = new LabelHolders(setterLabel);
 		lh24.setBounds(216, 271, 229, 41);
-		lContainer[23]=lh24;
+		lContainer[23] = lh24;
 		panelB.add(lh24);
 
 		LabelHolders lh25 = new LabelHolders(setterLabel);
 		lh25.setBounds(206, 315, 215, 41);
-		lContainer[24]=lh25;
+		lContainer[24] = lh25;
 		panelB.add(lh25);
 
 		LabelHolders lh26 = new LabelHolders(setterLabel);
 		lh26.setBounds(177, 359, 209, 41);
-		lContainer[25]=lh26;
+		lContainer[25] = lh26;
 		panelB.add(lh26);
 
 		LabelHolders lh27 = new LabelHolders(setterLabel);
 		lh27.setBounds(140, 405, 199, 41);
-		lContainer[26]=lh27;
+		lContainer[26] = lh27;
 		panelB.add(lh27);
-		
+
 		JPanel layoutPanel = new JPanel();
 		layoutPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		layoutPanel.setBounds(10, 228, 246, 285);
@@ -319,7 +317,6 @@ public class VennGUI {
 		frame.getContentPane().add(bubbleOne);
 		bubbleOne.setText("Bubble 1");
 		bubbleOne.setToolTipText("click to give bubble A a title");
-		
 
 		bubbleTwo = new JTextField();
 		bubbleTwo.addKeyListener(new KeyAdapter() {
@@ -343,7 +340,6 @@ public class VennGUI {
 		draggy.setBounds(1031, 120, 198, 104);
 		draggy.setText("Your elements will appear here");
 		draggy.setToolTipText("Click, Hold and Drag into your diagram");
-		
 
 		frame.getContentPane().add(draggy);
 		draggy.setVisible(false);
@@ -490,18 +486,20 @@ public class VennGUI {
 				}
 			}
 		});
-		//XMLEncoder x;//-=======================================================================================================================
-	//	try {
-		//	x = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("C:/Users/Ahmad Faruqi/Desktop/HOEs/bitches.xml")));
-			
-			//System.out.println("just debugging!");
-			
-		//}// catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			//e1.printStackTrace();
-			
-	//	}
-		//=====================================================================================================================================
+		// XMLEncoder
+		// x;//-=======================================================================================================================
+		// try {
+		// x = new XMLEncoder(new BufferedOutputStream(new
+		// FileOutputStream("C:/Users/Ahmad Faruqi/Desktop/HOEs/bitches.xml")));
+
+		// System.out.println("just debugging!");
+
+		// }// catch (FileNotFoundException e1) {
+		// TODO Auto-generated catch block
+		// e1.printStackTrace();
+
+		// }
+		// =====================================================================================================================================
 		JLabel bubbleB = new JLabel("Bubble B Color");
 		bubbleB.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		bubbleB.setBounds(10, 177, 81, 14);
@@ -543,13 +541,13 @@ public class VennGUI {
 		ElementColor.addItem("Blue");
 		ElementColor.addItem("Purple");
 		ElementColor.addItem("Pink");
-		
+
 		JCheckBox checkBox = new JCheckBox("Enable Design Studio");
 		checkBox.setSelected(true);
 		checkBox.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(!checkBox.isSelected()) {
+				if (!checkBox.isSelected()) {
 					layoutEditor.setVisible(false);
 					layoutPanel.setVisible(false);
 					elementCreator.setVisible(false);
@@ -557,97 +555,102 @@ public class VennGUI {
 					bubbleOne.setEditable(false);
 					bubbleTwo.setEditable(false);
 					titleVenn.setEditable(false);
-				}
-				else {
+				} else {
 					layoutEditor.setVisible(true);
 					layoutPanel.setVisible(true);
 					elementCreator.setVisible(true);
 					editPanel.setVisible(true);
 					bubbleOne.setEditable(true);
 					bubbleTwo.setEditable(true);
-		
-		JButton btnNewButton_2 = new JButton("New button");
-		btnNewButton_2.setBounds(10, 523, 85, 21);
-		frame.getContentPane().add(btnNewButton_2);
-		
-		JButton button = new JButton("New button");
-		button.setBounds(115, 523, 85, 21);
-		frame.getContentPane().add(button);
+
+					JButton btnNewButton_2 = new JButton("New button");
+					btnNewButton_2.setBounds(10, 523, 85, 21);
+					frame.getContentPane().add(btnNewButton_2);
+
+					JButton button = new JButton("New button");
+					button.setBounds(115, 523, 85, 21);
+					frame.getContentPane().add(button);
 					titleVenn.setEditable(true);
 					bubbleOne.setHighlighter(null);
 					bubbleTwo.setHighlighter(null);
 					titleVenn.setHighlighter(null);
-					
-					
+
 				}
 			}
 		});
 		checkBox.setSelected(true);
 		checkBox.setBounds(10, 80, 190, 37);
-		
+
 		frame.getContentPane().add(checkBox);
-		
+
 		JButton btnNewButton_1 = new JButton("FILL VENN ONLY FOR DEBUG PURPOSES");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for(int i = 0; i < 27; i++) {
+				for (int i = 0; i < 27; i++) {
 					lContainer[i].setText("THIS IS A SIMPLE FILL TEXT TESTER");
-					
+
 				}
 			}
 		});
-		
+
 		btnNewButton_1.setBounds(10, 134, 246, 23);
 		frame.getContentPane().add(btnNewButton_1);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(2, 2, 107, 22);
 		frame.getContentPane().add(menuBar);
-		
+
 		JMenu fileM = new JMenu("File");
 		JMenuItem oF = new JMenuItem("Open File");
 		oF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fs = new JFileChooser(new File("C:\\"));
-				fs.setDialogTitle("Save Venn Diagram");
+				fs.setDialogTitle("Open Venn Diagram");
 				fs.showSaveDialog(null);
-				
+
 			}
 		});
 		JMenuItem sF = new JMenuItem("Save");
-		
+		sF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fs = new JFileChooser(new File("C:\\"));
+				fs.setDialogTitle("Save Venn Diagram");
+				fs.showSaveDialog(null);
+
+			}
+		});
+
 		JMenuItem eF = new JMenuItem("Exit");
-		JMenuItem rF = new JMenuItem("Restart");
-		
-		
-		
-		
+		eF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+
+			}
+		});
 		fileM.add(oF);
 		fileM.add(sF);
 		fileM.add(eF);
-		fileM.add(rF);
 		menuBar.add(fileM);
-		
+
 		JMenu helpM = new JMenu("Help");
 		helpM.add("About");
 		helpM.add("Getting started");
 		helpM.add("Github Repo");
-		
-	
+
 		JMenu editM = new JMenu("Edit");
 		JMenuItem cl = new JMenuItem("Clear All");
 		cl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for(int i = 0; i<27; i++) {
+				for (int i = 0; i < 27; i++) {
 					lContainer[i].setText("");
 				}
 			}
 		});
 		editM.add(cl);
-		
+
 		menuBar.add(editM);
 		menuBar.add(helpM);
-		
+
 		ElementColor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String msg = (String) ElementColor.getSelectedItem();
@@ -685,6 +688,7 @@ public class VennGUI {
 
 		});
 	}
+
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
@@ -692,19 +696,17 @@ public class VennGUI {
 					showMenu(e);
 				}
 			}
+
 			public void mouseReleased(MouseEvent e) {
 				if (e.isPopupTrigger()) {
 					showMenu(e);
 				}
 			}
+
 			private void showMenu(MouseEvent e) {
 				popup.show(e.getComponent(), e.getX(), e.getY());
 			}
 		});
-		
-	
-	
-	
-	
-}
+
+	}
 }
