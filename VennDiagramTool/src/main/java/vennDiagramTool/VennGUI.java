@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -34,6 +35,8 @@ import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JCheckBox;
@@ -42,8 +45,15 @@ import java.awt.Component;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
+
 import javax.swing.JFileChooser;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
+import javax.swing.UIManager;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class VennGUI {
 	int xPos, yPos;
@@ -79,6 +89,7 @@ public class VennGUI {
 	 */
 	public VennGUI() {
 		initialize();
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 	}
 
 	/**
@@ -92,6 +103,17 @@ public class VennGUI {
 		int screenHeight = screenSize.height;
 
 		frame = new JFrame();
+
+		frame.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				int n = JOptionPane.showConfirmDialog(null, "All unsaved work will be deleted. Exit?",
+						"Venn Diagram Tool", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				if (n == JOptionPane.YES_OPTION) {
+					e.getWindow().dispose();
+				}
+			}
+		});
 		frame.getContentPane().setBackground(SystemColor.menu);
 		frame.setBounds(31, -37, 1300, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -320,7 +342,7 @@ public class VennGUI {
 		bubbleOne.setColumns(10);
 		bubbleOne.setBorder(null);
 		bubbleOne.setBackground(SystemColor.menu);
-		bubbleOne.setBounds(385, 66, 223, 35);
+		bubbleOne.setBounds(354, 66, 270, 35);
 		frame.getContentPane().add(bubbleOne);
 		bubbleOne.setText("Bubble 1");
 		bubbleOne.setToolTipText("click to give bubble A a title");
@@ -338,13 +360,13 @@ public class VennGUI {
 		bubbleTwo.setColumns(10);
 		bubbleTwo.setBorder(null);
 		bubbleTwo.setBackground(SystemColor.menu);
-		bubbleTwo.setBounds(635, 66, 237, 38);
+		bubbleTwo.setBounds(635, 66, 273, 38);
 		frame.getContentPane().add(bubbleTwo);
 		bubbleTwo.setText("Bubble 2");
 		bubbleTwo.setToolTipText("click to give Bubble B a title");
 
 		DragLabel draggy = new DragLabel(setterLabel);
-		draggy.setBounds(1031, 120, 198, 104);
+		draggy.setBounds(1048, 130, 198, 104);
 		draggy.setText("Your elements will appear here");
 		draggy.setToolTipText("Click, Hold and Drag into your diagram");
 
@@ -594,7 +616,7 @@ public class VennGUI {
 		JMenuItem oF = new JMenuItem("Open File");
 		oF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFileChooser fs = new JFileChooser(new File("C:\\"));
+				JFileChooser fs = new JFileChooser(new File(System.getProperty("user.home")));
 				fs.setDialogTitle("Open Venn Diagram");
 				fs.showSaveDialog(null);
 				File openF;
@@ -606,16 +628,16 @@ public class VennGUI {
 					for (int i = 0; i < 30; i++) {
 						lContainer[i].setText(l[i].getText());
 						lContainer[i].setFont(l[i].getFont());
-						
+
 					}
 					titleVenn.setText(l[27].getText());
 					titleVenn.setFont(l[27].getFont());
-					bubbleA.setText(l[28].getText());
-					bubbleA.setFont(l[28].getFont());
+					bubbleOne.setText(l[28].getText());
+					bubbleOne.setFont(l[28].getFont());
 					panelA.setPanelColor(l[28].getForeground());
 					panelA.repaint();
-					bubbleB.setText(l[29].getText());
-					bubbleB.setFont(l[29].getFont());
+					bubbleTwo.setText(l[29].getText());
+					bubbleTwo.setFont(l[29].getFont());
 					panelB.repaint();
 					panelB.setPanelColor(l[29].getForeground());
 
@@ -632,14 +654,14 @@ public class VennGUI {
 			public void actionPerformed(ActionEvent e) {
 				lContainer[27].setText(titleVenn.getText());
 				lContainer[27].setFont(titleVenn.getFont());
-				lContainer[28].setText(bubbleA.getText());
-				lContainer[28].setFont(bubbleA.getFont());
+				lContainer[28].setText(bubbleOne.getText());
+				lContainer[28].setFont(bubbleOne.getFont());
 				lContainer[28].setForeground(panelA.getBackgroundColor());
-				lContainer[29].setText(bubbleB.getText());
-				lContainer[29].setFont(bubbleB.getFont());
+				lContainer[29].setText(bubbleTwo.getText());
+				lContainer[29].setFont(bubbleTwo.getFont());
 				lContainer[29].setForeground(panelB.getBackgroundColor());
 
-				JFileChooser fs = new JFileChooser(new File("C:\\"));
+				JFileChooser fs = new JFileChooser(new File(System.getProperty("user.home")));
 				fs.setDialogTitle("Save Venn Diagram");
 				fs.showSaveDialog(null);
 				File saveF;
@@ -660,7 +682,11 @@ public class VennGUI {
 		JMenuItem eF = new JMenuItem("Exit");
 		eF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				int n = JOptionPane.showConfirmDialog(null, "All unsaved work will be deleted. Exit?",
+						"Venn Diagram Tool", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				if (n == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
 
 			}
 		});
@@ -669,12 +695,18 @@ public class VennGUI {
 
 		fileM.add(oF);
 		fileM.add(sF);
-		fileM.add(eF);
 		fileM.add(rF);
+		fileM.add(eF);
+
 		menuBar.add(fileM);
 
 		JMenu helpM = new JMenu("Help");
 		JMenuItem abt = new JMenuItem("About");
+		abt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "A simple but Powerful Venn Diagram Tool. Use wisely...", "Venn Diagram Tool",JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 		JMenuItem gs = new JMenuItem("Getting started");
 		JMenuItem gr = new JMenuItem("Github Repo");
 		helpM.add(abt);
