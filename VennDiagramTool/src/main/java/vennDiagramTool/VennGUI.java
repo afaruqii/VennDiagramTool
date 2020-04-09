@@ -1,10 +1,9 @@
 package vennDiagramTool;
 
 import java.awt.EventQueue;
-import vennDiagramTool.TextParseUtil;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.security.auth.callback.TextOutputCallback;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -40,6 +39,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JPopupMenu;
 import java.awt.Component;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.border.LineBorder;
+import javax.swing.JFileChooser;
 
 public class VennGUI {
 	int xPos, yPos;
@@ -103,7 +107,7 @@ public class VennGUI {
 		JPanel Toolbar = new JPanel();
 		Toolbar.setBackground(SystemColor.menu);
 		Toolbar.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		Toolbar.setBounds(10, 11, 1266, 52);
+		Toolbar.setBounds(349, 11, 538, 52);
 		frame.getContentPane().add(Toolbar);
 		Toolbar.setLayout(null);
 
@@ -117,7 +121,7 @@ public class VennGUI {
 		});
 		titleVenn.setFont(new Font("Myriad Pro", Font.PLAIN, 25));
 		titleVenn.setBackground(SystemColor.menu);
-		titleVenn.setBounds(277, 1, 638, 44);
+		titleVenn.setBounds(3, 3, 529, 44);
 		Toolbar.add(titleVenn);
 		titleVenn.setColumns(10);
 		titleVenn.setBorder(null);
@@ -486,17 +490,17 @@ public class VennGUI {
 				}
 			}
 		});
-		XMLEncoder x;//-=======================================================================================================================
-		try {
-			x = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("C:/Users/Ahmad Faruqi/Desktop/HOEs/bitches.xml")));
+		//XMLEncoder x;//-=======================================================================================================================
+	//	try {
+		//	x = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("C:/Users/Ahmad Faruqi/Desktop/HOEs/bitches.xml")));
 			
-			System.out.println("just debugging!");
+			//System.out.println("just debugging!");
 			
-		} catch (FileNotFoundException e1) {
+		//}// catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			//e1.printStackTrace();
 			
-		}
+	//	}
 		//=====================================================================================================================================
 		JLabel bubbleB = new JLabel("Bubble B Color");
 		bubbleB.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
@@ -579,7 +583,7 @@ public class VennGUI {
 			}
 		});
 		checkBox.setSelected(true);
-		checkBox.setBounds(10, 70, 190, 70);
+		checkBox.setBounds(10, 80, 190, 37);
 		
 		frame.getContentPane().add(checkBox);
 		
@@ -595,6 +599,55 @@ public class VennGUI {
 		
 		btnNewButton_1.setBounds(10, 134, 246, 23);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(2, 2, 107, 22);
+		frame.getContentPane().add(menuBar);
+		
+		JMenu fileM = new JMenu("File");
+		JMenuItem oF = new JMenuItem("Open File");
+		oF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fs = new JFileChooser(new File("C:\\"));
+				fs.setDialogTitle("Save Venn Diagram");
+				fs.showSaveDialog(null);
+				
+			}
+		});
+		JMenuItem sF = new JMenuItem("Save");
+		
+		JMenuItem eF = new JMenuItem("Exit");
+		JMenuItem rF = new JMenuItem("Restart");
+		
+		
+		
+		
+		fileM.add(oF);
+		fileM.add(sF);
+		fileM.add(eF);
+		fileM.add(rF);
+		menuBar.add(fileM);
+		
+		JMenu helpM = new JMenu("Help");
+		helpM.add("About");
+		helpM.add("Getting started");
+		helpM.add("Github Repo");
+		
+	
+		JMenu editM = new JMenu("Edit");
+		JMenuItem cl = new JMenuItem("Clear All");
+		cl.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				for(int i = 0; i<27; i++) {
+					lContainer[i].setText("");
+				}
+			}
+		});
+		editM.add(cl);
+		
+		menuBar.add(editM);
+		menuBar.add(helpM);
+		
 		ElementColor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String msg = (String) ElementColor.getSelectedItem();
