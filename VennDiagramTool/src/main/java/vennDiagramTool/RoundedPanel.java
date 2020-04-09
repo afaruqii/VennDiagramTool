@@ -13,7 +13,10 @@ import javax.swing.JPanel;
 class RoundedPanel extends JPanel
 {
     private Color backgroundColor;
-    private int cornerRadius = 15;
+    public Color getBackgroundColor() {
+		return backgroundColor;
+	}
+	private int cornerRadius = 15;
     //layout and radius constructor
     public RoundedPanel(LayoutManager layout, int radius) {
         super(layout);

@@ -21,9 +21,11 @@ import java.awt.event.MouseEvent;
 import java.beans.XMLEncoder;
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -55,7 +57,6 @@ public class VennGUI {
 	public static boolean mClicked = false;
 
 	public static LabelHolders[] lContainer = new LabelHolders[30];
-	public ArrayList<LabelHolders> lcunts = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -126,6 +127,7 @@ public class VennGUI {
 		titleVenn.setHorizontalAlignment(JTextField.CENTER);
 		titleVenn.setText("Venn Diagram Title");
 		titleVenn.setToolTipText("Give your Venn Diagram a title");
+
 		// custom colors
 		Color transRed = new Color(226, 155, 155, 100);
 		Color transOrange = new Color(255, 153, 0, 100);
@@ -175,7 +177,7 @@ public class VennGUI {
 		LabelHolders lh7 = new LabelHolders(setterLabel);
 		lh7.setBounds(33, 315, 217, 41);
 		lContainer[6] = lh7;
-		lcunts.add(lh7);
+
 		panelA.add(lh7);
 
 		LabelHolders lh8 = new LabelHolders(setterLabel);
@@ -282,7 +284,12 @@ public class VennGUI {
 		lh27.setBounds(140, 405, 199, 41);
 		lContainer[26] = lh27;
 		panelB.add(lh27);
-
+		LabelHolders titleV = new LabelHolders(setterLabel);
+		lContainer[27] = titleV;
+		LabelHolders bubbA = new LabelHolders(setterLabel);
+		lContainer[28] = bubbA;
+		LabelHolders bubbB = new LabelHolders(setterLabel);
+		lContainer[29] = bubbB;
 		JPanel layoutPanel = new JPanel();
 		layoutPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		layoutPanel.setBounds(10, 228, 246, 285);
@@ -402,32 +409,29 @@ public class VennGUI {
 					break;
 				case "Orange":
 					panelA.setPanelColor(transOrange);
-					panelA.revalidate();
+
 					panelA.repaint();
 					break;
 				case "Yellow":
 					panelA.setPanelColor(transYellow);
-					panelA.revalidate();
+
 					panelA.repaint();
 					break;
 				case "Green":
 					panelA.setPanelColor(transGreen);
-					panelA.revalidate();
+
 					panelA.repaint();
 					break;
 				case "Blue":
 					panelA.setPanelColor(transBlue);
-					panelA.revalidate();
 					panelA.repaint();
 					break;
 				case "Purple":
 					panelA.setPanelColor(transPurp);
-					panelA.revalidate();
 					panelA.repaint();
 					break;
 				case "Pink":
 					panelA.setPanelColor(transPink);
-					panelA.revalidate();
 					panelA.repaint();
 					break;
 
@@ -486,20 +490,6 @@ public class VennGUI {
 				}
 			}
 		});
-		// XMLEncoder
-		// x;//-=======================================================================================================================
-		// try {
-		// x = new XMLEncoder(new BufferedOutputStream(new
-		// FileOutputStream("C:/Users/Ahmad Faruqi/Desktop/HOEs/bitches.xml")));
-
-		// System.out.println("just debugging!");
-
-		// }// catch (FileNotFoundException e1) {
-		// TODO Auto-generated catch block
-		// e1.printStackTrace();
-
-		// }
-		// =====================================================================================================================================
 		JLabel bubbleB = new JLabel("Bubble B Color");
 		bubbleB.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		bubbleB.setBounds(10, 177, 81, 14);
@@ -607,15 +597,62 @@ public class VennGUI {
 				JFileChooser fs = new JFileChooser(new File("C:\\"));
 				fs.setDialogTitle("Open Venn Diagram");
 				fs.showSaveDialog(null);
+				File openF;
+				openF = fs.getSelectedFile();
+				try {
+					ObjectInputStream x = new ObjectInputStream(new FileInputStream(openF));
+					LabelHolders[] l = (LabelHolders[]) x.readObject();
+					x.close();
+					for (int i = 0; i < 30; i++) {
+						lContainer[i].setText(l[i].getText());
+						lContainer[i].setFont(l[i].getFont());
+						
+					}
+					titleVenn.setText(l[27].getText());
+					titleVenn.setFont(l[27].getFont());
+					bubbleA.setText(l[28].getText());
+					bubbleA.setFont(l[28].getFont());
+					panelA.setPanelColor(l[28].getForeground());
+					panelA.repaint();
+					bubbleB.setText(l[29].getText());
+					bubbleB.setFont(l[29].getFont());
+					panelB.repaint();
+					panelB.setPanelColor(l[29].getForeground());
+
+				} catch (IOException | ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+
+				}
 
 			}
 		});
 		JMenuItem sF = new JMenuItem("Save");
 		sF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lContainer[27].setText(titleVenn.getText());
+				lContainer[27].setFont(titleVenn.getFont());
+				lContainer[28].setText(bubbleA.getText());
+				lContainer[28].setFont(bubbleA.getFont());
+				lContainer[28].setForeground(panelA.getBackgroundColor());
+				lContainer[29].setText(bubbleB.getText());
+				lContainer[29].setFont(bubbleB.getFont());
+				lContainer[29].setForeground(panelB.getBackgroundColor());
+
 				JFileChooser fs = new JFileChooser(new File("C:\\"));
 				fs.setDialogTitle("Save Venn Diagram");
 				fs.showSaveDialog(null);
+				File saveF;
+				saveF = fs.getSelectedFile();
+				try {
+					ObjectOutputStream x = new ObjectOutputStream(new FileOutputStream(saveF));
+					x.writeObject(lContainer);
+					x.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+
+				}
 
 			}
 		});
@@ -627,15 +664,22 @@ public class VennGUI {
 
 			}
 		});
+
+		JMenuItem rF = new JMenuItem("Export to PDF");
+
 		fileM.add(oF);
 		fileM.add(sF);
 		fileM.add(eF);
+		fileM.add(rF);
 		menuBar.add(fileM);
 
 		JMenu helpM = new JMenu("Help");
-		helpM.add("About");
-		helpM.add("Getting started");
-		helpM.add("Github Repo");
+		JMenuItem abt = new JMenuItem("About");
+		JMenuItem gs = new JMenuItem("Getting started");
+		JMenuItem gr = new JMenuItem("Github Repo");
+		helpM.add(abt);
+		helpM.add(gs);
+		helpM.add(gr);
 
 		JMenu editM = new JMenu("Edit");
 		JMenuItem cl = new JMenuItem("Clear All");
