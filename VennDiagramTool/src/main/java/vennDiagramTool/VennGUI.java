@@ -367,7 +367,7 @@ public class VennGUI {
 		bubbleTwo.setToolTipText("Click to give Bubble B a title");
 
 		DragLabel draggy = new DragLabel(setterLabel);
-		draggy.setBounds(1048, 130, 198, 104);
+		draggy.setBounds(1063, 121, 198, 104);
 		draggy.setText("Your elements will appear here");
 		draggy.setToolTipText("Click, Hold and Drag into your diagram");
 
