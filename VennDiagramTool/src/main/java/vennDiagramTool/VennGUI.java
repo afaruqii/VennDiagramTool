@@ -47,7 +47,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
-
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JFileChooser;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
@@ -65,6 +65,7 @@ public class VennGUI {
 	JLabel setterLabel = new JLabel();
 	public static JLabel switchA = new JLabel();
 	public static boolean mClicked = false;
+	public boolean toggleStud = false;
 
 	public static LabelHolders[] lContainer = new LabelHolders[30];
 
@@ -151,7 +152,7 @@ public class VennGUI {
 		titleVenn.setToolTipText("Give your Venn Diagram a title");
 
 		// custom colors
-		Color transRed = new Color(226, 155, 155, 100);
+		Color transRed = new Color(255, 99, 71, 100);
 		Color transOrange = new Color(255, 153, 0, 100);
 		Color transYellow = new Color(252, 252, 5, 100);
 		Color transGreen = new Color(5, 230, 95, 100);
@@ -363,7 +364,7 @@ public class VennGUI {
 		bubbleTwo.setBounds(635, 66, 273, 38);
 		frame.getContentPane().add(bubbleTwo);
 		bubbleTwo.setText("Bubble 2");
-		bubbleTwo.setToolTipText("click to give Bubble B a title");
+		bubbleTwo.setToolTipText("Click to give Bubble B a title");
 
 		DragLabel draggy = new DragLabel(setterLabel);
 		draggy.setBounds(1048, 130, 198, 104);
@@ -554,47 +555,6 @@ public class VennGUI {
 		ElementColor.addItem("Purple");
 		ElementColor.addItem("Pink");
 
-		JCheckBox checkBox = new JCheckBox("Enable Design Studio");
-		checkBox.setSelected(true);
-		checkBox.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (!checkBox.isSelected()) {
-					layoutEditor.setVisible(false);
-					layoutPanel.setVisible(false);
-					elementCreator.setVisible(false);
-					editPanel.setVisible(false);
-					bubbleOne.setEditable(false);
-					bubbleTwo.setEditable(false);
-					titleVenn.setEditable(false);
-				} else {
-					layoutEditor.setVisible(true);
-					layoutPanel.setVisible(true);
-					elementCreator.setVisible(true);
-					editPanel.setVisible(true);
-					bubbleOne.setEditable(true);
-					bubbleTwo.setEditable(true);
-
-					JButton btnNewButton_2 = new JButton("New button");
-					btnNewButton_2.setBounds(10, 523, 85, 21);
-					frame.getContentPane().add(btnNewButton_2);
-
-					JButton button = new JButton("New button");
-					button.setBounds(115, 523, 85, 21);
-					frame.getContentPane().add(button);
-					titleVenn.setEditable(true);
-					bubbleOne.setHighlighter(null);
-					bubbleTwo.setHighlighter(null);
-					titleVenn.setHighlighter(null);
-
-				}
-			}
-		});
-		checkBox.setSelected(true);
-		checkBox.setBounds(10, 80, 190, 37);
-
-		frame.getContentPane().add(checkBox);
-
 		JButton btnNewButton_1 = new JButton("FILL VENN ONLY FOR DEBUG PURPOSES");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -618,6 +578,7 @@ public class VennGUI {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fs = new JFileChooser(new File(System.getProperty("user.home")));
 				fs.setDialogTitle("Open Venn Diagram");
+				fs.setFileFilter(new FileNameExtensionFilter(".venn Files", "venn"));
 				fs.showOpenDialog(null);
 				File openF;
 				openF = fs.getSelectedFile();
@@ -662,17 +623,19 @@ public class VennGUI {
 				lContainer[29].setForeground(panelB.getBackgroundColor());
 
 				JFileChooser fs = new JFileChooser(new File(System.getProperty("user.home")));
+
 				fs.setDialogTitle("Save Venn Diagram");
+				fs.setFileFilter(new FileNameExtensionFilter(".venn Files", "venn"));
 				fs.showSaveDialog(null);
 				File saveF;
-				saveF = fs.getSelectedFile();
+				saveF = new File(fs.getSelectedFile() + ".venn");
 				try {
 					ObjectOutputStream x = new ObjectOutputStream(new FileOutputStream(saveF));
 					x.writeObject(lContainer);
 					x.close();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					System.out.println("lets try again shall we?");
 
 				}
 
@@ -704,17 +667,53 @@ public class VennGUI {
 		JMenuItem abt = new JMenuItem("About");
 		abt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "A simple but Powerful Venn Diagram Tool. Use wisely...", "Venn Diagram Tool",JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "A simple but Powerful Venn Diagram Tool. Use wisely...",
+						"Venn Diagram Tool", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		JMenuItem gs = new JMenuItem("Getting started");
 		JMenuItem gr = new JMenuItem("Github Repo");
+		gr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					java.awt.Desktop.getDesktop()
+							.browse(java.net.URI.create("https://github.com/chutneyslurpee/VennDiagramTool"));
+				} catch (java.io.IOException f) {
+					System.out.println(f.getMessage());
+				}
+			}
+		});
 		helpM.add(abt);
 		helpM.add(gs);
 		helpM.add(gr);
 
 		JMenu editM = new JMenu("Edit");
 		JMenuItem cl = new JMenuItem("Clear All");
+		JMenuItem tD = new JMenuItem("Enable/Disable Design Studio");
+		tD.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (!toggleStud) {
+					layoutEditor.setVisible(false);
+					layoutPanel.setVisible(false);
+					elementCreator.setVisible(false);
+					editPanel.setVisible(false);
+					bubbleOne.setEditable(false);
+					bubbleTwo.setEditable(false);
+					titleVenn.setEditable(false);
+					toggleStud = true;
+				} else {
+					layoutEditor.setVisible(true);
+					layoutPanel.setVisible(true);
+					elementCreator.setVisible(true);
+					editPanel.setVisible(true);
+					bubbleOne.setEditable(true);
+					bubbleTwo.setEditable(true);
+					toggleStud = false;
+				}
+
+			}
+		});
+
 		cl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				for (int i = 0; i < 27; i++) {
@@ -722,6 +721,7 @@ public class VennGUI {
 				}
 			}
 		});
+		editM.add(tD);
 		editM.add(cl);
 
 		menuBar.add(editM);
