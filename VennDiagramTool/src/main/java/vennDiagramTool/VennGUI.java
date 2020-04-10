@@ -54,6 +54,7 @@ import java.beans.PropertyChangeEvent;
 import javax.swing.UIManager;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JSlider;
 
 public class VennGUI {
 	int xPos, yPos;
@@ -66,7 +67,7 @@ public class VennGUI {
 	public static JLabel switchA = new JLabel();
 	public static boolean mClicked = false;
 	public boolean toggleStud = false;
-
+	public File globalSave;
 	public static LabelHolders[] lContainer = new LabelHolders[30];
 
 	/**
@@ -150,6 +151,7 @@ public class VennGUI {
 		titleVenn.setHorizontalAlignment(JTextField.CENTER);
 		titleVenn.setText("Venn Diagram Title");
 		titleVenn.setToolTipText("Give your Venn Diagram a title");
+		
 
 		// custom colors
 		Color transRed = new Color(255, 99, 71, 100);
@@ -523,6 +525,7 @@ public class VennGUI {
 		elementBox.setLineWrap(true);
 		elementBox.setWrapStyleWord(true);
 		editPanel.add(elementBox);
+		
 
 		JComboBox fonty = new FontChooser(elementBox);
 		fonty.setBounds(10, 91, 226, 22);
@@ -554,6 +557,22 @@ public class VennGUI {
 		ElementColor.addItem("Blue");
 		ElementColor.addItem("Purple");
 		ElementColor.addItem("Pink");
+		
+   //initial frames per second
+
+		JSlider framesPerSecond = new JSlider(JSlider.HORIZONTAL,
+		                                      4,20,10);
+		framesPerSecond.setSnapToTicks(true);
+		
+
+		//Turn on labels at major tick marks.
+		framesPerSecond.setMajorTickSpacing(2);
+		framesPerSecond.setMinorTickSpacing(1);
+		framesPerSecond.setPaintTicks(true);
+		framesPerSecond.setPaintLabels(true);
+		framesPerSecond.setBounds(10, 158, 211, 44);
+		editPanel.add(framesPerSecond);
+		
 
 		JButton btnNewButton_1 = new JButton("FILL VENN ONLY FOR DEBUG PURPOSES");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -572,24 +591,48 @@ public class VennGUI {
 		menuBar.setBounds(2, 2, 107, 22);
 		frame.getContentPane().add(menuBar);
 
+		JMenuItem sF = new JMenuItem("Save");
+		sF.setEnabled(false);
+		sF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					try {
+						lContainer[27].setText(titleVenn.getText());
+						lContainer[27].setFont(titleVenn.getFont());
+						lContainer[28].setText(bubbleOne.getText());
+						lContainer[28].setFont(bubbleOne.getFont());
+						lContainer[28].setForeground(panelA.getBackgroundColor());
+						lContainer[29].setText(bubbleTwo.getText());
+						lContainer[29].setFont(bubbleTwo.getFont());
+						lContainer[29].setForeground(panelB.getBackgroundColor());
+						ObjectOutputStream x = new ObjectOutputStream(new FileOutputStream(globalSave.getAbsoluteFile()));
+						x.writeObject(lContainer);
+						x.close();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						System.out.println("lets try again shall we?");
+					}
+			}
+		});
+
 		JMenu fileM = new JMenu("File");
 		JMenuItem oF = new JMenuItem("Open File");
 		oF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fs = new JFileChooser(new File(System.getProperty("user.home")));
+				
 				fs.setDialogTitle("Open Venn Diagram");
 				fs.setFileFilter(new FileNameExtensionFilter(".venn Files", "venn"));
-				fs.showOpenDialog(null);
-				File openF;
-				openF = fs.getSelectedFile();
+				
+				if (fs.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+					globalSave = fs.getSelectedFile();
 				try {
-					ObjectInputStream x = new ObjectInputStream(new FileInputStream(openF));
+					ObjectInputStream x = new ObjectInputStream(new FileInputStream(globalSave));
 					LabelHolders[] l = (LabelHolders[]) x.readObject();
 					x.close();
 					for (int i = 0; i < 30; i++) {
 						lContainer[i].setText(l[i].getText());
 						lContainer[i].setFont(l[i].getFont());
-
+						lContainer[i].setForeground(l[i].getForeground());
 					}
 					titleVenn.setText(l[27].getText());
 					titleVenn.setFont(l[27].getFont());
@@ -605,13 +648,17 @@ public class VennGUI {
 				} catch (IOException | ClassNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-
 				}
-
+				sF.setEnabled(true);
+				}
+			
 			}
+			
 		});
-		JMenuItem sF = new JMenuItem("Save");
-		sF.addActionListener(new ActionListener() {
+		
+		
+		JMenuItem saF = new JMenuItem("Save As");
+		saF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lContainer[27].setText(titleVenn.getText());
 				lContainer[27].setFont(titleVenn.getFont());
@@ -625,20 +672,22 @@ public class VennGUI {
 				JFileChooser fs = new JFileChooser(new File(System.getProperty("user.home")));
 
 				fs.setDialogTitle("Save Venn Diagram");
-				fs.setFileFilter(new FileNameExtensionFilter(".venn Files", "venn"));
-				fs.showSaveDialog(null);
-				File saveF;
-				saveF = new File(fs.getSelectedFile() + ".venn");
+				fs.setFileFilter(new FileNameExtensionFilter(".venn Files", "venn"));		
+				if (fs.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
 				try {
+					File saveF;
+					saveF = new File(fs.getSelectedFile() + ".venn");
 					ObjectOutputStream x = new ObjectOutputStream(new FileOutputStream(saveF));
 					x.writeObject(lContainer);
 					x.close();
+					globalSave = saveF;
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					System.out.println("lets try again shall we?");
 
 				}
-
+			
+			}
 			}
 		});
 
@@ -658,6 +707,7 @@ public class VennGUI {
 
 		fileM.add(oF);
 		fileM.add(sF);
+		fileM.add(saF);
 		fileM.add(rF);
 		fileM.add(eF);
 
@@ -706,6 +756,7 @@ public class VennGUI {
 					layoutPanel.setVisible(true);
 					elementCreator.setVisible(true);
 					editPanel.setVisible(true);
+					titleVenn.setEditable(true);
 					bubbleOne.setEditable(true);
 					bubbleTwo.setEditable(true);
 					toggleStud = false;
