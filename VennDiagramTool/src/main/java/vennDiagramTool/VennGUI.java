@@ -618,7 +618,7 @@ public class VennGUI {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fs = new JFileChooser(new File(System.getProperty("user.home")));
 				fs.setDialogTitle("Open Venn Diagram");
-				fs.showSaveDialog(null);
+				fs.showOpenDialog(null);
 				File openF;
 				openF = fs.getSelectedFile();
 				try {
