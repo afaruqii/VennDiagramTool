@@ -57,6 +57,9 @@ import java.awt.event.WindowEvent;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
+import java.awt.Checkbox;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 public class VennGUI {
 	int xPos, yPos;
@@ -71,7 +74,9 @@ public class VennGUI {
 	public boolean toggleStud = false;
 	public File globalSave;
 	public static LabelHolders[] lContainer = new LabelHolders[30];
-
+	int reddaz,greenaz,blueaz = 212;
+	int reddbz,greenbz,bluebz = 212;
+	Checkbox checkbox = new Checkbox("Advanced Mode");
 	/**
 	 * Launch the application.
 	 */
@@ -79,6 +84,7 @@ public class VennGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					VennGUI window = new VennGUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -319,7 +325,7 @@ public class VennGUI {
 		lContainer[29] = bubbB;
 		JPanel layoutPanel = new JPanel();
 		layoutPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		layoutPanel.setBounds(10, 228, 246, 285);
+		layoutPanel.setBounds(10, 228, 246, 223);
 		frame.getContentPane().add(layoutPanel);
 		layoutPanel.setLayout(null);
 		JLabel bubbleLabelFont = new JLabel("Bubble Label Font");
@@ -395,132 +401,252 @@ public class VennGUI {
 		layoutPanel.add(bubbleEditor);
 
 		JComboBox titleEditor = new FontChooser(titleVenn);
-		titleEditor.setBounds(10, 25, 215, 22);
+		titleEditor.setBounds(10, 29, 215, 22);
 		layoutPanel.add(titleEditor);
 
 		JLabel lblTitleFont = new JLabel("Title Font");
 		lblTitleFont.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
-		lblTitleFont.setBounds(10, 11, 109, 15);
+		lblTitleFont.setBounds(10, 15, 109, 15);
 		layoutPanel.add(lblTitleFont);
 
 		JLabel bubbleA = new JLabel("Bubble A Color");
 		bubbleA.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
-		bubbleA.setBounds(10, 122, 81, 14);
+		bubbleA.setBounds(10, 119, 81, 14);
 		layoutPanel.add(bubbleA);
-
-		JComboBox bubbleAColor = new JComboBox();
-		bubbleAColor.setBounds(10, 136, 81, 22);
-		bubbleAColor.addItem("Grey");
-		bubbleAColor.addItem("Red");
-		bubbleAColor.addItem("Orange");
-		bubbleAColor.addItem("Yellow");
-		bubbleAColor.addItem("Green");
-		bubbleAColor.addItem("Blue");
-		bubbleAColor.addItem("Purple");
-		bubbleAColor.addItem("Pink");
-		layoutPanel.add(bubbleAColor);
-		bubbleAColor.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String msg = (String) bubbleAColor.getSelectedItem();
-				switch (msg) {
-				case "Grey":
-					panelA.setPanelColor(transGrey);
-					panelA.revalidate();
-					panelA.repaint();
-
-					break;
-				case "Red":
-					panelA.setPanelColor(transRed);
-					panelA.revalidate();
-					panelA.repaint();
-					break;
-				case "Orange":
-					panelA.setPanelColor(transOrange);
-
-					panelA.repaint();
-					break;
-				case "Yellow":
-					panelA.setPanelColor(transYellow);
-
-					panelA.repaint();
-					break;
-				case "Green":
-					panelA.setPanelColor(transGreen);
-
-					panelA.repaint();
-					break;
-				case "Blue":
-					panelA.setPanelColor(transBlue);
-					panelA.repaint();
-					break;
-				case "Purple":
-					panelA.setPanelColor(transPurp);
-					panelA.repaint();
-					break;
-				case "Pink":
-					panelA.setPanelColor(transPink);
-					panelA.repaint();
-					break;
-
-				}
-			}
-		});
-
-		JComboBox bubbleBColor = new JComboBox();
-		bubbleBColor.setBounds(10, 191, 81, 22);
-		bubbleBColor.addItem("Grey");
-		bubbleBColor.addItem("Red");
-		bubbleBColor.addItem("Orange");
-		bubbleBColor.addItem("Yellow");
-		bubbleBColor.addItem("Green");
-		bubbleBColor.addItem("Blue");
-		bubbleBColor.addItem("Purple");
-		bubbleBColor.addItem("Pink");
-		layoutPanel.add(bubbleBColor);
-		bubbleBColor.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String msg = (String) bubbleBColor.getSelectedItem();
-				switch (msg) {
-				case "Grey":
-					panelB.setPanelColor(transGrey);
-					panelB.repaint();
-					break;
-				case "Red":
-					panelB.setPanelColor(transRed);
-					panelB.repaint();
-					break;
-				case "Orange":
-					panelB.setPanelColor(transOrange);
-					panelB.repaint();
-					break;
-				case "Yellow":
-					panelB.setPanelColor(transYellow);
-					panelB.repaint();
-					break;
-				case "Green":
-					panelB.setPanelColor(transGreen);
-					panelB.repaint();
-					break;
-				case "Blue":
-					panelB.setPanelColor(transBlue);
-					panelB.repaint();
-					break;
-				case "Purple":
-					panelB.setPanelColor(transPurp);
-					panelB.repaint();
-					break;
-				case "Pink":
-					panelB.setPanelColor(transPink);
-					panelB.repaint();
-					break;
-
-				}
-			}
-		});
 		JLabel bubbleB = new JLabel("Bubble B Color");
 		bubbleB.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
-		bubbleB.setBounds(10, 177, 81, 14);
+		bubbleB.setBounds(10, 163, 81, 14);
 		layoutPanel.add(bubbleB);
+		
+		JSlider rpanelA = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 212);
+		rpanelA.setPaintTicks(true);
+		rpanelA.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				reddaz = rpanelA.getValue();
+				panelA.setPanelColor(new Color(reddaz, greenaz, blueaz, 100));
+				panelA.repaint();
+			}
+		});
+		rpanelA.setSnapToTicks(true);
+		rpanelA.setMinorTickSpacing(10);
+		rpanelA.setMajorTickSpacing(50);
+		rpanelA.setBounds(26, 138, 200, 22);
+		
+		
+		JSlider gpanelA = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 212);
+		gpanelA.setPaintTicks(true);
+		gpanelA.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				greenaz = gpanelA.getValue();
+				panelA.setPanelColor(new Color(reddaz, greenaz, blueaz, 100));
+				panelA.repaint();
+			}
+		});
+		gpanelA.setSnapToTicks(true);
+		gpanelA.setMinorTickSpacing(10);
+		gpanelA.setMajorTickSpacing(50);
+		gpanelA.setBounds(26, 162, 200, 22);
+		
+		
+		JSlider bpanelA = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 212);
+		bpanelA.setPaintTicks(true);
+		bpanelA.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				blueaz = bpanelA.getValue();
+				panelA.setPanelColor(new Color(reddaz, greenaz, blueaz, 100));
+				panelA.repaint();
+			}
+		});
+		bpanelA.setSnapToTicks(true);
+		bpanelA.setMinorTickSpacing(10);
+		bpanelA.setMajorTickSpacing(50);
+		bpanelA.setBounds(26, 186, 200, 22);
+		
+		
+		JLabel lblR = new JLabel("R:");
+		lblR.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblR.setBounds(11, 139, 14, 17);
+		
+		
+		JLabel lblG = new JLabel("G:");
+		lblG.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblG.setBounds(11, 162, 14, 17);
+		
+		
+		JLabel lblB = new JLabel("B:");
+		lblB.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblB.setBounds(11, 187, 14, 17);
+	
+		
+		JSlider slideB = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 212);
+		slideB.setPaintTicks(true);
+		slideB.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				bluebz = slideB.getValue();
+				panelB.setPanelColor(new Color(reddbz, greenbz, bluebz, 100));
+				panelB.repaint();
+			}
+		});
+		slideB.setSnapToTicks(true);
+		slideB.setMinorTickSpacing(10);
+		slideB.setMajorTickSpacing(50);
+		slideB.setBounds(25, 295, 200, 22);
+		
+		
+		JLabel lblB2 = new JLabel("B:");
+		lblB2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblB2.setBounds(10, 296, 14, 17);
+		
+		
+		JLabel lblG2 = new JLabel("G:");
+		lblG2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblG2.setBounds(10, 271, 14, 17);
+		
+		
+		JSlider slideG = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 212);
+		slideG.setPaintTicks(true);
+		slideG.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				greenbz = slideG.getValue();
+				panelB.setPanelColor(new Color(reddbz, greenbz, bluebz, 100));
+				panelB.repaint();
+			}
+		});
+		slideG.setSnapToTicks(true);
+		slideG.setMinorTickSpacing(10);
+		slideG.setMajorTickSpacing(50);
+		slideG.setBounds(25, 271, 200, 22);
+		
+		
+		JSlider slideR = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 212);
+		slideR.setPaintTicks(true);
+		slideR.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				reddbz = slideR.getValue();
+				panelB.setPanelColor(new Color(reddbz, greenbz, bluebz, 100));
+				panelB.repaint();
+			}
+		});
+		slideR.setSnapToTicks(true);
+		slideR.setMinorTickSpacing(10);
+		slideR.setMajorTickSpacing(50);
+		slideR.setBounds(25, 247, 200, 22);
+		
+		
+		JLabel lblR2 = new JLabel("R:");
+		lblR2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblR2.setBounds(10, 248, 14, 17);
+		
+		
+				JComboBox bubbleBColor = new JComboBox();
+				bubbleBColor.setBounds(10, 175, 81, 22);
+				layoutPanel.add(bubbleBColor);
+				bubbleBColor.addItem("Grey");
+				bubbleBColor.addItem("Red");
+				bubbleBColor.addItem("Orange");
+				bubbleBColor.addItem("Yellow");
+				bubbleBColor.addItem("Green");
+				bubbleBColor.addItem("Blue");
+				bubbleBColor.addItem("Purple");
+				bubbleBColor.addItem("Pink");
+				
+						JComboBox bubbleAColor = new JComboBox();
+						bubbleAColor.setBounds(10, 131, 81, 22);
+						layoutPanel.add(bubbleAColor);
+						bubbleAColor.addItem("Grey");
+						bubbleAColor.addItem("Red");
+						bubbleAColor.addItem("Orange");
+						bubbleAColor.addItem("Yellow");
+						bubbleAColor.addItem("Green");
+						bubbleAColor.addItem("Blue");
+						bubbleAColor.addItem("Purple");
+						bubbleAColor.addItem("Pink");
+						bubbleAColor.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								String msg = (String) bubbleAColor.getSelectedItem();
+								switch (msg) {
+								case "Grey":
+									panelA.setPanelColor(transGrey);
+									panelA.revalidate();
+									panelA.repaint();
+
+									break;
+								case "Red":
+									panelA.setPanelColor(transRed);
+									panelA.revalidate();
+									panelA.repaint();
+									break;
+								case "Orange":
+									panelA.setPanelColor(transOrange);
+
+									panelA.repaint();
+									break;
+								case "Yellow":
+									panelA.setPanelColor(transYellow);
+
+									panelA.repaint();
+									break;
+								case "Green":
+									panelA.setPanelColor(transGreen);
+
+									panelA.repaint();
+									break;
+								case "Blue":
+									panelA.setPanelColor(transBlue);
+									panelA.repaint();
+									break;
+								case "Purple":
+									panelA.setPanelColor(transPurp);
+									panelA.repaint();
+									break;
+								case "Pink":
+									panelA.setPanelColor(transPink);
+									panelA.repaint();
+									break;
+
+								}
+							}
+						});
+				bubbleBColor.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						String msg = (String) bubbleBColor.getSelectedItem();
+						switch (msg) {
+						case "Grey":
+							panelB.setPanelColor(transGrey);
+							panelB.repaint();
+							break;
+						case "Red":
+							panelB.setPanelColor(transRed);
+							panelB.repaint();
+							break;
+						case "Orange":
+							panelB.setPanelColor(transOrange);
+							panelB.repaint();
+							break;
+						case "Yellow":
+							panelB.setPanelColor(transYellow);
+							panelB.repaint();
+							break;
+						case "Green":
+							panelB.setPanelColor(transGreen);
+							panelB.repaint();
+							break;
+						case "Blue":
+							panelB.setPanelColor(transBlue);
+							panelB.repaint();
+							break;
+						case "Purple":
+							panelB.setPanelColor(transPurp);
+							panelB.repaint();
+							break;
+						case "Pink":
+							panelB.setPanelColor(transPink);
+							panelB.repaint();
+							break;
+
+						}
+					}
+				});
 
 		JTextArea elementBox = new JTextArea();
 		elementBox.setBounds(10, 11, 226, 69);
@@ -753,6 +879,7 @@ public class VennGUI {
 		tD.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (!toggleStud) {
+					checkbox.setVisible(false);
 					layoutEditor.setVisible(false);
 					layoutPanel.setVisible(false);
 					elementCreator.setVisible(false);
@@ -761,7 +888,9 @@ public class VennGUI {
 					bubbleTwo.setEditable(false);
 					titleVenn.setEditable(false);
 					toggleStud = true;
+					
 				} else {
+					checkbox.setVisible(true);
 					layoutEditor.setVisible(true);
 					layoutPanel.setVisible(true);
 					elementCreator.setVisible(true);
@@ -787,6 +916,59 @@ public class VennGUI {
 
 		menuBar.add(editM);
 		menuBar.add(helpM);
+		
+		
+		checkbox.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange() == ItemEvent.DESELECTED) {
+					layoutPanel.setSize(246, 223);
+					bubbleB.setLocation(10, 159);
+					layoutPanel.remove(rpanelA);
+					layoutPanel.remove(gpanelA);
+					layoutPanel.remove(bpanelA);
+					layoutPanel.remove(lblR);
+					layoutPanel.remove(lblG);
+					layoutPanel.remove(lblB);
+					layoutPanel.remove(slideB);
+					layoutPanel.remove(lblB2);
+					layoutPanel.remove(lblG2);
+					layoutPanel.remove(slideG);
+					layoutPanel.remove(slideR);
+					layoutPanel.remove(lblR2);	
+					layoutPanel.add(bubbleAColor);
+					layoutPanel.add(bubbleBColor);
+					layoutPanel.repaint();
+					
+				}
+				if(e.getStateChange() == ItemEvent.SELECTED) {
+					layoutPanel.setSize(246, 323);
+					bubbleB.setLocation(10, 229);
+					layoutPanel.add(rpanelA);
+					layoutPanel.add(gpanelA);
+					layoutPanel.add(bpanelA);
+					layoutPanel.add(lblR);
+					layoutPanel.add(lblG);
+					layoutPanel.add(lblB);
+					layoutPanel.add(slideB);
+					layoutPanel.add(lblB2);
+					layoutPanel.add(lblG2);
+					layoutPanel.add(slideG);
+					layoutPanel.add(slideR);
+					layoutPanel.add(lblR2);	
+					layoutPanel.remove(bubbleAColor);
+					layoutPanel.remove(bubbleBColor);
+					layoutPanel.repaint();
+					
+				}
+
+			}
+		});
+	
+				
+				
+		
+		checkbox.setBounds(101, 198, 120, 21);
+		frame.getContentPane().add(checkbox);
 
 		ElementColor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
