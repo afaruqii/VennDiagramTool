@@ -55,6 +55,8 @@ import javax.swing.UIManager;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JSlider;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class VennGUI {
 	int xPos, yPos;
@@ -327,7 +329,7 @@ public class VennGUI {
 
 		JPanel editPanel = new JPanel();
 		editPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		editPanel.setBounds(1030, 266, 246, 247);
+		editPanel.setBounds(1030, 266, 246, 271);
 		frame.getContentPane().add(editPanel);
 		editPanel.setLayout(null);
 
@@ -544,7 +546,7 @@ public class VennGUI {
 
 			}
 		});
-		btnNewButton.setBounds(72, 213, 118, 23);
+		btnNewButton.setBounds(65, 229, 118, 23);
 		editPanel.add(btnNewButton);
 		JComboBox ElementColor = new JComboBox();
 		ElementColor.setBounds(10, 124, 81, 22);
@@ -560,18 +562,26 @@ public class VennGUI {
 		
    //initial frames per second
 
-		JSlider framesPerSecond = new JSlider(JSlider.HORIZONTAL,
-		                                      4,20,10);
-		framesPerSecond.setSnapToTicks(true);
+		JSlider fontSizer = new JSlider(JSlider.HORIZONTAL,
+		                                      8,24,10);
+		fontSizer.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				elementBox.setFont(new Font (elementBox.getFont().getName(), elementBox.getFont().getStyle(),fontSizer.getValue()));
+			}
+		});
 		
-
-		//Turn on labels at major tick marks.
-		framesPerSecond.setMajorTickSpacing(2);
-		framesPerSecond.setMinorTickSpacing(1);
-		framesPerSecond.setPaintTicks(true);
-		framesPerSecond.setPaintLabels(true);
-		framesPerSecond.setBounds(10, 158, 211, 44);
-		editPanel.add(framesPerSecond);
+		fontSizer.setSnapToTicks(true);
+		fontSizer.setMajorTickSpacing(2);
+		fontSizer.setMinorTickSpacing(1);
+		fontSizer.setPaintTicks(true);
+		fontSizer.setPaintLabels(true);
+		fontSizer.setBounds(10, 184, 211, 44);
+		editPanel.add(fontSizer);
+		
+		JLabel lblNewLabel = new JLabel("Text Size");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel.setBounds(7, 164, 72, 19);
+		editPanel.add(lblNewLabel);
 		
 
 		JButton btnNewButton_1 = new JButton("FILL VENN ONLY FOR DEBUG PURPOSES");
