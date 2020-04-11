@@ -14,6 +14,15 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.border.EtchedBorder;
+import java.awt.AWTException;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import javax.swing.JTextArea;
 import java.awt.SystemColor;
@@ -48,6 +57,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import org.checkerframework.common.reflection.qual.GetConstructor;
+
 import javax.swing.JFileChooser;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
@@ -60,6 +72,8 @@ import javax.swing.event.ChangeEvent;
 import java.awt.Checkbox;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import java.awt.Panel;
+import java.awt.Rectangle;
 
 public class VennGUI {
 	int xPos, yPos;
@@ -74,9 +88,10 @@ public class VennGUI {
 	public boolean toggleStud = false;
 	public File globalSave;
 	public static LabelHolders[] lContainer = new LabelHolders[30];
-	int reddaz,greenaz,blueaz = 212;
-	int reddbz,greenbz,bluebz = 212;
+	int reddaz, greenaz, blueaz = 212;
+	int reddbz, greenbz, bluebz = 212;
 	Checkbox checkbox = new Checkbox("Advanced Mode");
+
 	/**
 	 * Launch the application.
 	 */
@@ -113,6 +128,7 @@ public class VennGUI {
 		int screenHeight = screenSize.height;
 
 		frame = new JFrame();
+		frame.setResizable(false);
 
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
@@ -159,7 +175,6 @@ public class VennGUI {
 		titleVenn.setHorizontalAlignment(JTextField.CENTER);
 		titleVenn.setText("Venn Diagram Title");
 		titleVenn.setToolTipText("Give your Venn Diagram a title");
-		
 
 		// custom colors
 		Color transRed = new Color(255, 99, 71, 100);
@@ -325,7 +340,7 @@ public class VennGUI {
 		lContainer[29] = bubbB;
 		JPanel layoutPanel = new JPanel();
 		layoutPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		layoutPanel.setBounds(10, 228, 246, 223);
+		layoutPanel.setBounds(10, 228, 246, 214);
 		frame.getContentPane().add(layoutPanel);
 		layoutPanel.setLayout(null);
 		JLabel bubbleLabelFont = new JLabel("Bubble Label Font");
@@ -417,7 +432,7 @@ public class VennGUI {
 		bubbleB.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		bubbleB.setBounds(10, 163, 81, 14);
 		layoutPanel.add(bubbleB);
-		
+
 		JSlider rpanelA = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 212);
 		rpanelA.setPaintTicks(true);
 		rpanelA.addChangeListener(new ChangeListener() {
@@ -431,8 +446,7 @@ public class VennGUI {
 		rpanelA.setMinorTickSpacing(10);
 		rpanelA.setMajorTickSpacing(50);
 		rpanelA.setBounds(26, 138, 200, 22);
-		
-		
+
 		JSlider gpanelA = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 212);
 		gpanelA.setPaintTicks(true);
 		gpanelA.addChangeListener(new ChangeListener() {
@@ -446,8 +460,7 @@ public class VennGUI {
 		gpanelA.setMinorTickSpacing(10);
 		gpanelA.setMajorTickSpacing(50);
 		gpanelA.setBounds(26, 162, 200, 22);
-		
-		
+
 		JSlider bpanelA = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 212);
 		bpanelA.setPaintTicks(true);
 		bpanelA.addChangeListener(new ChangeListener() {
@@ -461,23 +474,19 @@ public class VennGUI {
 		bpanelA.setMinorTickSpacing(10);
 		bpanelA.setMajorTickSpacing(50);
 		bpanelA.setBounds(26, 186, 200, 22);
-		
-		
+
 		JLabel lblR = new JLabel("R:");
 		lblR.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblR.setBounds(11, 139, 14, 17);
-		
-		
+
 		JLabel lblG = new JLabel("G:");
 		lblG.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblG.setBounds(11, 162, 14, 17);
-		
-		
+
 		JLabel lblB = new JLabel("B:");
 		lblB.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblB.setBounds(11, 187, 14, 17);
-	
-		
+
 		JSlider slideB = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 212);
 		slideB.setPaintTicks(true);
 		slideB.addChangeListener(new ChangeListener() {
@@ -491,18 +500,15 @@ public class VennGUI {
 		slideB.setMinorTickSpacing(10);
 		slideB.setMajorTickSpacing(50);
 		slideB.setBounds(25, 295, 200, 22);
-		
-		
+
 		JLabel lblB2 = new JLabel("B:");
 		lblB2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblB2.setBounds(10, 296, 14, 17);
-		
-		
+
 		JLabel lblG2 = new JLabel("G:");
 		lblG2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblG2.setBounds(10, 271, 14, 17);
-		
-		
+
 		JSlider slideG = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 212);
 		slideG.setPaintTicks(true);
 		slideG.addChangeListener(new ChangeListener() {
@@ -516,8 +522,7 @@ public class VennGUI {
 		slideG.setMinorTickSpacing(10);
 		slideG.setMajorTickSpacing(50);
 		slideG.setBounds(25, 271, 200, 22);
-		
-		
+
 		JSlider slideR = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 212);
 		slideR.setPaintTicks(true);
 		slideR.addChangeListener(new ChangeListener() {
@@ -531,129 +536,126 @@ public class VennGUI {
 		slideR.setMinorTickSpacing(10);
 		slideR.setMajorTickSpacing(50);
 		slideR.setBounds(25, 247, 200, 22);
-		
-		
+
 		JLabel lblR2 = new JLabel("R:");
 		lblR2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblR2.setBounds(10, 248, 14, 17);
-		
-		
-				JComboBox bubbleBColor = new JComboBox();
-				bubbleBColor.setBounds(10, 175, 81, 22);
-				layoutPanel.add(bubbleBColor);
-				bubbleBColor.addItem("Grey");
-				bubbleBColor.addItem("Red");
-				bubbleBColor.addItem("Orange");
-				bubbleBColor.addItem("Yellow");
-				bubbleBColor.addItem("Green");
-				bubbleBColor.addItem("Blue");
-				bubbleBColor.addItem("Purple");
-				bubbleBColor.addItem("Pink");
-				
-						JComboBox bubbleAColor = new JComboBox();
-						bubbleAColor.setBounds(10, 131, 81, 22);
-						layoutPanel.add(bubbleAColor);
-						bubbleAColor.addItem("Grey");
-						bubbleAColor.addItem("Red");
-						bubbleAColor.addItem("Orange");
-						bubbleAColor.addItem("Yellow");
-						bubbleAColor.addItem("Green");
-						bubbleAColor.addItem("Blue");
-						bubbleAColor.addItem("Purple");
-						bubbleAColor.addItem("Pink");
-						bubbleAColor.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent e) {
-								String msg = (String) bubbleAColor.getSelectedItem();
-								switch (msg) {
-								case "Grey":
-									panelA.setPanelColor(transGrey);
-									panelA.revalidate();
-									panelA.repaint();
 
-									break;
-								case "Red":
-									panelA.setPanelColor(transRed);
-									panelA.revalidate();
-									panelA.repaint();
-									break;
-								case "Orange":
-									panelA.setPanelColor(transOrange);
+		JComboBox bubbleBColor = new JComboBox();
+		bubbleBColor.setBounds(10, 175, 81, 22);
+		layoutPanel.add(bubbleBColor);
+		bubbleBColor.addItem("Grey");
+		bubbleBColor.addItem("Red");
+		bubbleBColor.addItem("Orange");
+		bubbleBColor.addItem("Yellow");
+		bubbleBColor.addItem("Green");
+		bubbleBColor.addItem("Blue");
+		bubbleBColor.addItem("Purple");
+		bubbleBColor.addItem("Pink");
 
-									panelA.repaint();
-									break;
-								case "Yellow":
-									panelA.setPanelColor(transYellow);
+		JComboBox bubbleAColor = new JComboBox();
+		bubbleAColor.setBounds(10, 131, 81, 22);
+		layoutPanel.add(bubbleAColor);
+		bubbleAColor.addItem("Grey");
+		bubbleAColor.addItem("Red");
+		bubbleAColor.addItem("Orange");
+		bubbleAColor.addItem("Yellow");
+		bubbleAColor.addItem("Green");
+		bubbleAColor.addItem("Blue");
+		bubbleAColor.addItem("Purple");
+		bubbleAColor.addItem("Pink");
+		bubbleAColor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String msg = (String) bubbleAColor.getSelectedItem();
+				switch (msg) {
+				case "Grey":
+					panelA.setPanelColor(transGrey);
+					panelA.revalidate();
+					panelA.repaint();
 
-									panelA.repaint();
-									break;
-								case "Green":
-									panelA.setPanelColor(transGreen);
+					break;
+				case "Red":
+					panelA.setPanelColor(transRed);
+					panelA.revalidate();
+					panelA.repaint();
+					break;
+				case "Orange":
+					panelA.setPanelColor(transOrange);
 
-									panelA.repaint();
-									break;
-								case "Blue":
-									panelA.setPanelColor(transBlue);
-									panelA.repaint();
-									break;
-								case "Purple":
-									panelA.setPanelColor(transPurp);
-									panelA.repaint();
-									break;
-								case "Pink":
-									panelA.setPanelColor(transPink);
-									panelA.repaint();
-									break;
+					panelA.repaint();
+					break;
+				case "Yellow":
+					panelA.setPanelColor(transYellow);
 
-								}
-							}
-						});
-				bubbleBColor.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						String msg = (String) bubbleBColor.getSelectedItem();
-						switch (msg) {
-						case "Grey":
-							panelB.setPanelColor(transGrey);
-							panelB.repaint();
-							break;
-						case "Red":
-							panelB.setPanelColor(transRed);
-							panelB.repaint();
-							break;
-						case "Orange":
-							panelB.setPanelColor(transOrange);
-							panelB.repaint();
-							break;
-						case "Yellow":
-							panelB.setPanelColor(transYellow);
-							panelB.repaint();
-							break;
-						case "Green":
-							panelB.setPanelColor(transGreen);
-							panelB.repaint();
-							break;
-						case "Blue":
-							panelB.setPanelColor(transBlue);
-							panelB.repaint();
-							break;
-						case "Purple":
-							panelB.setPanelColor(transPurp);
-							panelB.repaint();
-							break;
-						case "Pink":
-							panelB.setPanelColor(transPink);
-							panelB.repaint();
-							break;
+					panelA.repaint();
+					break;
+				case "Green":
+					panelA.setPanelColor(transGreen);
 
-						}
-					}
-				});
+					panelA.repaint();
+					break;
+				case "Blue":
+					panelA.setPanelColor(transBlue);
+					panelA.repaint();
+					break;
+				case "Purple":
+					panelA.setPanelColor(transPurp);
+					panelA.repaint();
+					break;
+				case "Pink":
+					panelA.setPanelColor(transPink);
+					panelA.repaint();
+					break;
+
+				}
+			}
+		});
+		bubbleBColor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String msg = (String) bubbleBColor.getSelectedItem();
+				switch (msg) {
+				case "Grey":
+					panelB.setPanelColor(transGrey);
+					panelB.repaint();
+					break;
+				case "Red":
+					panelB.setPanelColor(transRed);
+					panelB.repaint();
+					break;
+				case "Orange":
+					panelB.setPanelColor(transOrange);
+					panelB.repaint();
+					break;
+				case "Yellow":
+					panelB.setPanelColor(transYellow);
+					panelB.repaint();
+					break;
+				case "Green":
+					panelB.setPanelColor(transGreen);
+					panelB.repaint();
+					break;
+				case "Blue":
+					panelB.setPanelColor(transBlue);
+					panelB.repaint();
+					break;
+				case "Purple":
+					panelB.setPanelColor(transPurp);
+					panelB.repaint();
+					break;
+				case "Pink":
+					panelB.setPanelColor(transPink);
+					panelB.repaint();
+					break;
+
+				}
+			}
+		});
 
 		JTextArea elementBox = new JTextArea();
 		elementBox.setBounds(10, 11, 226, 69);
 		elementBox.setLineWrap(true);
 		elementBox.setWrapStyleWord(true);
 		editPanel.add(elementBox);
-		
 
 		JComboBox fonty = new FontChooser(elementBox);
 		fonty.setBounds(10, 91, 226, 22);
@@ -685,17 +687,17 @@ public class VennGUI {
 		ElementColor.addItem("Blue");
 		ElementColor.addItem("Purple");
 		ElementColor.addItem("Pink");
-		
-   //initial frames per second
 
-		JSlider fontSizer = new JSlider(JSlider.HORIZONTAL,
-		                                      8,24,10);
+		// initial frames per second
+
+		JSlider fontSizer = new JSlider(JSlider.HORIZONTAL, 8, 24, 10);
 		fontSizer.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
-				elementBox.setFont(new Font (elementBox.getFont().getName(), elementBox.getFont().getStyle(),fontSizer.getValue()));
+				elementBox.setFont(new Font(elementBox.getFont().getName(), elementBox.getFont().getStyle(),
+						fontSizer.getValue()));
 			}
 		});
-		
+
 		fontSizer.setSnapToTicks(true);
 		fontSizer.setMajorTickSpacing(2);
 		fontSizer.setMinorTickSpacing(1);
@@ -703,15 +705,14 @@ public class VennGUI {
 		fontSizer.setPaintLabels(true);
 		fontSizer.setBounds(10, 184, 211, 44);
 		editPanel.add(fontSizer);
-		
+
 		JLabel lblNewLabel = new JLabel("Text Size");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel.setBounds(7, 164, 72, 19);
 		editPanel.add(lblNewLabel);
-		
 
-		JButton btnNewButton_1 = new JButton("FILL VENN ONLY FOR DEBUG PURPOSES");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton testBut = new JButton("FILL VENN ONLY FOR DEBUG PURPOSES");
+		testBut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				for (int i = 0; i < 27; i++) {
 					lContainer[i].setText("THIS IS A SIMPLE FILL TEXT TESTER");
@@ -720,8 +721,8 @@ public class VennGUI {
 			}
 		});
 
-		btnNewButton_1.setBounds(10, 134, 246, 23);
-		frame.getContentPane().add(btnNewButton_1);
+		testBut.setBounds(10, 134, 246, 23);
+		frame.getContentPane().add(testBut);
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(2, 2, 107, 22);
@@ -731,68 +732,73 @@ public class VennGUI {
 		sF.setEnabled(false);
 		sF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					try {
-						lContainer[27].setText(titleVenn.getText());
-						lContainer[27].setFont(titleVenn.getFont());
-						lContainer[28].setText(bubbleOne.getText());
-						lContainer[28].setFont(bubbleOne.getFont());
-						lContainer[28].setForeground(panelA.getBackgroundColor());
-						lContainer[29].setText(bubbleTwo.getText());
-						lContainer[29].setFont(bubbleTwo.getFont());
-						lContainer[29].setForeground(panelB.getBackgroundColor());
-						ObjectOutputStream x = new ObjectOutputStream(new FileOutputStream(globalSave.getAbsoluteFile()));
-						x.writeObject(lContainer);
-						x.close();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						System.out.println("lets try again shall we?");
-					}
+				try {
+					lContainer[27].setText(titleVenn.getText());
+					lContainer[27].setFont(titleVenn.getFont());
+					lContainer[28].setText(bubbleOne.getText());
+					lContainer[28].setFont(bubbleOne.getFont());
+					lContainer[28].setForeground(panelA.getBackgroundColor());
+					lContainer[29].setText(bubbleTwo.getText());
+					lContainer[29].setFont(bubbleTwo.getFont());
+					lContainer[29].setForeground(panelB.getBackgroundColor());
+					ObjectOutputStream x = new ObjectOutputStream(new FileOutputStream(globalSave.getAbsoluteFile()));
+					x.writeObject(lContainer);
+					x.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					System.out.println("lets try again shall we?");
+				}
 			}
 		});
 
 		JMenu fileM = new JMenu("File");
 		JMenuItem oF = new JMenuItem("Open File");
+		JMenuItem pF = new JMenuItem("Print");
+		pF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		oF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fs = new JFileChooser(new File(System.getProperty("user.home")));
-				
+
 				fs.setDialogTitle("Open Venn Diagram");
 				fs.setFileFilter(new FileNameExtensionFilter(".venn Files", "venn"));
-				
+
 				if (fs.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 					globalSave = fs.getSelectedFile();
-				try {
-					ObjectInputStream x = new ObjectInputStream(new FileInputStream(globalSave));
-					LabelHolders[] l = (LabelHolders[]) x.readObject();
-					x.close();
-					for (int i = 0; i < 30; i++) {
-						lContainer[i].setText(l[i].getText());
-						lContainer[i].setFont(l[i].getFont());
-						lContainer[i].setForeground(l[i].getForeground());
-					}
-					titleVenn.setText(l[27].getText());
-					titleVenn.setFont(l[27].getFont());
-					bubbleOne.setText(l[28].getText());
-					bubbleOne.setFont(l[28].getFont());
-					panelA.setPanelColor(l[28].getForeground());
-					panelA.repaint();
-					bubbleTwo.setText(l[29].getText());
-					bubbleTwo.setFont(l[29].getFont());
-					panelB.repaint();
-					panelB.setPanelColor(l[29].getForeground());
+					try {
+						ObjectInputStream x = new ObjectInputStream(new FileInputStream(globalSave));
+						LabelHolders[] l = (LabelHolders[]) x.readObject();
+						x.close();
+						for (int i = 0; i < 30; i++) {
+							lContainer[i].setText(l[i].getText());
+							lContainer[i].setFont(l[i].getFont());
+							lContainer[i].setForeground(l[i].getForeground());
+						}
+						titleVenn.setText(l[27].getText());
+						titleVenn.setFont(l[27].getFont());
+						bubbleOne.setText(l[28].getText());
+						bubbleOne.setFont(l[28].getFont());
+						panelA.setPanelColor(l[28].getForeground());
+						panelA.repaint();
+						bubbleTwo.setText(l[29].getText());
+						bubbleTwo.setFont(l[29].getFont());
+						panelB.repaint();
+						panelB.setPanelColor(l[29].getForeground());
 
-				} catch (IOException | ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					} catch (IOException | ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					sF.setEnabled(true);
 				}
-				sF.setEnabled(true);
-				}
-			
+
 			}
-			
+
 		});
-		
-		
+
 		JMenuItem saF = new JMenuItem("Save As");
 		saF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -808,22 +814,22 @@ public class VennGUI {
 				JFileChooser fs = new JFileChooser(new File(System.getProperty("user.home")));
 
 				fs.setDialogTitle("Save Venn Diagram");
-				fs.setFileFilter(new FileNameExtensionFilter(".venn Files", "venn"));		
+				fs.setFileFilter(new FileNameExtensionFilter(".venn Files", "venn"));
 				if (fs.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-				try {
-					File saveF;
-					saveF = new File(fs.getSelectedFile() + ".venn");
-					ObjectOutputStream x = new ObjectOutputStream(new FileOutputStream(saveF));
-					x.writeObject(lContainer);
-					x.close();
-					globalSave = saveF;
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					System.out.println("lets try again shall we?");
+					try {
+						File saveF;
+						saveF = new File(fs.getSelectedFile() + ".venn");
+						ObjectOutputStream x = new ObjectOutputStream(new FileOutputStream(saveF));
+						x.writeObject(lContainer);
+						x.close();
+						globalSave = saveF;
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						System.out.println("lets try again shall we?");
+
+					}
 
 				}
-			
-			}
 			}
 		});
 
@@ -839,12 +845,60 @@ public class VennGUI {
 			}
 		});
 
-		JMenuItem rF = new JMenuItem("Export to PDF");
+		JMenuItem rF = new JMenuItem("Export");
+		rF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fs = new JFileChooser(new File(System.getProperty("user.home")));
+
+				fs.setDialogTitle("Save Venn Diagram");
+				fs.setFileFilter(new FileNameExtensionFilter(".jpg", ".jpg"));
+				if (fs.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+					try {
+						//Color c = frame.getContentPane().getBackground();
+						//frame.getContentPane().setBackground(Color.WHITE);
+						checkbox.setVisible(false);
+						layoutEditor.setVisible(false);
+						layoutPanel.setVisible(false);
+						elementCreator.setVisible(false);
+						editPanel.setVisible(false);
+						bubbleOne.setEditable(false);
+						bubbleTwo.setEditable(false);
+						titleVenn.setEditable(false);
+						menuBar.setVisible(false);
+						testBut.setVisible(false);
+						draggy.setVisible(false);
+						File screenF;
+						screenF = new File(fs.getSelectedFile() + ".jpg");
+						BufferedImage img = new BufferedImage(frame.getContentPane().getWidth(),
+								frame.getContentPane().getHeight(), BufferedImage.TYPE_INT_RGB);
+						frame.getContentPane().paint(img.getGraphics());
+						ImageIO.write(img, "jpg", screenF);
+						checkbox.setVisible(true);
+						layoutEditor.setVisible(true);
+						layoutPanel.setVisible(true);
+						elementCreator.setVisible(true);
+						editPanel.setVisible(true);
+						bubbleOne.setEditable(true);
+						bubbleTwo.setEditable(true);
+						titleVenn.setEditable(true);
+						menuBar.setVisible(true);
+						draggy.setVisible(true);
+						testBut.setVisible(true);
+						//frame.getContentPane().setBackground(c);
+					} catch ( IOException ex) {
+						System.err.println(ex);
+					}
+
+				}
+			}
+
+		});
 
 		fileM.add(oF);
 		fileM.add(sF);
 		fileM.add(saF);
 		fileM.add(rF);
+		fileM.add(pF);
 		fileM.add(eF);
 
 		menuBar.add(fileM);
@@ -888,7 +942,7 @@ public class VennGUI {
 					bubbleTwo.setEditable(false);
 					titleVenn.setEditable(false);
 					toggleStud = true;
-					
+
 				} else {
 					checkbox.setVisible(true);
 					layoutEditor.setVisible(true);
@@ -916,12 +970,11 @@ public class VennGUI {
 
 		menuBar.add(editM);
 		menuBar.add(helpM);
-		
-		
+
 		checkbox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				if(e.getStateChange() == ItemEvent.DESELECTED) {
-					layoutPanel.setSize(246, 223);
+				if (e.getStateChange() == ItemEvent.DESELECTED) {
+					layoutPanel.setSize(246, 214);
 					bubbleB.setLocation(10, 159);
 					layoutPanel.remove(rpanelA);
 					layoutPanel.remove(gpanelA);
@@ -934,13 +987,13 @@ public class VennGUI {
 					layoutPanel.remove(lblG2);
 					layoutPanel.remove(slideG);
 					layoutPanel.remove(slideR);
-					layoutPanel.remove(lblR2);	
+					layoutPanel.remove(lblR2);
 					layoutPanel.add(bubbleAColor);
 					layoutPanel.add(bubbleBColor);
 					layoutPanel.repaint();
-					
+
 				}
-				if(e.getStateChange() == ItemEvent.SELECTED) {
+				if (e.getStateChange() == ItemEvent.SELECTED) {
 					layoutPanel.setSize(246, 323);
 					bubbleB.setLocation(10, 229);
 					layoutPanel.add(rpanelA);
@@ -954,19 +1007,16 @@ public class VennGUI {
 					layoutPanel.add(lblG2);
 					layoutPanel.add(slideG);
 					layoutPanel.add(slideR);
-					layoutPanel.add(lblR2);	
+					layoutPanel.add(lblR2);
 					layoutPanel.remove(bubbleAColor);
 					layoutPanel.remove(bubbleBColor);
 					layoutPanel.repaint();
-					
+
 				}
 
 			}
 		});
-	
-				
-				
-		
+
 		checkbox.setBounds(101, 198, 120, 21);
 		frame.getContentPane().add(checkbox);
 

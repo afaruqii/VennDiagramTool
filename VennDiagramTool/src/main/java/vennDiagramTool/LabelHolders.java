@@ -60,7 +60,7 @@ public static boolean labelExists = false;
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				if (labelExists) {
-				setBorder(new LineBorder(new Color(0, 0, 0, 100), 1));
+				setBorder(new LineBorder(new Color(0, 0, 0, 125), 1));
 				 setToolTipText(VennGUI.switchA.getText());
 				 ToolTipManager.sharedInstance().setInitialDelay(5);
 				
