@@ -45,3 +45,25 @@ Drag Labels now support drag and drop!
 - Text Parser being implemented
 - Utility Text Parse Class
 
+2020-04-01 Ahmad Faruqi
+- UI Cleaned Up
+- Added MenuBar
+
+2020-04-05 Ahmad Faruqi
+- File, Edit, Help Menu items added
+- Implemented functionality of most of these items..
+
+2020-04-07 Ahmad Faruqi
+- File -> Save As Functionality implemented 
+- File -> Open Functionality implemented
+
+2020-04-09 Ahmad Faruqi
+- File -> Save Functionality Added 
+- Save button disabled when no file opened and being worked on...
+
+2020-04-10 Ahmad Faruqi
+- Implemented File->Export Functionality
+- Exports to JPG anywhere user chooses with custom filename.
+
+2020-04-11 Ahmad Faruqi
+- Export Feature gives a white background so that image can be integrated to a Microsoft Word or Publisher Document. 

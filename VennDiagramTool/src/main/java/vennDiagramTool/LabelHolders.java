@@ -20,7 +20,6 @@ public static boolean labelExists = false;
 	public LabelHolders(JLabel Target) {
 		super(2, 30);
 		setOpaque(false);
-		
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {

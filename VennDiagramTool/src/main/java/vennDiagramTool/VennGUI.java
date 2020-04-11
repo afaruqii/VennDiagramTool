@@ -223,7 +223,7 @@ public class VennGUI {
 		panelA.add(lh6);
 
 		LabelHolders lh7 = new LabelHolders(setterLabel);
-		lh7.setBounds(33, 315, 217, 41);
+		lh7.setBounds(33, 315, 215, 41);
 		lContainer[6] = lh7;
 
 		panelA.add(lh7);
@@ -239,12 +239,12 @@ public class VennGUI {
 		panelA.add(lh9);
 
 		LabelHolders lh10 = new LabelHolders(setterLabel);
-		lh10.setBounds(290, 67, 111, 41);
+		lh10.setBounds(290, 63, 111, 45);
 		lContainer[9] = lh10;
 		panelA.add(lh10);
 
 		LabelHolders lh11 = new LabelHolders(setterLabel);
-		lh11.setBounds(264, 111, 161, 41);
+		lh11.setBounds(264, 109, 161, 43);
 		lContainer[10] = lh11;
 		panelA.add(lh11);
 
@@ -254,27 +254,27 @@ public class VennGUI {
 		panelA.add(lh12);
 
 		LabelHolders lh13 = new LabelHolders(setterLabel);
-		lh13.setBounds(241, 197, 211, 41);
+		lh13.setBounds(241, 197, 211, 44);
 		lContainer[12] = lh13;
 		panelA.add(lh13);
 
 		LabelHolders lh14 = new LabelHolders(setterLabel);
-		lh14.setBounds(244, 241, 205, 41);
+		lh14.setBounds(244, 242, 205, 42);
 		lContainer[13] = lh14;
 		panelA.add(lh14);
 
 		LabelHolders lh15 = new LabelHolders(setterLabel);
-		lh15.setBounds(248, 284, 202, 41);
+		lh15.setBounds(249, 285, 194, 51);
 		lContainer[14] = lh15;
 		panelA.add(lh15);
 
 		LabelHolders lh16 = new LabelHolders(setterLabel);
-		lh16.setBounds(295, 329, 104, 60);
+		lh16.setBounds(294, 337, 105, 61);
 		lContainer[15] = lh16;
 		panelA.add(lh16);
 
 		LabelHolders lh17 = new LabelHolders(setterLabel);
-		lh17.setBounds(120, 19, 198, 35);
+		lh17.setBounds(126, 14, 196, 42);
 		lContainer[16] = lh17;
 		panelA.add(lh17);
 
@@ -284,12 +284,12 @@ public class VennGUI {
 		panelB.setLayout(null);
 
 		LabelHolders lh18 = new LabelHolders(setterLabel);
-		lh18.setBounds(136, 15, 192, 40);
+		lh18.setBounds(132, 13, 194, 40);
 		lContainer[17] = lh18;
 		panelB.add(lh18);
 
 		LabelHolders lh19 = new LabelHolders(setterLabel);
-		lh19.setBounds(176, 57, 204, 40);
+		lh19.setBounds(175, 55, 214, 42);
 		lContainer[18] = lh19;
 		panelB.add(lh19);
 
@@ -314,22 +314,22 @@ public class VennGUI {
 		panelB.add(lh23);
 
 		LabelHolders lh24 = new LabelHolders(setterLabel);
-		lh24.setBounds(216, 271, 229, 41);
+		lh24.setBounds(216, 271, 229, 42);
 		lContainer[23] = lh24;
 		panelB.add(lh24);
 
 		LabelHolders lh25 = new LabelHolders(setterLabel);
-		lh25.setBounds(206, 315, 215, 41);
+		lh25.setBounds(209, 315, 212, 44);
 		lContainer[24] = lh25;
 		panelB.add(lh25);
 
 		LabelHolders lh26 = new LabelHolders(setterLabel);
-		lh26.setBounds(177, 359, 209, 41);
+		lh26.setBounds(177, 360, 209, 44);
 		lContainer[25] = lh26;
 		panelB.add(lh26);
 
 		LabelHolders lh27 = new LabelHolders(setterLabel);
-		lh27.setBounds(140, 405, 199, 41);
+		lh27.setBounds(141, 405, 194, 41);
 		lContainer[26] = lh27;
 		panelB.add(lh27);
 		LabelHolders titleV = new LabelHolders(setterLabel);
@@ -392,7 +392,7 @@ public class VennGUI {
 		bubbleTwo.setToolTipText("Click to give Bubble B a title");
 
 		DragLabel draggy = new DragLabel(setterLabel);
-		draggy.setBounds(1063, 121, 198, 104);
+		draggy.setBounds(1030, 120, 205, 120);
 		draggy.setText("Your elements will appear here");
 		draggy.setToolTipText("Click, Hold and Drag into your diagram");
 
@@ -667,7 +667,7 @@ public class VennGUI {
 				draggy.setVisible(true);
 				draggy.setLocation(1030, 119);
 				String str = "";
-				draggy.setText("<html><p>" + elementBox.getText() + "</p></html>");
+				draggy.setText("<html><p>" + elementBox.getText() + " </p></html>");
 				draggy.setFont(elementBox.getFont());
 				draggy.setForeground(elementBox.getForeground());
 				elementBox.setText("");
@@ -690,7 +690,7 @@ public class VennGUI {
 
 		// initial frames per second
 
-		JSlider fontSizer = new JSlider(JSlider.HORIZONTAL, 8, 24, 10);
+		JSlider fontSizer = new JSlider(JSlider.HORIZONTAL, 6, 18, 10);
 		fontSizer.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				elementBox.setFont(new Font(elementBox.getFont().getName(), elementBox.getFont().getStyle(),
@@ -710,19 +710,6 @@ public class VennGUI {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel.setBounds(7, 164, 72, 19);
 		editPanel.add(lblNewLabel);
-
-		JButton testBut = new JButton("FILL VENN ONLY FOR DEBUG PURPOSES");
-		testBut.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				for (int i = 0; i < 27; i++) {
-					lContainer[i].setText("THIS IS A SIMPLE FILL TEXT TESTER");
-
-				}
-			}
-		});
-
-		testBut.setBounds(10, 134, 246, 23);
-		frame.getContentPane().add(testBut);
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(2, 2, 107, 22);
@@ -753,12 +740,6 @@ public class VennGUI {
 
 		JMenu fileM = new JMenu("File");
 		JMenuItem oF = new JMenuItem("Open File");
-		JMenuItem pF = new JMenuItem("Print");
-		pF.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
 		oF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fs = new JFileChooser(new File(System.getProperty("user.home")));
@@ -854,8 +835,8 @@ public class VennGUI {
 				fs.setFileFilter(new FileNameExtensionFilter(".jpg", ".jpg"));
 				if (fs.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
 					try {
-						//Color c = frame.getContentPane().getBackground();
-						//frame.getContentPane().setBackground(Color.WHITE);
+						Color c = frame.getContentPane().getBackground();
+						// frame.getContentPane().setBackground(Color.WHITE);
 						checkbox.setVisible(false);
 						layoutEditor.setVisible(false);
 						layoutPanel.setVisible(false);
@@ -865,8 +846,14 @@ public class VennGUI {
 						bubbleTwo.setEditable(false);
 						titleVenn.setEditable(false);
 						menuBar.setVisible(false);
-						testBut.setVisible(false);
+
 						draggy.setVisible(false);
+						Toolbar.setBackground(Color.WHITE);
+						titleVenn.setBackground(Color.WHITE);
+						frame.getContentPane().setBackground(Color.WHITE);
+						bubbleOne.setBackground(Color.WHITE);
+						bubbleTwo.setBackground(Color.WHITE);
+
 						File screenF;
 						screenF = new File(fs.getSelectedFile() + ".jpg");
 						BufferedImage img = new BufferedImage(frame.getContentPane().getWidth(),
@@ -883,9 +870,15 @@ public class VennGUI {
 						titleVenn.setEditable(true);
 						menuBar.setVisible(true);
 						draggy.setVisible(true);
-						testBut.setVisible(true);
-						//frame.getContentPane().setBackground(c);
-					} catch ( IOException ex) {
+
+						Toolbar.setBackground(c);
+						titleVenn.setBackground(c);
+						frame.getContentPane().setBackground(c);
+						bubbleOne.setBackground(c);
+						bubbleTwo.setBackground(c);
+
+						// frame.getContentPane().setBackground(c);
+					} catch (IOException ex) {
 						System.err.println(ex);
 					}
 
@@ -898,7 +891,6 @@ public class VennGUI {
 		fileM.add(sF);
 		fileM.add(saF);
 		fileM.add(rF);
-		fileM.add(pF);
 		fileM.add(eF);
 
 		menuBar.add(fileM);
@@ -926,7 +918,7 @@ public class VennGUI {
 		helpM.add(abt);
 		helpM.add(gs);
 		helpM.add(gr);
-
+		
 		JMenu editM = new JMenu("Edit");
 		JMenuItem cl = new JMenuItem("Clear All");
 		JMenuItem tD = new JMenuItem("Enable/Disable Design Studio");
@@ -967,10 +959,8 @@ public class VennGUI {
 		});
 		editM.add(tD);
 		editM.add(cl);
-
 		menuBar.add(editM);
 		menuBar.add(helpM);
-
 		checkbox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.DESELECTED) {
@@ -1011,9 +1001,7 @@ public class VennGUI {
 					layoutPanel.remove(bubbleAColor);
 					layoutPanel.remove(bubbleBColor);
 					layoutPanel.repaint();
-
 				}
-
 			}
 		});
 
@@ -1054,7 +1042,6 @@ public class VennGUI {
 					break;
 				}
 			}
-
 		});
 	}
 
