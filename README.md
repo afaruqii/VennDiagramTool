@@ -4,10 +4,11 @@ Powerful Venn Diagram Rendering tool which allows the user to create text based 
 # Prerequisites: 
 * Windows XP or newer.
 * MAC OS Mountain Lion or newer.
-* WinRAR ;)
+* WinRAR Free Trial ;)
 # Installing:
 * Extract RAR to desired directory
-* Run Venn.exe or Venn.dmg
+* Run executable Venn.jar
+* JRE is bundled with application, no additional installation is required. Click and run ;)
 
 # Built With:
 * Eclipse & WindowBuilder Pro
