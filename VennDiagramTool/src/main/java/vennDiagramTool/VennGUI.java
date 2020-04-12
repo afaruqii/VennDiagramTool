@@ -128,7 +128,6 @@ public class VennGUI {
 		int screenHeight = screenSize.height;
 
 		frame = new JFrame();
-		frame.setResizable(false);
 
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
@@ -193,32 +192,32 @@ public class VennGUI {
 		panelA.setLayout(null);
 
 		LabelHolders lh1 = new LabelHolders(setterLabel);
-		lh1.setBounds(75, 57, 211, 41);
+		lh1.setBounds(75, 57, 211, 42);
 		lContainer[0] = lh1;
 		panelA.add(lh1);
 
 		LabelHolders lh2 = new LabelHolders(setterLabel);
-		lh2.setBounds(36, 100, 226, 41);
+		lh2.setBounds(36, 100, 226, 42);
 		lContainer[1] = lh2;
 		panelA.add(lh2);
 
 		LabelHolders lh3 = new LabelHolders(setterLabel);
-		lh3.setBounds(10, 143, 238, 41);
+		lh3.setBounds(10, 143, 238, 42);
 		lContainer[2] = lh3;
 		panelA.add(lh3);
 
 		LabelHolders lh4 = new LabelHolders(setterLabel);
-		lh4.setBounds(16, 272, 226, 41);
+		lh4.setBounds(16, 272, 226, 42);
 		lContainer[3] = lh4;
 		panelA.add(lh4);
 
 		LabelHolders lh5 = new LabelHolders(setterLabel);
-		lh5.setBounds(2, 229, 238, 41);
+		lh5.setBounds(2, 229, 238, 42);
 		lContainer[4] = lh5;
 		panelA.add(lh5);
 
 		LabelHolders lh6 = new LabelHolders(setterLabel);
-		lh6.setBounds(3, 186, 234, 41);
+		lh6.setBounds(3, 186, 234, 42);
 		lContainer[5] = lh6;
 		panelA.add(lh6);
 
@@ -229,47 +228,47 @@ public class VennGUI {
 		panelA.add(lh7);
 
 		LabelHolders lh8 = new LabelHolders(setterLabel);
-		lh8.setBounds(69, 358, 221, 41);
+		lh8.setBounds(69, 357, 221, 41);
 		lContainer[7] = lh8;
 		panelA.add(lh8);
 
 		LabelHolders lh9 = new LabelHolders(setterLabel);
-		lh9.setBounds(131, 401, 191, 41);
+		lh9.setBounds(131, 400, 191, 41);
 		lContainer[8] = lh9;
 		panelA.add(lh9);
 
 		LabelHolders lh10 = new LabelHolders(setterLabel);
-		lh10.setBounds(290, 63, 111, 45);
+		lh10.setBounds(290, 63, 111, 43);
 		lContainer[9] = lh10;
 		panelA.add(lh10);
 
 		LabelHolders lh11 = new LabelHolders(setterLabel);
-		lh11.setBounds(264, 109, 161, 43);
+		lh11.setBounds(265, 108, 161, 43);
 		lContainer[10] = lh11;
 		panelA.add(lh11);
 
 		LabelHolders lh12 = new LabelHolders(setterLabel);
-		lh12.setBounds(250, 154, 198, 41);
+		lh12.setBounds(250, 153, 198, 42);
 		lContainer[11] = lh12;
 		panelA.add(lh12);
 
 		LabelHolders lh13 = new LabelHolders(setterLabel);
-		lh13.setBounds(241, 197, 211, 44);
+		lh13.setBounds(241, 197, 211, 42);
 		lContainer[12] = lh13;
 		panelA.add(lh13);
 
 		LabelHolders lh14 = new LabelHolders(setterLabel);
-		lh14.setBounds(244, 242, 205, 42);
+		lh14.setBounds(244, 241, 205, 42);
 		lContainer[13] = lh14;
 		panelA.add(lh14);
 
 		LabelHolders lh15 = new LabelHolders(setterLabel);
-		lh15.setBounds(249, 285, 194, 51);
+		lh15.setBounds(249, 285, 194, 42);
 		lContainer[14] = lh15;
 		panelA.add(lh15);
 
 		LabelHolders lh16 = new LabelHolders(setterLabel);
-		lh16.setBounds(294, 337, 105, 61);
+		lh16.setBounds(294, 328, 105, 68);
 		lContainer[15] = lh16;
 		panelA.add(lh16);
 
@@ -284,7 +283,7 @@ public class VennGUI {
 		panelB.setLayout(null);
 
 		LabelHolders lh18 = new LabelHolders(setterLabel);
-		lh18.setBounds(132, 13, 194, 40);
+		lh18.setBounds(132, 12, 194, 42);
 		lContainer[17] = lh18;
 		panelB.add(lh18);
 
@@ -294,22 +293,22 @@ public class VennGUI {
 		panelB.add(lh19);
 
 		LabelHolders lh20 = new LabelHolders(setterLabel);
-		lh20.setBounds(200, 99, 219, 41);
+		lh20.setBounds(200, 99, 219, 42);
 		lContainer[19] = lh20;
 		panelB.add(lh20);
 
 		LabelHolders lh21 = new LabelHolders(setterLabel);
-		lh21.setBounds(217, 142, 230, 41);
+		lh21.setBounds(217, 142, 230, 42);
 		lContainer[20] = lh21;
 		panelB.add(lh21);
 
 		LabelHolders lh22 = new LabelHolders(setterLabel);
-		lh22.setBounds(219, 185, 232, 41);
+		lh22.setBounds(219, 185, 232, 42);
 		lContainer[21] = lh22;
 		panelB.add(lh22);
 
 		LabelHolders lh23 = new LabelHolders(setterLabel);
-		lh23.setBounds(216, 228, 236, 41);
+		lh23.setBounds(216, 228, 236, 42);
 		lContainer[22] = lh23;
 		panelB.add(lh23);
 
@@ -319,17 +318,17 @@ public class VennGUI {
 		panelB.add(lh24);
 
 		LabelHolders lh25 = new LabelHolders(setterLabel);
-		lh25.setBounds(209, 315, 212, 44);
+		lh25.setBounds(209, 315, 212, 42);
 		lContainer[24] = lh25;
 		panelB.add(lh25);
 
 		LabelHolders lh26 = new LabelHolders(setterLabel);
-		lh26.setBounds(177, 360, 209, 44);
+		lh26.setBounds(177, 359, 209, 42);
 		lContainer[25] = lh26;
 		panelB.add(lh26);
 
 		LabelHolders lh27 = new LabelHolders(setterLabel);
-		lh27.setBounds(141, 405, 194, 41);
+		lh27.setBounds(141, 403, 192, 41);
 		lContainer[26] = lh27;
 		panelB.add(lh27);
 		LabelHolders titleV = new LabelHolders(setterLabel);
@@ -481,7 +480,7 @@ public class VennGUI {
 
 		JLabel lblG = new JLabel("G:");
 		lblG.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblG.setBounds(11, 162, 14, 17);
+		lblG.setBounds(11, 162, 17, 20);
 
 		JLabel lblB = new JLabel("B:");
 		lblB.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -507,7 +506,7 @@ public class VennGUI {
 
 		JLabel lblG2 = new JLabel("G:");
 		lblG2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblG2.setBounds(10, 271, 14, 17);
+		lblG2.setBounds(10, 271, 17, 20);
 
 		JSlider slideG = new JSlider(SwingConstants.HORIZONTAL, 0, 255, 212);
 		slideG.setPaintTicks(true);
@@ -690,17 +689,20 @@ public class VennGUI {
 
 		// initial frames per second
 
-		JSlider fontSizer = new JSlider(JSlider.HORIZONTAL, 6, 18, 10);
+		JSlider fontSizer = new JSlider(JSlider.HORIZONTAL, 8, 16, 10);
 		fontSizer.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
+				int val = fontSizer.getValue();
+				if (val ==12) {
+					val= 10;
+				}
 				elementBox.setFont(new Font(elementBox.getFont().getName(), elementBox.getFont().getStyle(),
-						fontSizer.getValue()));
+						val));
 			}
 		});
 
 		fontSizer.setSnapToTicks(true);
 		fontSizer.setMajorTickSpacing(2);
-		fontSizer.setMinorTickSpacing(1);
 		fontSizer.setPaintTicks(true);
 		fontSizer.setPaintLabels(true);
 		fontSizer.setBounds(10, 184, 211, 44);
@@ -712,7 +714,7 @@ public class VennGUI {
 		editPanel.add(lblNewLabel);
 
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(2, 2, 107, 22);
+		menuBar.setBounds(4, 4, 114, 22);
 		frame.getContentPane().add(menuBar);
 
 		JMenuItem sF = new JMenuItem("Save");
